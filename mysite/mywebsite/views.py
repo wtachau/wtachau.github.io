@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import render
 
 # Create your views here.
 
 def home(request):
-	return HttpResponse("<h1>lookee I'm a website!</h1>Check out my friend's <a href='http://www.jamesreinke.com'>inferior website</a>")
+	context = {}
+	return render(request, 'home.html', {})
