@@ -1,5 +1,21 @@
+html {
+	background-color: #D9EAF8;
+}
+
 #name {
-	width: 0;
+	width: 175;
 	margin: 0 auto;
 	color: #505050;
+	font-size: 35;
+	margin-top: 160;
+	font-family: Raleway;
+}
+
+#subtext {
+	font-family: Merriweather;
+	width: 173;
+	margin: 0 auto;
+	color: #696C74;
+	font-size: 18;
+	margin-top: 10;
 }
