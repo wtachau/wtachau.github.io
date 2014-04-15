@@ -12,9 +12,8 @@ html {
 	margin: 0 auto;
 	color: #696C74;
 	font-size: 35;
-	padding-top: 160;
 	font-family: Raleway;
-	position: relative;
+	position: absolute;
 }
 
 #subtext {
@@ -23,10 +22,9 @@ html {
 	margin: 0 auto;
 	color: #505050;
 	font-size: 18;
-	padding-top: 3;
-	position: relative;
+	position: absolute;
 }
 
-canvas {
-	position: absolute;
+#page2 {
+	height: 200px;
 }

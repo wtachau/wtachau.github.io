@@ -3,6 +3,7 @@ var animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame
     };
 var canvas = document.createElement("canvas");
 var normal_speed = 4;
+var computer_speed = 4;
 canvas.width = $(window).width();
 canvas.height = $(window).height();
 var context = canvas.getContext('2d');
@@ -10,11 +11,26 @@ var player = new Player();
 var computer = new Computer();
 var ball = new Ball($(window).width()/4, $(window).height()/2);
 
+// To prevent scroll on down key
+document.body.addEventListener('keydown', function(e) {
+  var badKey = 40; //down array keyCode
+  if (e.keyCode === badKey) {
+    e.preventDefault();
+  }
+});
+
+
 var keysDown = {};
 
 var render = function () {
     canvas.width = $(window).width();
     canvas.height = $(window).height();
+
+    document.getElementById("name").style.marginTop= $(window).height()/-2;
+    document.getElementById("subtext").style.marginTop= $(window).height()/-2 + 40;
+    document.getElementById("name").style.marginLeft= ($(window).width() - $("#name").width())/2 ;
+    document.getElementById("subtext").style.marginLeft= ($(window).width() - $("#subtext").width())/2 ;
+
     context.fillRect(0, 0, $(window).width(), $(window).height());
     context.fillStyle = "#000000";
     player.render();
@@ -73,10 +89,10 @@ Computer.prototype.render = function () {
 Computer.prototype.update = function (ball) {
     var y_pos = ball.y;
     var diff = -((this.paddle.y + (this.paddle.height / 2)) - y_pos);
-    if (diff < 0 && diff < -4) {
-        diff = -5;
-    } else if (diff > 0 && diff > 4) {
-        diff = 5;
+    if (diff < -4) {
+        diff = -computer_speed;
+    } else if (diff > 4) {
+        diff = computer_speed;
     }
     this.paddle.move(0, diff);
     if (this.paddle.y < 0) {
@@ -95,7 +111,7 @@ Player.prototype.render = function () {
     this.paddle.render();
 };
 
-Player.prototype.update = function () {
+Player.prototype.update = function (e) {
     for (var key in keysDown) {
         var value = Number(key);
         if (value == 38) {
@@ -164,7 +180,7 @@ Ball.prototype.update = function (paddle1, paddle2) {
     }
 };
 
-document.body.appendChild(canvas);
+document.getElementById("page1").appendChild(canvas);
 animate(step);
 
 window.addEventListener("keydown", function (event) {
