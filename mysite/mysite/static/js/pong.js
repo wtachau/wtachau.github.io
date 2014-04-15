@@ -2,7 +2,16 @@ var animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame
         window.setTimeout(callback, 1000 / 60)
     };
 var canvas = document.createElement("canvas");
+// how fast the ball goes
 var normal_speed = 4;
+// save values when paused
+var pause_x_speed = 0;
+var pause_y_speed = 0;
+
+//keep score
+var comp_score = 0
+var your_score = 0
+
 var computer_speed = 4;
 canvas.width = $(window).width();
 canvas.height = $(window).height();
@@ -13,11 +22,25 @@ var ball = new Ball($(window).width()/4, $(window).height()/2);
 
 // To prevent scroll on down key
 document.body.addEventListener('keydown', function(e) {
-  var badKey = 40; //down array keyCode
-  if (e.keyCode === badKey) {
+  if (e.keyCode === 40) { //down arrow
     e.preventDefault();
+  } else if (e.keyCode == 32) {
+    e.preventDefault();
+    pause();
   }
 });
+
+function pause() {
+    if (ball.x_speed || ball.y_speed) {
+        pause_x_speed = ball.x_speed;
+        pause_y_speed = ball.y_speed;
+        ball.x_speed = 0;
+        ball.y_speed = 0;
+    } else {
+        ball.x_speed = pause_x_speed;
+        ball.y_speed = pause_y_speed;
+    }
+}
 
 
 var keysDown = {};
@@ -26,10 +49,23 @@ var render = function () {
     canvas.width = $(window).width();
     canvas.height = $(window).height();
 
+    // set coordinates of elements in canvas
     document.getElementById("name").style.marginTop= $(window).height()/-2;
-    document.getElementById("subtext").style.marginTop= $(window).height()/-2 + 40;
     document.getElementById("name").style.marginLeft= ($(window).width() - $("#name").width())/2 ;
+
+    document.getElementById("subtext").style.marginTop= $(window).height()/-2 + 40;
     document.getElementById("subtext").style.marginLeft= ($(window).width() - $("#subtext").width())/2 ;
+
+    document.getElementById("comp_score").style.marginTop = -$(window).height() + 20;
+    document.getElementById("comp_score").style.marginLeft = 30;
+
+    document.getElementById("your_score").style.marginTop = -$(window).height() + 20;
+    document.getElementById("your_score").style.marginLeft = $(window).width() - 40;
+
+
+    //update score
+    $('#comp_score').html(comp_score);
+    $('#your_score').html(your_score);
 
     context.fillRect(0, 0, $(window).width(), $(window).height());
     context.fillStyle = "#000000";
@@ -157,8 +193,13 @@ Ball.prototype.update = function (paddle1, paddle2) {
 
     // goes off the left or right
     if (this.x < 0 || this.x > $(window).width()) {
+        if (this.x < 0) {
+            your_score++;
+        } else {
+            comp_score++;
+        }
         this.x_speed = normal_speed;
-        this.y_speed = 1;
+        this.y_speed = Math.floor(Math.random()*5-2); // -2 through 2, inclusive
         this.x = $(window).width()/4;
         this.y = $(window).height()/2;
     }

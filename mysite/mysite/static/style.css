@@ -28,3 +28,9 @@ html {
 #page2 {
 	height: 200px;
 }
+
+.score {
+	position:absolute;
+	color:#0DFD55;
+	font-family: Raleway;
+}
