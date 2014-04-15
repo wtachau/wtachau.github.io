@@ -98,9 +98,9 @@ Player.prototype.render = function () {
 Player.prototype.update = function () {
     for (var key in keysDown) {
         var value = Number(key);
-        if (value == 37) {
+        if (value == 38) {
             this.paddle.move(0, -4);
-        } else if (value == 39) {
+        } else if (value == 40) {
             this.paddle.move(0, 4);
         } else {
             this.paddle.move(0, 0);
