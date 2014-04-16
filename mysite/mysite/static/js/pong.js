@@ -50,10 +50,10 @@ var render = function () {
     canvas.height = $(window).height();
 
     // set coordinates of elements in canvas
-    document.getElementById("name").style.marginTop= $(window).height()/-2;
+    document.getElementById("name").style.marginTop= $(window).height()/-2 - 60;
     document.getElementById("name").style.marginLeft= ($(window).width() - $("#name").width())/2 ;
 
-    document.getElementById("subtext").style.marginTop= $(window).height()/-2 + 40;
+    document.getElementById("subtext").style.marginTop= $(window).height()/-2 - 20;
     document.getElementById("subtext").style.marginLeft= ($(window).width() - $("#subtext").width())/2 ;
 
     document.getElementById("comp_score").style.marginTop = -$(window).height() + 20;
