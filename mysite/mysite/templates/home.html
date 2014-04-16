@@ -2,6 +2,7 @@
 <head>
 	{% include "header.html" %}
 	<title>will tachau</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
 </head>
 <body>
 
@@ -10,8 +11,13 @@
 		<span id="comp_score" class="score"></span>
 		<span id="your_score" class="score"></span>
 		<span id="name">will tachau</span>
-		<span id="subtext">more coming soon!</span>
+		<span id="subtext">software engineer<br>pomona college '14</span>
+
+		<span id="morelink"> more<br>
+		<img id="morearrow" src="{% static 'images/down_arrow.png' %}">
+		</span>
 	</div>	
 	<div id="page2"> also, check out my friend's <a target="_blank" href='http://www.jamesreinke.com'>shitty website!</a> </div>
 
 </body>
+<script src="{% static 'js/scroll.js' %}"></script>

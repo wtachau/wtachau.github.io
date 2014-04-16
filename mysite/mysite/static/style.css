@@ -23,14 +23,42 @@ html {
 	color: #505050;
 	font-size: 18;
 	position: absolute;
+	text-align: center;
 }
 
 #page2 {
-	height: 200px;
+	height: 600px;
+	font-family: Raleway;
+	text-align: center;
+	width:100%;
+	color:gray;
+	padding-top:100;
 }
 
 .score {
 	position:absolute;
 	color:#0DFD55;
-	font-family: Raleway;
+	font-family: 'Press Start 2P';
+	font-size: 14px;
 }
+
+#morelink {
+	position:absolute;
+	text-decoration: none;
+	width:100%;
+	margin-top:-44px;
+	font-family: Raleway;
+	font-size:17;
+	text-align: center;
+	color: #696C74;
+	cursor: pointer;
+}
+
+#morearrow {
+	position: absolute;
+	margin-left: -12px;
+	margin-top: -6px;
+	width: 2.5%;
+}
+
+
