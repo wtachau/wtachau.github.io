@@ -23,6 +23,7 @@
 
 <body>
 
+	<!-- Page 1: Games -->
 	<div id="page1">
 		<script src="{% static 'js/pong.js' %}"></script>
 		<span id="comp_score" class="score"></span>
@@ -34,7 +35,49 @@
 		<img id="morearrow" src="{% static 'images/down_arrow.png' %}">
 		</span>
 	</div>	
-	<div id="page2"> more content to follow, check back soon!<br>also, check out my friend's <a target="_blank" href='http://www.jamesreinke.com'>amazing website!</a> </div>
+
+	<!-- Page 2: Info -->
+	<div id="page2"> 
+
+		<div id="computer_profile">
+			<img id="computer" src="{% static 'images/computer.png' %}">
+			<span class="prof_pic"><img src = "{% static 'images/meoverland.jpg' %}"></span>
+		</div>
+		<div id="more_info">
+			<table id="desc_links">
+				<tr>
+					<!-- LinkedIn -->
+					<td>
+						<a target="_blank"  href="https://www.linkedin.com/in/willtachau">
+							<img style="width:50px;" src= "{% static 'images/linkedin.png' %}">
+						</a>
+					<br>LinkedIn
+					</td>
+
+					<!-- Github -->
+					<td>
+						<a target="_blank" href="https://github.com/wtachau">
+							<img style="width:50px;" src= "{% static 'images/github.png' %}">
+						</a>
+					<br>Github
+					</td>
+
+					<!-- Email -->
+					<td>
+						<a href="mailto:wtachau@gmail.com">
+							<img style="width:50px;" src= "{% static 'images/webmail.png' %}">
+						</a>
+					<br>Email me
+					</td>
+				</tr>
+			</table>
+			<br>more content to follow, check back soon!
+			<br>
+			also, check out my friend's <a style="color:white" target="_blank" href='http://www.jamesreinke.com'>amazing website!</a> 
+		</div>
+
+		
+	</div>
 
 </body>
 <script src="{% static 'js/scroll.js' %}"></script>

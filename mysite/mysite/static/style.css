@@ -7,6 +7,8 @@ html {
     height: 100%;
 }
 
+/* PAGE 1 */
+
 #name {
 	width: 175;
 	margin: 0 auto;
@@ -24,17 +26,6 @@ html {
 	font-size: 18;
 	position: absolute;
 	text-align: center;
-}
-
-#page2 {
-	background: url(images/background.jpg) 50% 0 no-repeat fixed;
-	background-size: cover;
-	height: 600px;
-	font-family: Merriweather;
-	text-align: center;
-	width:100%;
-	color:gray;
-	padding-top:42;
 }
 
 .score {
@@ -59,6 +50,49 @@ html {
 #morearrow {
 	margin-top: -6px;
 	width: 2.5%;
+}
+
+/* PAGE 2 */
+
+#page2 {
+	background: url(images/background.jpg) 50% 0 no-repeat fixed;
+	background-size: cover;
+	height: 600px;
+	font-family: Merriweather;
+	text-align: center;
+	width:100%;
+	color:white;
+	padding-top:150;
+}
+
+.prof_pic {
+	position: absolute;
+	margin-left: -339px;
+	margin-top: 15px;
+}
+
+#computer {
+	position: relative;
+	z-index: 1;
+}
+
+#more_info {
+	padding: 10px 0px 10px 0px;
+	background: rgba(0,0,0,0.5);
+	width: 80%;
+	margin: auto auto;
+	margin-top: 10px;
+}
+
+#desc_links {
+	width:100%;
+	color:white;
+}
+
+#desc_links td{
+	table-layout: fixed;
+	text-align: center;
+	width: 33%;
 }
 
 
