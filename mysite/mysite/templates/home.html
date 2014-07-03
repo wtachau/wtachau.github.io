@@ -2,6 +2,7 @@
 <head>
 	{% include "header.html" %}
 	<title>will tachau</title>
+	<meta name="description" content="Check out Will Tachau's home page. Check back soon for up." />
 
 	<!-- For Parallax -->
 	<script type="text/javascript">
@@ -25,14 +26,18 @@
 
 	<!-- Page 1: Games -->
 	<div id="page1">
+		<!-- For Pong -->
 		<script src="{% static 'js/pong.js' %}"></script>
 		<span id="comp_score" class="score"></span>
 		<span id="your_score" class="score"></span>
 		<span id="name">will tachau</span>
 		<span id="subtext">software engineer<br>pomona college '14</span>
-
 		<span id="morelink"> more<br>
-		<img id="morearrow" src="{% static 'images/down_arrow.png' %}">
+			<img id="morearrow" src="{% static 'images/down_arrow.png' %}">
+			<br>
+		</span>
+		<span onclick="pause_game()">
+			<img id="pause" src="{% static 'images/pause.png' %}">
 		</span>
 	</div>	
 

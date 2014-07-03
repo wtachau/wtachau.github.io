@@ -48,8 +48,15 @@ html {
 }
 
 #morearrow {
-	margin-top: -6px;
+	margin-top: -10px;
 	width: 2.5%;
+}
+
+#pause {
+	width: 34;
+	position: absolute;
+	right: 17;
+	bottom: 22;
 }
 
 /* PAGE 2 */
