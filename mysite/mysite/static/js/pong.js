@@ -88,8 +88,8 @@ if (game == 1) {
         if (!isPaused) {
             update();
             render();
-            animate(step);
         }
+        animate(step);
     };
 
     function Paddle(x, y, width, height) {
@@ -246,14 +246,22 @@ if (game == 1) {
         // random number between 1 and window limit
         var rand = Math.floor((Math.random() * $(window).width()) + 1);
         // round to nearest block
-        return nearestBlock(rand);
+        var x = nearestBlock(rand);
+        while (x <= 10) {
+            x = nearestBlock(rand);
+        }
+        return x;
     }
 
     var randomY = function () {
         // random number between 1 and window limit
         var rand = Math.floor((Math.random() * $(window).height()) + 1);
         // round to nearest block
-        return nearestBlock(rand);
+        var y = nearestBlock(rand);
+        while (y <= 10) {
+            y = nearestBlock(rand);
+        }
+        return y;
     }
 
     var nearestBlock = function(num) {
@@ -413,7 +421,7 @@ if (game == 1) {
     var addTail = function () {
         your_score++;
          for (var i = 0; i < snake.length - 1; i++) {
-            snake[i].duration += 4;
+            snake[i].duration += 6;
          }
     }
 
@@ -424,7 +432,7 @@ if (game == 1) {
         your_score = 0;
     }
 
-    setInterval(step, 100);
+    setInterval(step, 60);
 
     /* Create the snake, control render and updates */
     function SnakeBlock(x, y, dur) {

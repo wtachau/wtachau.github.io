@@ -1,10 +1,17 @@
-html {
+body {
 	background-color: #D9EAF8;
-    margin: -8px;
+    margin: 0px;
     padding: 0px;
     border: 0px;
     width: 100%;
     height: 100%;
+}
+
+a {
+	color: inherit;
+}
+a:hover {
+	text-decoration: underline;
 }
 
 /* PAGE 1 */
@@ -69,13 +76,17 @@ html {
 	text-align: center;
 	width:100%;
 	color:white;
-	padding-top:150;
+	padding-top:100;
 }
 
 .prof_pic {
 	position: absolute;
 	margin-left: -339px;
 	margin-top: 15px;
+}
+
+.prof_pic img{
+	width: 306px;
 }
 
 #computer {
@@ -88,7 +99,8 @@ html {
 	background: rgba(0,0,0,0.5);
 	width: 80%;
 	margin: auto auto;
-	margin-top: 10px;
+	margin-top: 35px;
+	border-radius: 15px;
 }
 
 #desc_links {
@@ -100,6 +112,23 @@ html {
 	table-layout: fixed;
 	text-align: center;
 	width: 33%;
+}
+
+.portfolio img {
+	width:200px;
+}
+
+/* Special effects */
+.blur img {
+  -webkit-transition: all .5s ease;
+     -moz-transition: all .5s ease;
+       -o-transition: all .5s ease;
+      -ms-transition: all .5s ease;
+          transition: all .5s ease;
+}
+ 
+.blur img:hover {
+  -webkit-filter: blur(2px);
 }
 
 
