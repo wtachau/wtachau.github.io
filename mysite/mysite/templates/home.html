@@ -14,7 +14,7 @@
 			//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
 			//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
 			//$('#intro').parallax("50%", 0.1);
-			$('#page2').parallax("50%", 0.2);
+			//$('#page2').parallax("50%", 0.2);
 			//$('.bg').parallax("50%", 0.4);
 			//$('#third').parallax("50%", 0.3);
 
@@ -32,24 +32,25 @@
 		<span id="your_score" class="score"></span>
 		<span id="name">will tachau</span>
 		<span id="subtext">software engineer<br>originate, inc.<br>pomona college '14</span>
-		<span id="morelink"> more<br>
+		<div id="bottomtext">to get in touch, or out of sheer curiosity, feel free to see my <a target="_blank"  href="https://www.linkedin.com/in/willtachau">resume</a> or <a href="mailto:wtachau@gmail.com">email me</a> directly.</span>
+		<!-- <span id="morelink"> more<br>
 			<img id="morearrow" src="{% static 'images/down_arrow.png' %}">
 			<br>
-		</span>
+		</span> -->
 		<span onclick="pause_game()">
 			<img id="pause" src="{% static 'images/pause.png' %}">
 		</span>
 	</div>	
 
 	<!-- Page 2: Info -->
-	<div id="page2"> 
+	<!-- <div id="page2">  -->
 
-		<div id="computer_profile">
+		<!-- <div id="computer_profile">
 			<img id="computer" src="{% static 'images/computer.png' %}">
-			<span class="prof_pic"><img src = "{% static 'images/pool.jpg' %}"></span>
+			<span class="prof_pic"><img src = "{% static 'images/pool.jpg' %}"></span>-->
 			<!--<span class="prof_pic"><img src = "{% static 'images/pool.jpg' %}"></span>
 			<span class="prof_pic"><img src = "{% static 'images/scot.jpg' %}"></span>-->
-		</div>
+		<!-- </div>
 		<div id="more_info">
 			professional software engineer.<br>
 			I love clean, well designed code with elegant solutions. <br>
@@ -60,17 +61,17 @@
 						<a target="_blank"  href="http://www.greenzebragrocery.com/">
 							<img src= "{% static 'images/gzg.png' %}">
 						</a>
-					</td>
+					</td> -->
 
 					<!-- Github -->
-					<td class="portfolio blur">
+					<!-- <td class="portfolio blur">
 						<a target="_blank" href="https://claremontmunchies.herokuapp.com">
 							<img src= "{% static 'images/munchies.png' %}">
 						</a>
-					</td>
+					</td> -->
 
 					<!-- Email -->
-					<td class="portfolio blur">
+					<!-- <td class="portfolio blur">
 						<a target="_blank" href="http://allenamabisca.com/">
 							<img src= "{% static 'images/allen.png' %}">
 						</a>
@@ -79,10 +80,8 @@
 			</table>
 			<br>
 			to get in touch, or out of sheer curiosity, feel free to see my <a target="_blank"  href="https://www.linkedin.com/in/willtachau">resume</a> or <a href="mailto:wtachau@gmail.com">email me</a> directly.
-		</div>
-
-		
-	</div>
+		</div> -->		
+	<!-- </div> -->
 
 </body>
 <script src="{% static 'js/scroll.js' %}"></script>
