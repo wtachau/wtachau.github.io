@@ -42,6 +42,15 @@ a:hover {
 	font-size: 14px;
 }
 
+#brick_text {
+	position: absolute;
+	margin: 0 auto;
+	text-align: center;
+	color:#0DFD55;
+	font-family: 'Press Start 2P';
+	font-size: 18px;
+}
+
 #morelink {
 	position:absolute;
 	text-decoration: none;
