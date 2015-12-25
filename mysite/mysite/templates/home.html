@@ -2,24 +2,7 @@
 <head>
 	{% include "header.html" %}
 	<title>will tachau</title>
-	<meta name="description" content="Check out Will Tachau's home page. Check back soon for up." />
-
-	<!-- For Parallax -->
-	<script type="text/javascript">
-		$(document).ready(function(){
-			//$('#nav').localScroll(800);
-			
-			//.parallax(xPosition, speedFactor, outerHeight) options:
-			//xPosition - Horizontal position of the element
-			//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
-			//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
-			//$('#intro').parallax("50%", 0.1);
-			//$('#page2').parallax("50%", 0.2);
-			//$('.bg').parallax("50%", 0.4);
-			//$('#third').parallax("50%", 0.3);
-
-		})
-	</script>
+	<meta name="description" content="Your official resource for all things Will Tachau" />
 </head>
 
 <body>
@@ -36,56 +19,92 @@
 		<span id="name">will tachau</span>
 		<span id="brick_text" style="display:none;"></span>
 		<span id="subtext">software engineer<br>originate, inc.<br>pomona college '14</span>
-		<div id="bottomtext">to get in touch, or out of sheer curiosity, feel free to see my <a target="_blank"  href="https://www.linkedin.com/in/willtachau">resume</a> or <a href="mailto:wtachau@gmail.com">email me</a> directly.</span>
-		<!-- <span id="morelink"> more<br>
-			<img id="morearrow" src="{% static 'images/down_arrow.png' %}">
-			<br>
-		</span> -->
+		<div id="bottomtext">to get in touch, check out my <a target="_blank"  href="https://www.linkedin.com/in/willtachau">resume</a></span></div>
 		<span onclick="pause_game()">
 			<img id="pause" src="{% static 'images/pause.png' %}">
 		</span>
 	</div>	
 
 	<!-- Page 2: Info -->
-	<!-- <div id="page2">  -->
+	<div id="page2"> 
+		<div class="projects-label">
+			recent projects:
+		</div>
+		<table>
+			<tr>
+				<td class="project-container parkingremindersf">
+					<div class="project">
+						<div class="image-container mobile">
+							<img src="{% static 'images/jeand.jpeg' %}">
+							<div class="image-filter mobile">
+								<a href="https://itunes.apple.com/us/app/jeand/id1044911754?mt=8" style="text-decoration: none" target="_blank">
+									<div class="text project-title">jeand</div>
+									<div class="text project-subtitle">a small, high-quality raw denim shop</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</td>
+				<td class="project-container jeand">
+					<div class="project">
+						<div class="image-container mobile blur">
+							<img class="mobile" src="{% static 'images/whereto.png' %}">
+							<div class="image-filter mobile">
+								<a href="https://itunes.apple.com/us/app/whereto-plan-social-events/id1055206882?mt=8" style="text-decoration: none" target="_blank">
+									<div class="text project-title">whereto</div>
+									<div class="text project-subtitle">an app to simplify event planning</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</td>
+				<td class="project-container whereto">
+					<div class="project">
+						<div class="image-container mobile">
+							<img class="mobile" src="{% static 'images/parkingremindersf.png' %}">
+							<div class="image-filter mobile">
+								<a href="http://parkingremindersf.com/" style="text-decoration: none" target="_blank">
+									<div class="text project-title">ParkingReminderSF</div>
+									<div class="text project-subtitle">a mobile-first webapp to remind users of street sweeping rules in San Francisco</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td class="project-container wikipedes">
+					<div class="project">
+						<div class="image-container web">
+							<img class="web" src="{% static 'images/wikipedes.png' %}">
+							<div class="image-filter web">
+								<a href="http://wikipedesofseparation.com/" style="text-decoration: none" target="_blank">
+									<div class="text project-title">wikipedes of separation</div>
+									<div class="text project-subtitle">inspired by a high school game. find the shortest path between any two wikipedia subjects</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</td>
+				<td class="project-container chatsignal">
+					<div class="project">
+						<div class="image-container web">
+							<img class="web" src="{% static 'images/chatsignal.png' %}">
+							<div class="image-filter web">
+								<a href="http://chatsignal.io" style="text-decoration: none" target="_blank">
+									<div class="text project-title">ChatSignal</div>
+									<div class="text project-subtitle">a stack-overflow-meets-slack resource for live tech help</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
 
-		<!-- <div id="computer_profile">
-			<img id="computer" src="{% static 'images/computer.png' %}">
-			<span class="prof_pic"><img src = "{% static 'images/pool.jpg' %}"></span>-->
-			<!--<span class="prof_pic"><img src = "{% static 'images/pool.jpg' %}"></span>
-			<span class="prof_pic"><img src = "{% static 'images/scot.jpg' %}"></span>-->
-		<!-- </div>
-		<div id="more_info">
-			professional software engineer.<br>
-			I love clean, well designed code with elegant solutions. <br>
-			see my most recent client projects below:<br><br>
-			<table id="desc_links">
-				<tr>
-					<td class="portfolio blur">
-						<a target="_blank"  href="http://www.greenzebragrocery.com/">
-							<img src= "{% static 'images/gzg.png' %}">
-						</a>
-					</td> -->
-
-					<!-- Github -->
-					<!-- <td class="portfolio blur">
-						<a target="_blank" href="https://claremontmunchies.herokuapp.com">
-							<img src= "{% static 'images/munchies.png' %}">
-						</a>
-					</td> -->
-
-					<!-- Email -->
-					<!-- <td class="portfolio blur">
-						<a target="_blank" href="http://allenamabisca.com/">
-							<img src= "{% static 'images/allen.png' %}">
-						</a>
-					</td>
-				</tr>
-			</table>
-			<br>
-			to get in touch, or out of sheer curiosity, feel free to see my <a target="_blank"  href="https://www.linkedin.com/in/willtachau">resume</a> or <a href="mailto:wtachau@gmail.com">email me</a> directly.
-		</div> -->		
-	<!-- </div> -->
+	</div>
 
 </body>
 <script src="{% static 'js/scroll.js' %}"></script>
