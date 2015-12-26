@@ -7,6 +7,7 @@ var play_snake = function() {
         // round to nearest block
         var x = nearestBlock(rand);
         while (x <= 10) {
+            rand = Math.floor((Math.random() * $(window).height()) + 1);
             x = nearestBlock(rand);
         }
         return x;
@@ -18,6 +19,7 @@ var play_snake = function() {
         // round to nearest block
         var y = nearestBlock(rand);
         while (y <= 10) {
+            rand = Math.floor((Math.random() * $(window).height()) + 1);
             y = nearestBlock(rand);
         }
         return y;
@@ -113,7 +115,7 @@ var play_snake = function() {
         }
         snake.unshift(newSnakeHead);
 
-        //console.log("snake:"+snake[0].x+", "+snake[0].y+" food:"+food.x+", "+food.y)
+    
 
         // Has it hit itself?
         for (var i = 1; i < snake.length; i++) {
@@ -129,7 +131,6 @@ var play_snake = function() {
             addTail();
             food.x = randomX();
             food.y = randomY(); 
-
         }
 
         // Get rid of blocks that have expired
