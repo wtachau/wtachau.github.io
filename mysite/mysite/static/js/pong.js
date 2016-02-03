@@ -26,17 +26,17 @@ var play_pong = function() {
         canvas.height = $(window).height();
 
         // set coordinates of elements in canvas
-        document.getElementById("name").style.marginTop= $(window).height()/-2 - 60;
-        document.getElementById("name").style.marginLeft= ($(window).width() - $("#name").width())/2 ;
+        $("#name").css({'top': $(window).height()/2 - 60 + 'px' });
+        $("#name").css({'left': ($(window).width() - $("#name").width())/2 + 'px' });
 
-        document.getElementById("subtext").style.marginTop= $(window).height()/-2 - 20;
-        document.getElementById("subtext").style.marginLeft= ($(window).width() - $("#subtext").width())/2 ;
+        $("#subtext").css({'top': $(window).height()/2 - 20 + 'px' });
+        $("#subtext").css({'left': ($(window).width() - $("#subtext").width())/2  + 'px' });
 
-        document.getElementById("comp_score").style.marginTop = -$(window).height() + 20;
-        document.getElementById("comp_score").style.marginLeft = 30;
+        $("#your_score").css({'top': 20 + 'px' });
+        $("#your_score").css({'left': $(window).width() - 40 + 'px' });
 
-        document.getElementById("your_score").style.marginTop = -$(window).height() + 20;
-        document.getElementById("your_score").style.marginLeft = $(window).width() - 40;
+        $("#comp_score").css({'top': -$(window).height() + 20});
+        $("#comp_score").css({'left': 30});
 
         //update score
         $('#comp_score').html(comp_score);

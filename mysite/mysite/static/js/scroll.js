@@ -8,10 +8,15 @@ function goToByScroll(id){
 }
 
 
-$("#morelink").click(function(e) { 
+$("#more-link").click(function(e) { 
       // Prevent a page reload when a link is pressed
     e.preventDefault(); 
       // Call the scroll function
     goToByScroll("#page2");   
     pause_game();        
 });
+
+$(window).scroll(function(){
+  pause_game();
+});
+

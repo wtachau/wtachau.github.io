@@ -1,6 +1,8 @@
 {% load staticfiles %}
+<!DOCTYPE html>
 <head>
 	{% include "header.html" %}
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 	<title>will tachau</title>
 	<meta name="description" content="Your official resource for all things Will Tachau" />
 </head>
@@ -16,14 +18,20 @@
 		<script src="{% static 'js/games.js' %}"></script>
 		<span id="comp_score" class="score"></span>
 		<span id="your_score" class="score"></span>
-		<span id="name">will tachau</span>
-		<span id="brick_text" style="display:none;"></span>
-		<span id="subtext">software engineer<br>originate, inc.<br>pomona college '14</span>
-		<div id="bottomtext">to get in touch, check out my <a target="_blank"  href="https://www.linkedin.com/in/willtachau">resume</a></span></div>
-		<span onclick="pause_game()">
+		<div id="name">will tachau</div>
+		<div id="brick_text" style="display:none;"></div>
+		<div id="subtext">software engineer<br>originate, inc.<br>pomona college '14</div>
+		<div id="more-link">
+			<img src="{% static 'images/down_arrow.png' %}">
+		</div>
+		<span onclick="toggle_pause()">
 			<img id="pause" src="{% static 'images/pause.png' %}">
 		</span>
 	</div>	
+	<div id="page1-mobile">
+		<div id="name">will tachau</div>
+		<div id="subtext">software engineer<br>originate, inc.<br>pomona college '14</div>
+	</div>
 
 	<!-- Page 2: Info -->
 	<div id="page2"> 
@@ -32,43 +40,60 @@
 		</div>
 		<table>
 			<tr>
+				<td class="project-container candidatetwittertracker">
+					<div class="project">
+						<a href="http://candidatetwittertracker.com" style="text-decoration: none" target="_blank">
+							<div class="image-container web">
+								<img class="web" src="{% static 'images/candidatetwittertracker.png' %}">
+								<div class="image-filter web">
+									<div class="text project-title">candidate twitter tracker</div>
+									<div class="text project-subtitle">how does twitter feel about the leading presidential candidates?</div>
+								</div>
+							</div>
+						</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<table>
+			<tr>
 				<td class="project-container parkingremindersf">
 					<div class="project">
-						<div class="image-container mobile">
-							<img src="{% static 'images/jeand.jpeg' %}">
-							<div class="image-filter mobile">
-								<a href="https://itunes.apple.com/us/app/jeand/id1044911754?mt=8" style="text-decoration: none" target="_blank">
+						<a href="https://itunes.apple.com/us/app/jeand/id1044911754?mt=8" style="text-decoration: none" target="_blank">
+							<div class="image-container mobile">
+								<img src="{% static 'images/jeand.jpeg' %}">
+								<div class="image-filter mobile">
 									<div class="text project-title">jeand</div>
 									<div class="text project-subtitle">a small, high-quality raw denim shop</div>
-								</a>
+								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 				</td>
 				<td class="project-container jeand">
 					<div class="project">
-						<div class="image-container mobile blur">
-							<img class="mobile" src="{% static 'images/whereto.png' %}">
-							<div class="image-filter mobile">
-								<a href="https://itunes.apple.com/us/app/whereto-plan-social-events/id1055206882?mt=8" style="text-decoration: none" target="_blank">
+						<a href="https://itunes.apple.com/us/app/whereto-plan-social-events/id1055206882?mt=8" style="text-decoration: none" target="_blank">
+							<div class="image-container mobile blur">
+								<img class="mobile" src="{% static 'images/whereto.png' %}">
+								<div class="image-filter mobile">
 									<div class="text project-title">whereto</div>
 									<div class="text project-subtitle">an app to simplify event planning</div>
-								</a>
+								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 				</td>
 				<td class="project-container whereto">
 					<div class="project">
-						<div class="image-container mobile">
-							<img class="mobile" src="{% static 'images/parkingremindersf.png' %}">
-							<div class="image-filter mobile">
-								<a href="http://parkingremindersf.com/" style="text-decoration: none" target="_blank">
+						<a href="http://parkingremindersf.com/" style="text-decoration: none" target="_blank">
+							<div class="image-container mobile">
+								<img class="mobile" src="{% static 'images/parkingremindersf.png' %}">
+								<div class="image-filter mobile">
 									<div class="text project-title">ParkingReminderSF</div>
 									<div class="text project-subtitle">a mobile-first webapp to remind users of street sweeping rules in San Francisco</div>
-								</a>
+								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 				</td>
 			</tr>
@@ -77,33 +102,37 @@
 			<tr>
 				<td class="project-container wikipedes">
 					<div class="project">
-						<div class="image-container web">
-							<img class="web" src="{% static 'images/wikipedes.png' %}">
-							<div class="image-filter web">
-								<a href="http://wikipedesofseparation.com/" style="text-decoration: none" target="_blank">
+						<a href="http://wikipedesofseparation.com/" style="text-decoration: none" target="_blank">
+							<div class="image-container web">
+								<img class="web" src="{% static 'images/wikipedes.png' %}">
+								<div class="image-filter web">
 									<div class="text project-title">wikipedes of separation</div>
 									<div class="text project-subtitle">inspired by a high school game. find the shortest path between any two wikipedia subjects</div>
-								</a>
+								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 				</td>
 				<td class="project-container chatsignal">
 					<div class="project">
-						<div class="image-container web">
-							<img class="web" src="{% static 'images/chatsignal.png' %}">
-							<div class="image-filter web">
-								<a href="http://chatsignal.io" style="text-decoration: none" target="_blank">
+						<a href="http://chatsignal.io" style="text-decoration: none" target="_blank">
+							<div class="image-container web">
+								<img class="web" src="{% static 'images/chatsignal.png' %}">
+								<div class="image-filter web">
 									<div class="text project-title">ChatSignal</div>
 									<div class="text project-subtitle">a stack-overflow-meets-slack resource for live tech help</div>
-								</a>
+								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 				</td>
 			</tr>
 		</table>
-
+		<div id="bottomtext">to get in touch, check out my 
+			<a target="_blank"  href="https://www.linkedin.com/in/willtachau">
+				resume
+			</a>
+		</div>
 	</div>
 
 </body>
@@ -118,5 +147,4 @@
 
   ga('create', 'UA-52110088-1', 'willtachau.com');
   ga('send', 'pageview');
-
 </script>

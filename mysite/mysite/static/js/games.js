@@ -2,12 +2,19 @@ var canvas = document.createElement("canvas");
 canvas.width = $(window).width();
 canvas.height = $(window).height();
 var context = canvas.getContext('2d');
-document.getElementById("page1").appendChild(canvas);
+// if(! /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+  document.getElementById("page1").appendChild(canvas);
+// }
 var isPaused;
 
 // pause
 var pause_game = function pause() {
-    isPaused = !isPaused;
+    isPaused = true;
+    document.getElementById("pause").src= "/static/images/play.png";
+}
+
+var toggle_pause = function toggle_pause() {
+  isPaused = !isPaused;
     document.getElementById("pause").src= isPaused? "/static/images/play.png" : "/static/images/pause.png";
 }
 
@@ -23,6 +30,6 @@ document.body.addEventListener('keydown', function(e) {
     e.preventDefault();
   } else if (e.keyCode == 32) { //pause
     e.preventDefault();
-    pause_game();
+    toggle_pause();
   }
 });
