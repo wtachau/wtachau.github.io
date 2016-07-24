@@ -19,9 +19,10 @@ var toggle_pause = function toggle_pause() {
 }
 
 // Decide which game to play
-games = [play_pong, play_snake, play_brick];
+games = [play_pong, play_snake, play_brick, play_tetris];
 var game_choice = Math.floor((Math.random() * games.length));
-games[game_choice]();
+// games[game_choice]();
+games[3](); //todo take out
 
 
 // To prevent scroll on down key, and set pause for space
