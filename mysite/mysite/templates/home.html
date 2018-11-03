@@ -15,6 +15,7 @@
 		<script src="{% static 'js/pong.js' %}"></script>
 		<script src="{% static 'js/snake.js' %}"></script>
 		<script src="{% static 'js/brick.js' %}"></script>
+		<script src="{% static 'js/tetris.js' %}"></script>
 		<script src="{% static 'js/games.js' %}"></script>
 		<span id="comp_score" class="score"></span>
 		<span id="your_score" class="score"></span>
@@ -38,6 +39,37 @@
 		<div class="projects-label">
 			recent projects:
 		</div>
+
+		<table>
+			<tr>
+				<td class="project-container otto">
+					<div class="project">
+						<a href="https://itunes.apple.com/us/app/otto-sweepstakes/id1114172045" style="text-decoration: none" target="_blank">
+							<div class="image-container mobile">
+								<img class="mobile" src="{% static 'images/otto.png' %}">
+								<div class="image-filter mobile">
+									<div class="text project-title">Otto Sweepstakes</div>
+									<div class="text project-subtitle">the first step in changing the mobile-based sweepstakes industry</div>
+								</div>
+							</div>
+						</a>
+					</div>
+				</td>
+				<td class="project-container parkingremindersf">
+					<div class="project">
+						<a href="http://parkingremindersf.com/" style="text-decoration: none" target="_blank">
+							<div class="image-container mobile">
+								<img class="mobile" src="{% static 'images/parkingremindersf.png' %}">
+								<div class="image-filter mobile">
+									<div class="text project-title">ParkingReminderSF</div>
+									<div class="text project-subtitle">a mobile-first webapp to remind users of street sweeping rules in San Francisco</div>
+								</div>
+							</div>
+						</a>
+					</div>
+				</td>
+			</tr>
+		</table>
 		<table>
 			<tr>
 				<td class="project-container candidatetwittertracker">
@@ -57,7 +89,7 @@
 		</table>
 		<table>
 			<tr>
-				<td class="project-container parkingremindersf">
+				<td class="project-container jeand">
 					<div class="project">
 						<a href="https://itunes.apple.com/us/app/jeand/id1044911754?mt=8" style="text-decoration: none" target="_blank">
 							<div class="image-container mobile">
@@ -70,7 +102,7 @@
 						</a>
 					</div>
 				</td>
-				<td class="project-container jeand">
+				<td class="project-container whereto">
 					<div class="project">
 						<a href="https://itunes.apple.com/us/app/whereto-plan-social-events/id1055206882?mt=8" style="text-decoration: none" target="_blank">
 							<div class="image-container mobile blur">
@@ -78,19 +110,6 @@
 								<div class="image-filter mobile">
 									<div class="text project-title">whereto</div>
 									<div class="text project-subtitle">an app to simplify event planning</div>
-								</div>
-							</div>
-						</a>
-					</div>
-				</td>
-				<td class="project-container whereto">
-					<div class="project">
-						<a href="http://parkingremindersf.com/" style="text-decoration: none" target="_blank">
-							<div class="image-container mobile">
-								<img class="mobile" src="{% static 'images/parkingremindersf.png' %}">
-								<div class="image-filter mobile">
-									<div class="text project-title">ParkingReminderSF</div>
-									<div class="text project-subtitle">a mobile-first webapp to remind users of street sweeping rules in San Francisco</div>
 								</div>
 							</div>
 						</a>

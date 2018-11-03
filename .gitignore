@@ -4,3 +4,6 @@ node/.env
 node/CNAME
 node/*.crt
 node/*.key
+
+*/.DS_Store
+*.pyc

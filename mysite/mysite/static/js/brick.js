@@ -99,34 +99,34 @@ var play_brick = function() {
 
         var flash_message = function(message) {
         	pause_game();
-			$("#brick_text").html(message);
-			$("#brick_text").css({'top': $(window).height()/2 - 60 + 'px'});
-			$("#brick_text").css({'left': ($(window).width() - $("#brick_text").width())/2  + 'px'});
+	$("#brick_text").html(message);
+	$("#brick_text").css({'top': $(window).height()/2 - 60 + 'px'});
+	$("#brick_text").css({'left': ($(window).width() - $("#brick_text").width())/2  + 'px'});
 
-			var show_message, hide_message;
-			show_message = function() {
-				$("#brick_text").show();
-				setTimeout(hide_message, pause_time);
-			}
-			hide_message = function() {
-				$("#brick_text").hide();
-				if (count == flash_times) {
-					// new game
-					$("#name").show();
-					$("#subtext").show();
-					$("#your_score").show();
-					your_score = original_score;
-					restart_ball(ball);
-					reset_bricks();
-					pause_game();
-				} else {
-					count++;
-					setTimeout(show_message, pause_time);	
-				}
-			}
-			show_message();
-		};
-		flash_message(message);
+	var show_message, hide_message;
+	show_message = function() {
+		$("#brick_text").show();
+		setTimeout(hide_message, pause_time);
+	}
+	hide_message = function() {
+		$("#brick_text").hide();
+		if (count == flash_times) {
+			// new game
+			$("#name").show();
+			$("#subtext").show();
+			$("#your_score").show();
+			your_score = original_score;
+			restart_ball(ball);
+			reset_bricks();
+			pause_game();
+		} else {
+			count++;
+			setTimeout(show_message, pause_time);	
+		}
+	}
+	show_message();
+        };
+        flash_message(message);
     }
 
     /*
