@@ -4,6 +4,12 @@ module.exports = {
       './client/index.js',
     ]
   },
+  resolve: {
+    modules: [
+      './client',
+      'node_modules'
+    ]
+  },
   module: {
     rules: [
       {
