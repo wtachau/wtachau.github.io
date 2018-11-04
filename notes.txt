@@ -1,0 +1,3 @@
+1. whats the difference between this (detached head) working and head?
+2. does hot reloading still work?
+3. move more logic into webpack js files
