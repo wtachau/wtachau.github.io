@@ -9,7 +9,8 @@
               "Gemfile.lock",
               "coverage/index.html",
               "package-lock.json",
-              "public/index-bundle.js"
+              "public/index-bundle.js",
+              "server-transpiled.js"
             ],
             "folder_exclude_patterns": [
               "node_modules/"

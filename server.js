@@ -1,3 +1,10 @@
+import express from 'express'
+import path from 'path'
+import webpack from 'webpack'
+import webpackMiddleware from 'webpack-dev-middleware'
+import webpackHotMiddleware from 'webpack-hot-middleware'
+import webpackConfig from './webpack.config.js'
+
 var sslEnabled = true
 const isLocal = !process.env._HANDLER 
 const isDeploying = !!process.env.DEPLOYING
@@ -9,19 +16,8 @@ if (isLocal) {
   const sslEnabled = false
 }
 
-console.log(process.env)
-console.log(isLocal)
-console.log(isDeploying)
-
-const express = require('express')
 const app = express()
-const path = require('path')
 const port = 3000
-
-import webpack from 'webpack'
-import webpackMiddleware from 'webpack-dev-middleware'
-import webpackConfig from './webpack.config.js'
-
 const compiler = webpack(webpackConfig)
 
 app.use(
@@ -31,7 +27,7 @@ app.use(
     })
 )
 
-app.use(require("webpack-hot-middleware")(compiler))
+app.use(webpackHotMiddleware(compiler))
 
 const currentDir = path.dirname(require.main.filename)
 
