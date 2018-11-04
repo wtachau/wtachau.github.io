@@ -3,37 +3,32 @@ import path from 'path'
 import webpack from 'webpack'
 import webpackMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
-import webpackConfig from './webpack.config.js'
+import webpackConfig from './webpack.development.config.js'
 
-var sslEnabled = true
+const app = express()
+const port = 3000
 const isLocal = !process.env._HANDLER 
 const isDeploying = !!process.env.DEPLOYING
 const isDevelopment = isLocal && !isDeploying
 
-if (isLocal || isDeploying) {
+const sslEnabled = !isLocal
+
+if (isLocal) {
   require('dotenv').load();
 }
-if (isLocal) {
-  const sslEnabled = false
-}
-
-const app = express()
-const port = 3000
-const compiler = webpack(webpackConfig)
 
 if (isDevelopment) {
+  const compiler = webpack(webpackConfig)
+
   app.use(
-      webpackMiddleware(compiler, {
-          noInfo: true,
-          publicPath: webpackConfig.output.publicPath
-      })
+    webpackMiddleware(compiler, {
+      noInfo: true,
+      publicPath: webpackConfig.output.publicPath
+    })
   )
 
   app.use(webpackHotMiddleware(compiler))
 }
-
-console.log(webpackConfig.output.publicPath)
-console.log(path.join(__dirname, 'public'))
 
 const options = {
     publicDir  : path.join(__dirname, 'public')

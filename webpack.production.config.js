@@ -1,5 +1,5 @@
 const path = require('path')
-const config = require('./webpack.config')
+const config = require('./webpack.base.config')
 
 config.output = {
   filename: '[name]-bundle.js',

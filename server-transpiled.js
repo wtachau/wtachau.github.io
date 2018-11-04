@@ -10,37 +10,30 @@ var _webpackDevMiddleware = _interopRequireDefault(require("webpack-dev-middlewa
 
 var _webpackHotMiddleware = _interopRequireDefault(require("webpack-hot-middleware"));
 
-var _webpackConfig = _interopRequireDefault(require("./webpack.config.js"));
+var _webpackDevelopmentConfig = _interopRequireDefault(require("./webpack.development.config.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var sslEnabled = true;
+var app = (0, _express.default)();
+var port = 3000;
 var isLocal = !process.env._HANDLER;
 var isDeploying = !!process.env.DEPLOYING;
 var isDevelopment = isLocal && !isDeploying;
+var sslEnabled = !isLocal;
 
-if (isLocal || isDeploying) {
+if (isLocal) {
   require('dotenv').load();
 }
 
-if (isLocal) {
-  var _sslEnabled = false;
-}
-
-var app = (0, _express.default)();
-var port = 3000;
-var compiler = (0, _webpack.default)(_webpackConfig.default);
-
 if (isDevelopment) {
+  var compiler = (0, _webpack.default)(_webpackDevelopmentConfig.default);
   app.use((0, _webpackDevMiddleware.default)(compiler, {
     noInfo: true,
-    publicPath: _webpackConfig.default.output.publicPath
+    publicPath: _webpackDevelopmentConfig.default.output.publicPath
   }));
   app.use((0, _webpackHotMiddleware.default)(compiler));
 }
 
-console.log(_webpackConfig.default.output.publicPath);
-console.log(_path.default.join(__dirname, 'public'));
 var options = {
   publicDir: _path.default.join(__dirname, 'public'),
   viewsDir: _path.default.join(__dirname, 'views'),
