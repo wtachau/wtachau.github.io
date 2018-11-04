@@ -1,4 +1,5 @@
 import printMe from './print.js'
+import pong from './pong.js'
 
 window.canvas = document.createElement('canvas')
 window.canvas.width = $(window).width()
@@ -23,10 +24,39 @@ const togglePause = () => {
   document.getElementById('pause').src = window.isPaused ? playImage : pauseImage
 }
 
+const defaultAnimation = (callback) => {
+  window.setTimeout(callback, 1000 / 60)
+}
+
+const animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || defaultAnimation
+
+const defaultRender = () => {
+  window.canvas.width = $(window).width()
+  window.canvas.height = $(window).height()
+
+  // set coordinates of elements in canvas
+  $('#name').css({ top: $(window).height() / 2 - 60 + 'px' })
+  $('#name').css({ left: ($(window).width() - $('#name').width()) / 2 + 'px' })
+
+  $('#subtext').css({ top: $(window).height() / 2 - 20 + 'px' })
+  $('#subtext').css({ left: ($(window).width() - $('#subtext').width()) /2 + 'px' })
+
+  $('#yourScore').css({ top: 20 + 'px' })
+  $('#yourScore').css({ left: $(window).width() - 40 + 'px' })
+
+  $('#compScore').css({ top: -$(window).height() + 20 })
+  $('#compScore').css({ left: 30 })
+
+  window.context.fillRect(0, 0, $(window).width(), $(window).height())
+  window.context.fillStyle = '#000000'
+}
+
+pong(animate, defaultRender, isPaused)
+
 // Decide which game to play
-const games = [play_pong, play_snake, play_brick, play_tetris]
-const gameChoice = Math.floor((Math.random() * games.length))
-games[gameChoice]()
+// const games = [play_pong, play_snake, play_brick, play_tetris]
+// const gameChoice = Math.floor((Math.random() * games.length))
+// games[gameChoice]()
 
 // To prevent scroll on down key, and set pause for space
 document.body.addEventListener('keydown', (e) => {

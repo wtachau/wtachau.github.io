@@ -1,3 +1,3 @@
-export default function printMe() {
-  console.log("Hi there whee!");
+export default () => {
+  console.log('Hi there whee!')
 }
