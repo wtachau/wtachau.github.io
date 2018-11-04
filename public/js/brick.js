@@ -98,7 +98,7 @@ var play_brick = function() {
         var pause_time = 1000;
 
         var flash_message = function(message) {
-        	pause_game();
+        	pauseGame();
 			$("#brick_text").html(message);
 			$("#brick_text").css({'top': $(window).height()/2 - 60 + 'px'});
 			$("#brick_text").css({'left': ($(window).width() - $("#brick_text").width())/2  + 'px'});
@@ -118,7 +118,7 @@ var play_brick = function() {
 					your_score = original_score;
 					restart_ball(ball);
 					reset_bricks();
-					pause_game();
+					pauseGame();
 				} else {
 					count++;
 					setTimeout(show_message, pause_time);	
