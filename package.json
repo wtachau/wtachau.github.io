@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "aws-serverless-express": "^3.3.5",
+    "babel-cli": "^6.26.0",
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "express-cdn": "^0.3.3",
