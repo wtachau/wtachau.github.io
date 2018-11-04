@@ -17,6 +17,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var sslEnabled = true;
 var isLocal = !process.env._HANDLER;
 var isDeploying = !!process.env.DEPLOYING;
+var isDevelopment = isLocal && !isDeploying;
 
 if (isLocal || isDeploying) {
   require('dotenv').load();
@@ -29,10 +30,14 @@ if (isLocal) {
 var app = (0, _express.default)();
 var port = 3000;
 var compiler = (0, _webpack.default)(_webpackConfig.default);
-app.use((0, _webpackDevMiddleware.default)(compiler, {
-  noInfo: true,
-  publicPath: _webpackConfig.default.output.publicPath
-})); // app.use(webpackHotMiddleware(compiler))
+
+if (isDevelopment) {
+  app.use((0, _webpackDevMiddleware.default)(compiler, {
+    noInfo: true,
+    publicPath: _webpackConfig.default.output.publicPath
+  }));
+  app.use((0, _webpackHotMiddleware.default)(compiler));
+}
 
 console.log(_webpackConfig.default.output.publicPath);
 console.log(_path.default.join(__dirname, 'public'));
@@ -57,7 +62,7 @@ app.use(_express.default.static(_path.default.join(__dirname, 'public')));
 app.locals.CDN = CDN();
 app.get('/', function (req, res) {
   res.render('home', {
-    useBundledAssets: !isLocal || isDeploying
+    useBundledAssets: !isDevelopment
   });
 });
 
