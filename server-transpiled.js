@@ -1,8 +1,14 @@
 "use strict";
 
+var _express = _interopRequireDefault(require("express"));
+
+var _path = _interopRequireDefault(require("path"));
+
 var _webpack = _interopRequireDefault(require("webpack"));
 
 var _webpackDevMiddleware = _interopRequireDefault(require("webpack-dev-middleware"));
+
+var _webpackHotMiddleware = _interopRequireDefault(require("webpack-hot-middleware"));
 
 var _webpackConfig = _interopRequireDefault(require("./webpack.config.js"));
 
@@ -20,27 +26,20 @@ if (isLocal) {
   var _sslEnabled = false;
 }
 
-console.log(process.env);
-console.log(isLocal);
-console.log(isDeploying);
-
-var express = require('express');
-
-var app = express();
-
-var path = require('path');
-
+var app = (0, _express.default)();
 var port = 3000;
 var compiler = (0, _webpack.default)(_webpackConfig.default);
 app.use((0, _webpackDevMiddleware.default)(compiler, {
   noInfo: true,
   publicPath: _webpackConfig.default.output.publicPath
 }));
-app.use(require("webpack-hot-middleware")(compiler));
-var currentDir = path.dirname(require.main.filename);
+app.use((0, _webpackHotMiddleware.default)(compiler));
+
+var currentDir = _path.default.dirname(require.main.filename);
+
 var options = {
-  publicDir: path.join(__dirname, 'public'),
-  viewsDir: path.join(__dirname, 'views'),
+  publicDir: _path.default.join(__dirname, 'public'),
+  viewsDir: _path.default.join(__dirname, 'views'),
   domain: 's3-us-west-1.amazonaws.com/tachauwebsite',
   bucket: 'tachauwebsite',
   endpoint: 's3-us-west-1.amazonaws.com',
@@ -55,7 +54,7 @@ var options = {
 var CDN = require('express-cdn')(app, options);
 
 app.set('view engine', 'pug');
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(_express.default.static(_path.default.join(__dirname, 'public')));
 app.locals.CDN = CDN();
 app.get('/', function (req, res) {
   res.render('home', {
