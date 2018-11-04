@@ -1,51 +1,61 @@
-var sslEnabled = true
-const isLocal = !process.env._HANDLER 
+import express from 'express'
+import path from 'path'
+import expressCDN from 'express-cdn'
+import webpack from 'webpack'
+import webpackMiddleware from 'webpack-dev-middleware'
+import webpackHotMiddleware from 'webpack-hot-middleware'
+import dotenv from 'dotenv'
+
+import webpackConfig from './webpack.development.config.js'
+
+const isLocal = !process.env._HANDLER
 const isDeploying = !!process.env.DEPLOYING
+const isDevelopment = isLocal && !isDeploying
 
-if (isLocal || isDeploying) {
-  require('dotenv').load();
-}
 if (isLocal) {
-  const sslEnabled = false
+  dotenv.load()
 }
 
-const express = require('express')
 const app = express()
-const path = require('path')
-const port = 3000
 
-const options = {
-    publicDir  : path.join(__dirname, 'public')
-  , viewsDir   : path.join(__dirname, 'views')
-  , domain     : 's3-us-west-1.amazonaws.com/tachauwebsite'
-  , bucket     : 'tachauwebsite'
-  , endpoint: 's3-us-west-1.amazonaws.com'
-  , key        : process.env.AWS_ACCESS_KEY_ID
-  , secret     : process.env.AWS_SECRET_ACCESS_KEY
-  , hostname   : 'localhost'
-  , port       : (sslEnabled ? 443 : 1337)
-  , ssl        : sslEnabled
-  , production : true
+if (isDevelopment) {
+  const compiler = webpack(webpackConfig)
+
+  app.use(
+    webpackMiddleware(compiler, {
+      noInfo: true,
+      publicPath: webpackConfig.output.publicPath
+    })
+  )
+
+  app.use(webpackHotMiddleware(compiler))
 }
 
-const CDN = require('express-cdn')(app, options);
+app.set('view engine', 'pug')
+app.use(express.static(path.join(__dirname, 'public')))
 
-// app.set('view options', { layout: false, pretty: true });
-// app.enable('view cache');
-// app.use(express.bodyParser());
-
-app.set('view engine', 'jade');
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.locals.CDN = CDN();
-
+app.locals.CDN = expressCDN(app, {
+  publicDir: path.join(__dirname, 'public'),
+  viewsDir: path.join(__dirname, 'views'),
+  domain: 's3-us-west-1.amazonaws.com/tachauwebsite',
+  bucket: 'tachauwebsite',
+  endpoint: 's3-us-west-1.amazonaws.com',
+  key: process.env.AWS_ACCESS_KEY_ID,
+  secret: process.env.AWS_SECRET_ACCESS_KEY,
+  hostname: 'localhost',
+  port: (isLocal ? 1337 : 443),
+  ssl: !isLocal,
+  production: true
+})()
 
 app.get('/', (req, res) => {
-  res.render('home')
+  res.render('home', {
+    useBundledAssets: !isDevelopment
+  })
 })
 
 if (isLocal && !isDeploying) {
-  app.listen(port)
+  app.listen(3000)
 }
 
 module.exports = app

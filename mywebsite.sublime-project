@@ -1,0 +1,21 @@
+{
+    "folders":
+    [
+        {
+            "path": "./",
+            "file_exclude_patterns": [
+              "*-workspace",
+              ".DS_Store",
+              "Gemfile.lock",
+              "coverage/index.html",
+              "package-lock.json",
+              "public/index-bundle.js",
+              "server-transpiled.js"
+            ],
+            "folder_exclude_patterns": [
+              "node_modules/"
+            ],
+        }
+    ]
+}
+
