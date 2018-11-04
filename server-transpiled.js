@@ -32,11 +32,10 @@ var compiler = (0, _webpack.default)(_webpackConfig.default);
 app.use((0, _webpackDevMiddleware.default)(compiler, {
   noInfo: true,
   publicPath: _webpackConfig.default.output.publicPath
-}));
-app.use((0, _webpackHotMiddleware.default)(compiler));
+})); // app.use(webpackHotMiddleware(compiler))
 
-var currentDir = _path.default.dirname(require.main.filename);
-
+console.log(_webpackConfig.default.output.publicPath);
+console.log(_path.default.join(__dirname, 'public'));
 var options = {
   publicDir: _path.default.join(__dirname, 'public'),
   viewsDir: _path.default.join(__dirname, 'views'),

@@ -27,9 +27,10 @@ app.use(
     })
 )
 
-app.use(webpackHotMiddleware(compiler))
+// app.use(webpackHotMiddleware(compiler))
 
-const currentDir = path.dirname(require.main.filename)
+console.log(webpackConfig.output.publicPath)
+console.log(path.join(__dirname, 'public'))
 
 const options = {
     publicDir  : path.join(__dirname, 'public')
