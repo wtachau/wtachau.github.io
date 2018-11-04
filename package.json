@@ -5,20 +5,34 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "export DEPLOYING=1 && claudia update",
-    "start": "node server.js"
+    "build": "webpack --config webpack.production.config.js",
+    "transpile": "babel server.js --out-file server-transpiled.js",
+    "deploy": "npm run build && npm run transpile && export DEPLOYING=1 && claudia update",
+    "start": "nodemon --exec babel-node server.js  --ignore client"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.0.0",
     "aws-serverless-express": "^3.3.5",
-    "babel-cli": "^6.26.0",
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "express-cdn": "^0.3.3",
-    "jade": "^1.11.0"
+    "pug": "^2.0.3",
+    "webpack": "^4.24.0",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-hot-middleware": "^2.24.3"
   },
   "devDependencies": {
-    "nodemon": "^1.18.5"
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^1.0.1",
+    "node-sass": "^4.9.4",
+    "nodemon": "^1.18.5",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack-cli": "^3.1.2"
   }
 }

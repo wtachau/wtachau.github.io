@@ -9,10 +9,31 @@ if (isLocal) {
   const sslEnabled = false
 }
 
+console.log(process.env)
+console.log(isLocal)
+console.log(isDeploying)
+
 const express = require('express')
 const app = express()
 const path = require('path')
 const port = 3000
+
+import webpack from 'webpack'
+import webpackMiddleware from 'webpack-dev-middleware'
+import webpackConfig from './webpack.config.js'
+
+const compiler = webpack(webpackConfig)
+
+app.use(
+    webpackMiddleware(compiler, {
+        noInfo: true,
+        publicPath: webpackConfig.output.publicPath
+    })
+)
+
+app.use(require("webpack-hot-middleware")(compiler))
+
+const currentDir = path.dirname(require.main.filename)
 
 const options = {
     publicDir  : path.join(__dirname, 'public')
@@ -30,18 +51,15 @@ const options = {
 
 const CDN = require('express-cdn')(app, options);
 
-// app.set('view options', { layout: false, pretty: true });
-// app.enable('view cache');
-// app.use(express.bodyParser());
-
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.locals.CDN = CDN();
 
-
 app.get('/', (req, res) => {
-  res.render('home')
+  res.render('home', {
+    useBundledAssets: !isLocal || isDeploying
+  })
 })
 
 if (isLocal && !isDeploying) {
