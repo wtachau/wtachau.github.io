@@ -1,53 +1,74 @@
-import printMe from './print.js'
-import pong from './pong.js'
+import pong from './pong/main.js'
 
-window.canvas = document.createElement('canvas')
-window.canvas.width = $(window).width()
-window.canvas.height = $(window).height()
-window.context = window.canvas.getContext('2d')
-document.getElementById('page1').appendChild(window.canvas)
+const createCanvas = () => {
+  const canvas = document.createElement('canvas')
+  canvas.width = window.innerWidth
+  canvas.height = window.innerHeight
+  return canvas
+}
 
-window.isPaused = false
+const addCanvas = () => {
+  window.canvas = createCanvas()
+  window.context = window.canvas.getContext('2d')
+  document.getElementById('page1').appendChild(window.canvas)
+}
+
+const removeCanvas = () => {
+  document.getElementById('page1').removeChild(window.canvas)
+}
+
+addCanvas()
 
 // todo: don't hardcode path
 const playImage = 'https://s3-us-west-2.amazonaws.com/tachauwebsite/images/play.png'
 const pauseImage = 'https://s3-us-west-2.amazonaws.com/tachauwebsite/images/pause.png'
 
+let paused = false
+
 // pause
-const pauseGame = () => {
-  window.isPaused = true
-  document.getElementById('pause').src = pauseImage
-}
+// const pauseGame = () => {
+//   paused = true
+//   document.getElementById('pause').src = pauseImage
+// }
 
 const togglePause = () => {
-  window.isPaused = !window.isPaused
-  document.getElementById('pause').src = window.isPaused ? playImage : pauseImage
+  paused = !paused
+  document.getElementById('pause').src = paused ? playImage : pauseImage
 }
 
 const defaultAnimation = (callback) => {
   window.setTimeout(callback, 1000 / 60)
 }
 
+const isPaused = () => {
+  return paused
+}
+
 const animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || defaultAnimation
 
 const defaultRender = () => {
-  window.canvas.width = $(window).width()
-  window.canvas.height = $(window).height()
+  window.canvas.width = window.innerWidth
+  window.canvas.height = window.innerHeight
+
+  const nameElement = document.getElementById('name')
+  const subtextElement = document.getElementById('subtext')
+  const yourScoreElement = document.getElementById('yourScore')
+  const compScoreElement = document.getElementById('compScore')
 
   // set coordinates of elements in canvas
-  $('#name').css({ top: $(window).height() / 2 - 60 + 'px' })
-  $('#name').css({ left: ($(window).width() - $('#name').width()) / 2 + 'px' })
+  nameElement.style.top = window.innerHeight / 2 - 60 + 'px'
+  nameElement.style.left = (window.innerWidth - nameElement.clientWidth) / 2 + 'px'
 
-  $('#subtext').css({ top: $(window).height() / 2 - 20 + 'px' })
-  $('#subtext').css({ left: ($(window).width() - $('#subtext').width()) /2 + 'px' })
+  subtextElement.style.top = window.innerHeight / 2 - 20 + 'px'
+  subtextElement.style.left = (window.innerWidth - subtextElement.clientWidth) / 2 + 'px'
 
-  $('#yourScore').css({ top: 20 + 'px' })
-  $('#yourScore').css({ left: $(window).width() - 40 + 'px' })
+  yourScoreElement.style.top = 20 + 'px'
+  yourScoreElement.style.left = window.innerWidth - 40 + 'px'
 
-  $('#compScore').css({ top: -$(window).height() + 20 })
-  $('#compScore').css({ left: 30 })
+  compScoreElement.style.top = 20 + 'px'
+  compScoreElement.style.left = 30 + 'px'
 
-  window.context.fillRect(0, 0, $(window).width(), $(window).height())
+  window.context.fillRect(0, 0, window.innerWidth, window.innerHeight)
   window.context.fillStyle = '#000000'
 }
 
@@ -68,22 +89,11 @@ document.body.addEventListener('keydown', (e) => {
   }
 })
 
-function component() {
-  const element = document.createElement('div')
-  const btn = document.createElement('button')
-  btn.innerHTML = 'Click me and check the console!'
-  btn.onclick = printMe
-  element.appendChild(btn)
-  return element
-}
-
-let element = component()
-document.body.appendChild(element)
-
 if (module.hot) {
-  module.hot.accept('./print.js', () => {
-    document.body.removeChild(element)
-    element = component()
-    document.body.appendChild(element)
+  module.hot.accept('./pong/main', () => {
+    removeCanvas()
+    addCanvas()
+
+    pong(animate, defaultRender, isPaused)
   })
 }

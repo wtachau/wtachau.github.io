@@ -23,8 +23,8 @@ html
       != CDN('/js/snake.js')
       != CDN('/js/brick.js')
       != CDN('/js/tetris.js')
-      span#comp_score.score
-      span#your_score.score
+      span#compScore.score
+      span#yourScore.score
       #name will tachau
       #brick_text(style='display:none;')
       #subtext software engineer
@@ -43,7 +43,7 @@ html
       ga('send', 'pageview');
 
   if useBundledAssets
-    != CDN('/index-bundle.js')    
+    != CDN('/index-bundle.js')
   else
     script(src='/index.bundle.js')
 
