@@ -28,13 +28,13 @@ class Ball {
     if (this.y - 5 < 0) {
       this.y = 5
       this.y_speed = -this.y_speed
-    } else if (this.y + 5 > $(window).height()) {
-      this.y = $(window).height() - 5
+    } else if (this.y + 5 > window.innerHeight) {
+      this.y = window.innerHeight - 5
       this.y_speed = -this.y_speed
     }
 
     // goes off the left or right
-    if (this.x < 0 || this.x > $(window).width()) {
+    if (this.x < 0 || this.x > window.innerWidth) {
       if (this.x < 0) {
         userScored()
       } else {
@@ -42,12 +42,12 @@ class Ball {
       }
       this.x_speed = normalSpeed
       this.y_speed = Math.floor(Math.random() * 5 - 2) // -2 through 2, inclusive
-      this.x = $(window).width() / 4
-      this.y = $(window).height() / 2
+      this.x = window.innerWidth / 4
+      this.y = window.innerHeight / 2
     }
 
     // hits right paddle
-    if (topX > $(window).width() / 2) {
+    if (topX > window.innerWidth / 2) {
       if (topX < (paddle1.x + paddle1.width) && bottomX > paddle1.x && topY < (paddle1.y + paddle1.height) && bottomY > paddle1.y) {
         this.x_speed = -normalSpeed
         this.y_speed += (paddle1.y_speed / 2)

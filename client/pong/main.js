@@ -9,14 +9,14 @@ export default (animate, defaultRender, isPaused) => {
 
   const player = new Player()
   const computer = new Computer()
-  const ball = new Ball($(window).width() / 4, $(window).height() / 2)
+  const ball = new Ball(window.innerWidth / 4, window.innerHeight / 2)
 
   const keysDown = {}
 
   const render = () => {
     // update score
-    $('#compScore').html(compScore)
-    $('#yourScore').html(yourScore)
+    document.getElementById('compScore').innerHTML = compScore
+    document.getElementById('yourScore').innerHTML = yourScore
 
     player.render()
     computer.render()

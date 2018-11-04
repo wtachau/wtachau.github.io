@@ -14,25 +14,17 @@ const defaultRender = () => {
   const compScoreElement = document.getElementById('compScore')
 
   // set coordinates of elements in canvas
-  nameElement.style = {
-    top: window.innerHeight / 2 - 60 + 'px',
-    left: (window.innerWidth - nameElement.clientWidth) / 2 + 'px'
-  }
+  nameElement.style.top = window.innerHeight / 2 - 60 + 'px'
+  nameElement.style.left = (window.innerWidth - nameElement.clientWidth) / 2 + 'px'
 
-  subtextElement.style = {
-    top: window.innerHeight / 2 - 20 + 'px',
-    left: (window.innerWidth - subtextElement.clientWidth) / 2 + 'px'
-  }
+  subtextElement.style.top = window.innerHeight / 2 - 20 + 'px'
+  subtextElement.style.left = (window.innerWidth - subtextElement.clientWidth) / 2 + 'px'
 
-  yourScoreElement.style = {
-    top: 20 + 'px',
-    left: window.innerWidth - 40 + 'px'
-  }
+  yourScoreElement.style.top = 20 + 'px'
+  yourScoreElement.style.left = window.innerWidth - 40 + 'px'
 
-  compScoreElement.style = {
-    top: 20 + 'px',
-    left: 30 + 'px'
-  }
+  compScoreElement.style.top = 20 + 'px'
+  compScoreElement.style.left = 30 + 'px'
 
   window.context.fillRect(0, 0, window.innerWidth, window.innerHeight)
   window.context.fillStyle = '#000000'

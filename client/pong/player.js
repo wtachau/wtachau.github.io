@@ -2,11 +2,11 @@ import Paddle from './paddle'
 
 class Player {
   constructor() {
-    this.paddle = new Paddle($(window).width() - 20, 175, 10, 50)
+    this.paddle = new Paddle(window.innerWidth - 20, 175, 10, 50)
   }
 
   render() {
-    this.paddle.x = $(window).width() - 20
+    this.paddle.x = window.innerWidth - 20
     this.paddle.render()
   }
 

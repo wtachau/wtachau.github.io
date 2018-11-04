@@ -23,8 +23,8 @@ class Computer {
     this.paddle.move(0, diff)
     if (this.paddle.y < 0) {
       this.paddle.y = 0
-    } else if (this.paddle.y + this.paddle.height > $(window).height()) {
-      this.paddle.y = $(window).height() - this.paddle.height
+    } else if (this.paddle.y + this.paddle.height > window.innerHeight) {
+      this.paddle.y = window.innerHeight - this.paddle.height
     }
   }
 }

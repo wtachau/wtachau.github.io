@@ -22,7 +22,7 @@ var play_tetris = function() {
       case 1: // Backwards "L"
         this.coordinates = [[-1,1], [-1,0], [0,0], [1,0]];
         break;
-      case 2: // Square 
+      case 2: // Square
         this.coordinates = [[0,0], [0,1], [1,0], [1,1]];
         break;
       case 3: // Line
@@ -61,7 +61,7 @@ var play_tetris = function() {
       }
 
       for(var i = 0; i < this.coordinates.length; i++) {
-        // var [x,y] = this.coordinates[i]; 
+        // var [x,y] = this.coordinates[i];
         var x = this.coordinates[i][0]
         var y = this.coordinates[i][1]
         if (offLeftLimit(x)) {
@@ -71,7 +71,7 @@ var play_tetris = function() {
           lastBlock.centerX -= blockSize;
         }
       }
-      
+
     }
   }
 
@@ -119,26 +119,26 @@ var play_tetris = function() {
   }
 
 
-  /* 
+  /*
    * Main functions of game
    */
 
   var render = function() {
-    canvas.width = $(window).width();
-    canvas.height = $(window).height();
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
     // set coordinates of elements in canvas
-    $("#name").css({'top': $(window).height()/2 - 60 + 'px' });
-    $("#name").css({'left': ($(window).width() - $("#name").width())/2 + 'px' });
+    $("#name").css({'top': window.innerHeight/2 - 60 + 'px' });
+    $("#name").css({'left': (window.innerWidth - $("#name").width())/2 + 'px' });
 
-    $("#subtext").css({'top': $(window).height()/2 - 20 + 'px' });
-    $("#subtext").css({'left': ($(window).width() - $("#subtext").width())/2  + 'px' });
+    $("#subtext").css({'top': window.innerHeight/2 - 20 + 'px' });
+    $("#subtext").css({'left': (window.innerWidth - $("#subtext").width())/2  + 'px' });
 
     $("#your_score").css({'top': 20 + 'px' });
-    $("#your_score").css({'left': $(window).width() - 40 + 'px' });
+    $("#your_score").css({'left': window.innerWidth - 40 + 'px' });
     $('#your_score').html(your_score);
 
-    context.fillRect(0, 0, $(window).width(), $(window).height());
+    context.fillRect(0, 0, window.innerWidth, window.innerHeight);
     context.fillStyle = "#000000";
 
     blocks.map(function(block) {
@@ -238,7 +238,7 @@ var play_tetris = function() {
       var xCoordinate = lastBlock.coordinates[i][0]
       var yCoordinate = lastBlock.coordinates[i][1]
 
-      if(yCoordinate * blockSize + lastBlock.centerY > ($(window).height() - 75) ||
+      if(yCoordinate * blockSize + lastBlock.centerY > (window.innerHeight - 75) ||
         offLeftLimit(xCoordinate) || offRightLimit(xCoordinate)) {
         return true;
       }
@@ -275,7 +275,7 @@ var play_tetris = function() {
   function checkForFullRows() {
     // construct data structure
     var rows = {}
-    for(var i = 0; i < blocks.length; i++) { 
+    for(var i = 0; i < blocks.length; i++) {
       var block = blocks[i];
       for(var j = 0; j < block.coordinates.length; j++) {
         if (block.coordinates[j]) {
@@ -285,7 +285,7 @@ var play_tetris = function() {
 
           var x = block.centerX + xCoordinate * blockSize;
           var y = block.centerY + yCoordinate * blockSize;
-          var newEntry = {'x': x, 'coordinatesRef': block.coordinates, 'index': j} 
+          var newEntry = {'x': x, 'coordinatesRef': block.coordinates, 'index': j}
           if (y in rows) {
             rows[y].push(newEntry)
           } else {
@@ -294,7 +294,7 @@ var play_tetris = function() {
         }
       }
     }
-    
+
     // see if any are full
     var rowsDeleted = [];
     Object.keys(rows).map(function(key) {
@@ -312,7 +312,7 @@ var play_tetris = function() {
     for(var k = 0; k < rowsDeleted.length; k++) {
       rowToDelete = rowsDeleted[k];
       your_score+=10;
-      for(var i = 0; i < blocks.length; i++) { 
+      for(var i = 0; i < blocks.length; i++) {
         var block = blocks[i];
         for(var j = 0; j < block.coordinates.length; j++) {
           if (block.coordinates[j]) {
@@ -327,14 +327,14 @@ var play_tetris = function() {
         }
       }
     }
-  } 
+  }
 
   /*
    * This is where the magic happens
    */
   var blockSize = 25;
   var widthInBlocks = 13;
-  var trueCenter = ($(window).width() - blockSize) / 2;
+  var trueCenter = (window.innerWidth - blockSize) / 2;
   var centerScreen =  Math.floor(trueCenter / blockSize) * blockSize;
   var leftLimit = centerScreen - ((widthInBlocks - 1)/2) * blockSize;
   var rightLimit = centerScreen + ((widthInBlocks - 1)/2) * blockSize;

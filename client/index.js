@@ -4,8 +4,6 @@ import {
 
 import pong from './pong/main.js'
 
-addCanvas()
-
 // todo: don't hardcode path
 const playImage = 'https://s3-us-west-2.amazonaws.com/tachauwebsite/images/play.png'
 const pauseImage = 'https://s3-us-west-2.amazonaws.com/tachauwebsite/images/pause.png'
@@ -23,12 +21,11 @@ const togglePause = () => {
   document.getElementById('pause').src = paused ? playImage : pauseImage
 }
 
-
 const isPaused = () => {
   return paused
 }
 
-
+addCanvas()
 pong(animate, defaultRender, isPaused)
 
 // Decide which game to play
@@ -47,10 +44,12 @@ document.body.addEventListener('keydown', (e) => {
 })
 
 if (module.hot) {
-  module.hot.accept('./pong/main', () => {
+  const reset = () => {
     removeCanvas()
     addCanvas()
 
     pong(animate, defaultRender, isPaused)
-  })
+  }
+  module.hot.accept('pong/main', reset)
+  module.hot.accept('utilities/AnimationUtilities', reset)
 }
