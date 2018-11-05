@@ -8,6 +8,13 @@ const monitorKeysPressed = (keysDown) => {
   })
 }
 
+const monitorKeysPressedInOrder = (keysDown) => {
+  window.addEventListener('keydown', (event) => {
+    keysDown.push(event.keyCode)
+  })
+}
+
 module.exports = {
-  monitorKeysPressed
+  monitorKeysPressed,
+  monitorKeysPressedInOrder
 }

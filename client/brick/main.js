@@ -1,4 +1,5 @@
 import { monitorKeysPressed } from 'utilities/InteractionUtilities'
+import { updateYourScore }    from 'utilities/DisplayUtilities'
 
 import Ball         from './ball'
 
@@ -19,7 +20,7 @@ export default (animate, defaultRender, isPaused, togglePause) => {
   let bricks = resetBricks()
 
   const render = () => {
-    document.getElementById('yourScore').innerHTML = yourScore
+    updateYourScore(yourScore)
 
     player.render()
     ball.render()
@@ -40,6 +41,8 @@ export default (animate, defaultRender, isPaused, togglePause) => {
   }
 
   const keysDown = {}
+  monitorKeysPressed(keysDown)
+
   const update = () => {
     player.update(keysDown)
     bricks.forEach((brick) => {
@@ -71,6 +74,4 @@ export default (animate, defaultRender, isPaused, togglePause) => {
   }
 
   animate(step)
-
-  monitorKeysPressed(keysDown)
 }
