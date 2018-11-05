@@ -1,3 +1,7 @@
+const elementFromID = (id) => {
+  return document.getElementById(id)
+}
+
 const hideElement = (element) => {
   element.style.display = 'none'
 }
@@ -7,16 +11,30 @@ const showElement = (element) => {
 }
 
 const hideElementById = (id) => {
-  hideElement(document.getElementById(id))
+  hideElement(elementFromID(id))
 }
 
 const showElementById = (id) => {
-  showElement(document.getElementById(id))
+  showElement(elementFromID(id))
+}
+
+const updateInnerHTML = (elementID, html) => {
+  elementFromID(elementID).innerHTML = html
+}
+
+const updateYourScore = (score) => {
+  updateInnerHTML('yourScore', score)
+}
+
+const updateComputerScore = (score) => {
+  updateInnerHTML('compScore', score)
 }
 
 module.exports = {
   hideElement,
   showElement,
   hideElementById,
-  showElementById
+  showElementById,
+  updateYourScore,
+  updateComputerScore
 }

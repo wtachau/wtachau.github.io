@@ -1,11 +1,11 @@
 import { monitorKeysPressed } from 'utilities/InteractionUtilities'
+import { updateYourScore, updateComputerScore } from 'utilities/DisplayUtilities'
 
 import Ball     from './ball'
 import Computer from './computer'
 import Player   from './player'
 
 export default (animate, defaultRender, isPaused) => {
-  // keep score
   let compScore = 0
   let yourScore = 0
 
@@ -14,11 +14,11 @@ export default (animate, defaultRender, isPaused) => {
   const ball = new Ball(window.innerWidth / 4, window.innerHeight / 2)
 
   const keysDown = {}
+  monitorKeysPressed(keysDown)
 
   const render = () => {
-    // update score
-    document.getElementById('compScore').innerHTML = compScore
-    document.getElementById('yourScore').innerHTML = yourScore
+    updateYourScore(yourScore)
+    updateComputerScore(compScore)
 
     player.render()
     computer.render()
@@ -43,6 +43,4 @@ export default (animate, defaultRender, isPaused) => {
   }
 
   animate(step)
-
-  monitorKeysPressed(keysDown)
 }

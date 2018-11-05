@@ -4,6 +4,7 @@ import {
 
 import brick  from 'brick/main'
 import pong   from 'pong/main'
+import snake  from 'snake/main'
 
 let paused = false
 const pauseElement = document.getElementById('pause')
@@ -32,7 +33,7 @@ const isPaused = () => {
 addCanvas()
 
 // Decide which game to play
-const games = [brick]
+const games = [snake, brick, pong]
 const gameChoice = Math.floor((Math.random() * games.length))
 const chosenGame = games[gameChoice]
 const args = [animate, defaultRender, isPaused, togglePause]
@@ -58,5 +59,6 @@ if (module.hot) {
   }
   module.hot.accept('pong/main', reset)
   module.hot.accept('brick/main', reset)
+  module.hot.accept('snake/main', reset)
   module.hot.accept('utilities/AnimationUtilities', reset)
 }
