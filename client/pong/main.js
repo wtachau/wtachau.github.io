@@ -1,6 +1,8 @@
-import Player from './player'
+import { monitorKeysPressed } from 'utilities/InteractionUtilities'
+
+import Ball     from './ball'
 import Computer from './computer'
-import Ball from './ball'
+import Player   from './player'
 
 export default (animate, defaultRender, isPaused) => {
   // keep score
@@ -42,11 +44,5 @@ export default (animate, defaultRender, isPaused) => {
 
   animate(step)
 
-  window.addEventListener('keydown', (event) => {
-    keysDown[event.keyCode] = true
-  })
-
-  window.addEventListener('keyup', (event) => {
-    delete keysDown[event.keyCode]
-  })
+  monitorKeysPressed(keysDown)
 }

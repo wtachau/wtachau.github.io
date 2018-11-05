@@ -1,10 +1,12 @@
-const defaultAnimation = (callback) => {
+import { black } from 'constants/colors'
+
+export const defaultAnimation = (callback) => {
   window.setTimeout(callback, 1000 / 60)
 }
 
-const animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || defaultAnimation
+export const animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || defaultAnimation
 
-const defaultRender = () => {
+export const defaultRender = () => {
   window.canvas.width = window.innerWidth
   window.canvas.height = window.innerHeight
 
@@ -27,29 +29,22 @@ const defaultRender = () => {
   compScoreElement.style.left = 30 + 'px'
 
   window.context.fillRect(0, 0, window.innerWidth, window.innerHeight)
-  window.context.fillStyle = '#000000'
+  window.context.fillStyle = black
 }
 
-const createCanvas = () => {
+export const createCanvas = () => {
   const canvas = document.createElement('canvas')
   canvas.width = window.innerWidth
   canvas.height = window.innerHeight
   return canvas
 }
 
-const addCanvas = () => {
+export const addCanvas = () => {
   window.canvas = createCanvas()
   window.context = window.canvas.getContext('2d')
   document.getElementById('page1').appendChild(window.canvas)
 }
 
-const removeCanvas = () => {
+export const removeCanvas = () => {
   document.getElementById('page1').removeChild(window.canvas)
-}
-
-module.exports = {
-  animate,
-  defaultRender,
-  addCanvas,
-  removeCanvas
 }
