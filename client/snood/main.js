@@ -64,6 +64,7 @@ export default (animate, defaultRender) => {
       blockMovingToPending.update()
 
       if (blockMovingToPending.x <= cannonCenter.x) {
+        blockMovingToPending.x = cannonCenter.x
         blockMovingToPending.stopMoving()
         pendingBlock = blockMovingToPending
         blockMovingToPending = null
