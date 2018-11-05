@@ -1,3 +1,4 @@
+import { randomElement } from 'utilities/ArrayUtilities'
 import {
   animate, defaultRender, addCanvas, removeCanvas
 } from 'utilities/AnimationUtilities'
@@ -5,6 +6,7 @@ import {
 import brick  from 'brick/main'
 import pong   from 'pong/main'
 import snake  from 'snake/main'
+import snood  from 'snood/main'
 import tetris from 'tetris/main'
 
 let paused = false
@@ -33,10 +35,8 @@ const isPaused = () => {
 
 addCanvas()
 
-// Decide which game to play
-const games = [tetris, pong, brick, snake]
-const gameChoice = Math.floor((Math.random() * games.length))
-const chosenGame = games[gameChoice]
+// const chosenGame = randomElement([tetris, pong, brick, snake])
+const chosenGame = randomElement([snood])
 const args = [animate, defaultRender, isPaused, togglePause]
 
 chosenGame(...args)
@@ -61,5 +61,7 @@ if (module.hot) {
   module.hot.accept('pong/main', reset)
   module.hot.accept('brick/main', reset)
   module.hot.accept('snake/main', reset)
+  module.hot.accept('tetris/main', reset)
+  module.hot.accept('snood/main', reset)
   module.hot.accept('utilities/AnimationUtilities', reset)
 }
