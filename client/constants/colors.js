@@ -1,7 +1,19 @@
 const limeGreen = '#0DFD55'
+const pink = '#FF0099'
 const black = '#000000'
+const yellow = '#F3F315'
+const orange = '#FF6600'
+const cyan = '#0FFFFF'
+const red = '#FF0000'
+const purple = '#6E0DD0'
 
 module.exports = {
   limeGreen,
-  black
+  black,
+  pink,
+  yellow,
+  orange,
+  cyan,
+  red,
+  purple
 }
