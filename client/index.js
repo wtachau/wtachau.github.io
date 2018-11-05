@@ -5,6 +5,7 @@ import {
 import brick  from 'brick/main'
 import pong   from 'pong/main'
 import snake  from 'snake/main'
+import tetris from 'tetris/main'
 
 let paused = false
 const pauseElement = document.getElementById('pause')
@@ -33,7 +34,7 @@ const isPaused = () => {
 addCanvas()
 
 // Decide which game to play
-const games = [snake, brick, pong]
+const games = [tetris, pong, brick, snake]
 const gameChoice = Math.floor((Math.random() * games.length))
 const chosenGame = games[gameChoice]
 const args = [animate, defaultRender, isPaused, togglePause]
