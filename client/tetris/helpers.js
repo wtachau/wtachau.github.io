@@ -19,7 +19,7 @@ export const pointsCollide = (x1, y1, x2, y2) => {
 }
 
 export const blockHasCollided = (block1, block2) => {
-  for (let i = 0; i < block1.coordinates.length; i++) {
+  for (let i = 0; i < block1.coordinates.length; i += 1) {
     const block1Coordinate = block1.coordinates[i]
 
     if (block1Coordinate) {
@@ -27,7 +27,7 @@ export const blockHasCollided = (block1, block2) => {
       x1 = x1 * blockSize + block1.centerX
       y1 = y1 * blockSize + block1.centerY
 
-      for (let j = 0; j < block2.coordinates.length; j++) {
+      for (let j = 0; j < block2.coordinates.length; j += 1) {
         const block2Coordinate = block2.coordinates[j]
         let [x2, y2] = block2Coordinate
         x2 = x2 * blockSize + block2.centerX
