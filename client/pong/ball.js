@@ -1,4 +1,5 @@
 import { limeGreen } from 'constants/colors'
+
 const normalSpeed = 4
 
 class Ball {
