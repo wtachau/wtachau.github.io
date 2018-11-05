@@ -99,6 +99,13 @@ export default (animate, defaultRender, isPaused) => {
     }
   }
 
+  const moveSidewaysAndCheckForCollisions = (right) => {
+    lastBlock.centerX += right ? blockSize : -blockSize
+    if (anyCollisions(blocks, lastBlock)) {
+      lastBlock.centerX -= right ? blockSize : -blockSize
+    }
+  }
+
   const render = () => {
     updateYourScore(yourScore)
     blocks.map(b => b.render())
@@ -119,12 +126,6 @@ export default (animate, defaultRender, isPaused) => {
 
   setInterval(step, 400)
 
-  const moveSidewaysAndCheckForCollisions = (right) => {
-    lastBlock.centerX += right ? blockSize : -blockSize
-    if (anyCollisions(blocks, lastBlock)) {
-      lastBlock.centerX -= right ? blockSize : -blockSize
-    }
-  }
 
   window.addEventListener('keydown', (event) => {
     if (!isPaused()) {
