@@ -4,11 +4,11 @@ var play_snake = function() {
 
     var randomX = function () {
         // random number between 1 and window limit
-        var rand = Math.floor((Math.random() * $(window).width()) + 1);
+        var rand = Math.floor((Math.random() * window.innerWidth) + 1);
         // round to nearest block
         var x = nearestBlock(rand);
         while (x <= 10) {
-            rand = Math.floor((Math.random() * $(window).height()) + 1);
+            rand = Math.floor((Math.random() * window.innerHeight) + 1);
             x = nearestBlock(rand);
         }
         return x;
@@ -16,11 +16,11 @@ var play_snake = function() {
 
     var randomY = function () {
         // random number between 1 and window limit
-        var rand = Math.floor((Math.random() * $(window).height()) + 1);
+        var rand = Math.floor((Math.random() * window.innerHeight) + 1);
         // round to nearest block
         var y = nearestBlock(rand);
         while (y <= 10) {
-            rand = Math.floor((Math.random() * $(window).height()) + 1);
+            rand = Math.floor((Math.random() * window.innerHeight) + 1);
             y = nearestBlock(rand);
         }
         return y;
@@ -35,7 +35,7 @@ var play_snake = function() {
     snakeDirection = 1;
     snakeLength = 5;
     snake[0] = new SnakeBlock(randomX(), randomY(), snakeLength);
-    
+
     var food = new FoodBlock(randomX(),randomY());
 
     // Your score
@@ -49,24 +49,24 @@ var play_snake = function() {
 
     var render = function () {
 
-        canvas.width = $(window).width();
-        canvas.height = $(window).height();
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
         // set coordinates of elements in canvas
-        $("#name").css({'top': $(window).height()/2 - 60 + 'px' });
-        $("#name").css({'left': ($(window).width() - $("#name").width())/2 + 'px' });
+        $("#name").css({'top': window.innerHeight/2 - 60 + 'px' });
+        $("#name").css({'left': (window.innerWidth - $("#name").width())/2 + 'px' });
 
-        $("#subtext").css({'top': $(window).height()/2 - 20 + 'px' });
-        $("#subtext").css({'left': ($(window).width() - $("#subtext").width())/2  + 'px' });
+        $("#subtext").css({'top': window.innerHeight/2 - 20 + 'px' });
+        $("#subtext").css({'left': (window.innerWidth - $("#subtext").width())/2  + 'px' });
 
         $("#your_score").css({'top': 20 + 'px' });
-        $("#your_score").css({'left': $(window).width() - 40 + 'px' });
+        $("#your_score").css({'left': window.innerWidth - 40 + 'px' });
 
 
         //update score
         $('#your_score').html(your_score);
 
-        context.fillRect(0, 0, $(window).width(), $(window).height());
+        context.fillRect(0, 0, window.innerWidth, window.innerHeight);
         context.fillStyle = "#000000";
 
         // show all existing snake parts
@@ -116,7 +116,7 @@ var play_snake = function() {
         }
         snake.unshift(newSnakeHead);
 
-    
+
 
         // Has it hit itself?
         for (var i = 1; i < snake.length; i++) {
@@ -131,7 +131,7 @@ var play_snake = function() {
          && snake[0].y == food.y - snakeWidth) {
             addTail();
             food.x = randomX();
-            food.y = randomY(); 
+            food.y = randomY();
         }
 
         // Get rid of blocks that have expired
@@ -139,18 +139,18 @@ var play_snake = function() {
         for (var i = 0; i <= indexLimit; i++) {
             snake[i].duration--;
         }
-        
+
         // And if something has gone off the edge
         for (var i = 0; i <= indexLimit; i++) {
             if (snake[i].y - snakeWidth < 0) {
-                snake[i].y = nearestBlock($(window).height() + (snake[i].y - snakeWidth));
-            } else if (snake[i].y + snakeWidth > $(window).height()) {
+                snake[i].y = nearestBlock(window.innerHeight + (snake[i].y - snakeWidth));
+            } else if (snake[i].y + snakeWidth > window.innerHeight) {
                 snake[i].y = nearestBlock(snakeWidth);
             } else if (snake[i].x - snakeWidth < 0) {
-                snake[i].x = nearestBlock($(window).width() + (snake[i].x - snakeWidth));
-            } else if (snake[i].x + snakeWidth > $(window).width()) {
+                snake[i].x = nearestBlock(window.innerWidth + (snake[i].x - snakeWidth));
+            } else if (snake[i].x + snakeWidth > window.innerWidth) {
                 snake[i].x = nearestBlock(snakeWidth);
-            } 
+            }
         }
 
         // Then get rid of old snake blocks
@@ -166,7 +166,7 @@ var play_snake = function() {
     }
 
     FoodBlock.prototype.render = function() {
-        context.beginPath(); 
+        context.beginPath();
         context.arc(this.x - snakeWidth/2, this.y - snakeWidth/2, snakeWidth/2, 2 * Math.PI, false);
         context.fillStyle = "#0DFD55";
         context.fill();
