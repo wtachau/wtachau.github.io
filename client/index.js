@@ -4,10 +4,6 @@ import {
 
 import pong from './pong/main.js'
 
-// todo: don't hardcode path
-const playImage = 'https://s3-us-west-2.amazonaws.com/tachauwebsite/images/play.png'
-const pauseImage = 'https://s3-us-west-2.amazonaws.com/tachauwebsite/images/pause.png'
-
 let paused = false
 
 // pause
@@ -17,8 +13,17 @@ let paused = false
 // }
 
 const togglePause = () => {
+  const pauseElement = document.getElementById('pause')
+  const playElement = document.getElementById('play')
+
+  if (paused) {
+    pauseElement.style.display = 'none'
+    playElement.style.display = 'block'
+  } else {
+    pauseElement.style.display = 'block'
+    playElement.style.display = 'none'
+  }
   paused = !paused
-  document.getElementById('pause').src = paused ? playImage : pauseImage
 }
 
 const isPaused = () => {
