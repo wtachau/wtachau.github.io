@@ -24,12 +24,12 @@ var play_brick = function() {
     var numRows = 5;
     var numColumns = numBricks / numRows;
     var padding = 5;
-    var brickWidth = $(window).width() / numColumns;
+    var brickWidth = window.innerWidth / numColumns;
     var brickHeight = 30;
     var topPadding = 50;
 
     var player = new Player();
-    var ball = new Ball($(window).width()/4, window.innerHeight/2);
+    var ball = new Ball(window.innerWidth/4, window.innerHeight/2);
     var bricks;
     var reset_bricks = function () {
     	bricks = [];
@@ -45,23 +45,23 @@ var play_brick = function() {
     var keysDown = {};
 
 	var render = function () {
-        canvas.width = $(window).width();
+        canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
         // set coordinates of elements in canvas
         $("#name").css({'top': window.innerHeight/2 - 60 + 'px' });
-        $("#name").css({'left': ($(window).width() - $("#name").width())/2 + 'px' });
+        $("#name").css({'left': (window.innerWidth - $("#name").width())/2 + 'px' });
 
         $("#subtext").css({'top': window.innerHeight/2 - 20 + 'px' });
-        $("#subtext").css({'left': ($(window).width() - $("#subtext").width())/2  + 'px' });
+        $("#subtext").css({'left': (window.innerWidth - $("#subtext").width())/2  + 'px' });
 
         $("#your_score").css({'top': 20 + 'px' });
-        $("#your_score").css({'left': $(window).width() - 40 + 'px' });
+        $("#your_score").css({'left': window.innerWidth - 40 + 'px' });
 
         //update score
         $('#your_score').html(your_score);
 
-        context.fillRect(0, 0, $(window).width(), window.innerHeight);
+        context.fillRect(0, 0, window.innerWidth, window.innerHeight);
         context.fillStyle = "#000000";
         player.render();
         ball.render();
@@ -101,7 +101,7 @@ var play_brick = function() {
         	pauseGame();
 			$("#brick_text").html(message);
 			$("#brick_text").css({'top': window.innerHeight/2 - 60 + 'px'});
-			$("#brick_text").css({'left': ($(window).width() - $("#brick_text").width())/2  + 'px'});
+			$("#brick_text").css({'left': (window.innerWidth - $("#brick_text").width())/2  + 'px'});
 
 			var show_message, hide_message;
 			show_message = function() {
@@ -199,8 +199,8 @@ var play_brick = function() {
         this.y_speed = y;
         if (this.x < 0) {
             this.x = 0;
-        } else if (this.x + this.width > $(window).width()) {
-            this.x = $(window).width() - this.width;
+        } else if (this.x + this.width > window.innerWidth) {
+            this.x = window.innerWidth - this.width;
         }
     };
 
@@ -209,11 +209,11 @@ var play_brick = function() {
      */
 
     function Player() {
-        this.paddle = new Paddle($(window).width() / 2, window.innerHeight - 60, paddleWidth, paddleHeight);
+        this.paddle = new Paddle(window.innerWidth / 2, window.innerHeight - 60, paddleWidth, paddleHeight);
     }
 
     Player.prototype.render = function () {
-        // this.paddle.x = $(window).width() - 20;
+        // this.paddle.x = window.innerWidth - 20;
         this.paddle.render();
     };
 
@@ -271,12 +271,12 @@ var play_brick = function() {
         }
 
         // goes off the left or right
-        if (this.x < 0 || this.x > $(window).width()) {
+        if (this.x < 0 || this.x > window.innerWidth) {
         	this.x_speed = -this.x_speed
             if (this.x < 0) {
                 this.x = 5;
             } else {
-                this.x = $(window).width() - 5;
+                this.x = window.innerWidth - 5;
             }
         }
 
@@ -292,7 +292,7 @@ var play_brick = function() {
     var restart_ball = function(ball) {
 		ball.y_speed = -normal_speed;
 		ball.x_speed = Math.floor(Math.random()*5-2); // -2 through 2, inclusive
-		ball.x = $(window).width()/2;
+		ball.x = window.innerWidth/2;
 		ball.y = window.innerHeight - 70;
     }
 

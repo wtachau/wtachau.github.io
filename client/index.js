@@ -2,28 +2,27 @@ import {
   animate, defaultRender, addCanvas, removeCanvas
 } from 'utilities/AnimationUtilities'
 
-import pong from './pong/main.js'
+import brick  from 'brick/main'
+import pong   from 'pong/main'
 
 let paused = false
+const pauseElement = document.getElementById('pause')
+const playElement = document.getElementById('play')
 
-// pause
-// const pauseGame = () => {
-//   paused = true
-//   document.getElementById('pause').src = pauseImage
-// }
+const pauseGame = () => {
+  paused = true
+  pauseElement.style.display = 'none'
+  playElement.style.display = 'block'
+}
+
+const resumeGame = () => {
+  paused = false
+  pauseElement.style.display = 'block'
+  playElement.style.display = 'none'
+}
 
 const togglePause = () => {
-  const pauseElement = document.getElementById('pause')
-  const playElement = document.getElementById('play')
-
-  if (paused) {
-    pauseElement.style.display = 'none'
-    playElement.style.display = 'block'
-  } else {
-    pauseElement.style.display = 'block'
-    playElement.style.display = 'none'
-  }
-  paused = !paused
+  paused ? resumeGame() : pauseGame()
 }
 
 const isPaused = () => {
@@ -31,12 +30,14 @@ const isPaused = () => {
 }
 
 addCanvas()
-pong(animate, defaultRender, isPaused)
 
 // Decide which game to play
-// const games = [play_pong, play_snake, play_brick, play_tetris]
-// const gameChoice = Math.floor((Math.random() * games.length))
-// games[gameChoice]()
+const games = [brick]
+const gameChoice = Math.floor((Math.random() * games.length))
+const chosenGame = games[gameChoice]
+const args = [animate, defaultRender, isPaused, togglePause]
+
+chosenGame(...args)
 
 // To prevent scroll on down key, and set pause for space
 document.body.addEventListener('keydown', (e) => {
@@ -53,8 +54,9 @@ if (module.hot) {
     removeCanvas()
     addCanvas()
 
-    pong(animate, defaultRender, isPaused)
+    chosenGame(...args)
   }
   module.hot.accept('pong/main', reset)
+  module.hot.accept('brick/main', reset)
   module.hot.accept('utilities/AnimationUtilities', reset)
 }

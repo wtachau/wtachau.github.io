@@ -1,4 +1,4 @@
-// how fast the ball goes
+import { limeGreen } from 'constants/colors'
 const normalSpeed = 4
 
 class Ball {
@@ -12,7 +12,7 @@ class Ball {
   render() {
     window.context.beginPath()
     window.context.arc(this.x, this.y, 5, 2 * Math.PI, false)
-    window.context.fillStyle = '#0DFD55'
+    window.context.fillStyle = limeGreen
     window.context.fill()
   }
 

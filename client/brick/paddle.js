@@ -20,12 +20,10 @@ class Paddle {
     this.y += y
     this.x_speed = x
     this.y_speed = y
-    if (this.y < 0) {
-      this.y = 0
-      this.y_speed = 0
-    } else if (this.y + this.height > window.innerHeight) {
-      this.y = window.innerHeight - this.height
-      this.y_speed = 0
+    if (this.x < 0) {
+      this.x = 0
+    } else if (this.x + this.width > window.innerWidth) {
+      this.x = window.innerWidth - this.width
     }
   }
 }
