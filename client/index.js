@@ -33,7 +33,7 @@ const isPaused = () => {
 addCanvas()
 
 // Decide which game to play
-const games = [snake]
+const games = [snake, brick, pong]
 const gameChoice = Math.floor((Math.random() * games.length))
 const chosenGame = games[gameChoice]
 const args = [animate, defaultRender, isPaused, togglePause]
