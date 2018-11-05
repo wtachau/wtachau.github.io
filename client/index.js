@@ -34,7 +34,7 @@ const isPaused = () => {
 addCanvas()
 
 // Decide which game to play
-const games = [tetris]
+const games = [tetris, pong, brick, snake]
 const gameChoice = Math.floor((Math.random() * games.length))
 const chosenGame = games[gameChoice]
 const args = [animate, defaultRender, isPaused, togglePause]
