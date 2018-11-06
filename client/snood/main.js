@@ -36,16 +36,9 @@ export default (animate, defaultRender) => {
   const render = () => {
     cannon.render()
 
-    fixedBlocks.forEach((block) => {
-      block.render()
-    })
-
-    if (movingBlock) { movingBlock.render() }
-    pendingBlock.render()
-    nextBlockInQueue.render()
-
-
-    if (blockMovingToPending) { blockMovingToPending.render() }
+    fixedBlocks.concat(
+      movingBlock, pendingBlock, nextBlockInQueue, blockMovingToPending
+    ).forEach(b => b?.render())
   }
 
   const update = () => {
@@ -53,12 +46,8 @@ export default (animate, defaultRender) => {
 
     cannon.update(yourDegree)
 
-    if (movingBlock) {
-      movingBlock.update()
-    }
-
-    pendingBlock.update()
-    nextBlockInQueue.update()
+    const blocksToUpdate = [movingBlock, pendingBlock, nextBlockInQueue]
+    blocksToUpdate.forEach(b => b?.update())
 
     if (blockMovingToPending) {
       blockMovingToPending.update()
@@ -85,6 +74,8 @@ export default (animate, defaultRender) => {
 
       movingBlock = pendingBlock
       movingBlock.startMoving(yourDegree)
+
+      pendingBlock = null
 
       blockMovingToPending = nextBlockInQueue
       blockMovingToPending.startMoving(-90)
