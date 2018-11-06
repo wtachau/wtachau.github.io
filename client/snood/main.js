@@ -7,6 +7,7 @@ import MouseListener from './mouseListener'
 
 import { cannonCenter } from './constants'
 
+
 import {
   findCannonDegree
 } from './cannonHelpers'
@@ -14,11 +15,14 @@ import {
 import {
   randomBlockColor,
   newQueuedBlock,
-  generateInitialBlocks
+  generateInitialBlocks,
+  closestEmptySlot,
+  findCollidingBlock
 } from './blockHelpers'
 
 export default (animate, defaultRender) => {
   hideElementById('pause-container')
+  window.canvas.style.cursor = 'none'
 
   const initialDegree = -45
 
@@ -45,8 +49,20 @@ export default (animate, defaultRender) => {
     yourDegree = findCannonDegree(cannon, mouseListener)
 
     cannon.update(yourDegree)
+    movingBlock?.update(fixedBlocks)
 
-    const blocksToUpdate = [movingBlock, pendingBlock, nextBlockInQueue]
+    if (movingBlock) {
+      const collidingBlock = findCollidingBlock(fixedBlocks, movingBlock)
+
+      if (collidingBlock) {
+        const slotToEnter = closestEmptySlot(fixedBlocks, collidingBlock, movingBlock)
+        movingBlock.enterIntoSlot(slotToEnter)
+        fixedBlocks.push(movingBlock)
+        movingBlock = null
+      }
+    }
+
+    const blocksToUpdate = [pendingBlock, nextBlockInQueue]
     blocksToUpdate.forEach(b => b?.update())
 
     if (blockMovingToPending) {
@@ -72,15 +88,17 @@ export default (animate, defaultRender) => {
     if (isSpace(event)) {
       event.preventDefault()
 
-      movingBlock = pendingBlock
-      movingBlock.startMoving(yourDegree)
+      if (!movingBlock) {
+        movingBlock = pendingBlock
+        movingBlock.startMoving(yourDegree)
 
-      pendingBlock = null
+        pendingBlock = null
 
-      blockMovingToPending = nextBlockInQueue
-      blockMovingToPending.startMoving(-90)
+        blockMovingToPending = nextBlockInQueue
+        blockMovingToPending.startMoving(-90)
 
-      nextBlockInQueue = newQueuedBlock()
+        nextBlockInQueue = newQueuedBlock()
+      }
     }
   })
 

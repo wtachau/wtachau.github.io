@@ -1,4 +1,4 @@
-import { degreesToRadians } from 'utilities/DisplayUtilities'
+import { degreesToRadians } from 'utilities/MathUtilities'
 import { black, limeGreen } from 'constants/colors'
 
 const cannonWidth = 15

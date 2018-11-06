@@ -1,11 +1,15 @@
-import { degreesToRadians } from 'utilities/DisplayUtilities'
+import { degreesToRadians } from 'utilities/MathUtilities'
 import { arrayFrom1ToN } from 'utilities/ArrayUtilities'
+
+import { locationForRowAndColumn } from './blockHelpers'
 import { blockSpeed, blockSize } from './constants'
 
 class Block {
-  constructor(x, y, color) {
+  constructor(x, y, color, row, column) {
     this.x = x
     this.y = y
+    this.row = row
+    this.column = column
     this.color = color
     this.isMoving = false
     this.movementDegree = 0
@@ -45,6 +49,16 @@ class Block {
         }
       }
     }
+  }
+
+  enterIntoSlot(slot) {
+    const { row, column } = slot
+    const { x, y } = locationForRowAndColumn(row, column)
+    this.x = x
+    this.y = y
+    this.row = row
+    this.column = column
+    this.stopMoving()
   }
 
   startMoving(degree) {

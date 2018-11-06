@@ -1,4 +1,4 @@
-import { radiansToDegrees } from 'utilities/DisplayUtilities'
+import { radiansToDegrees } from 'utilities/MathUtilities'
 
 export const findCannonDegree = (cannon, mouseListener) => {
   const rawValue = radiansToDegrees(
