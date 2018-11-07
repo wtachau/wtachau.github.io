@@ -7,7 +7,6 @@ import MouseListener from './mouseListener'
 
 import { cannonCenter } from './constants'
 
-
 import {
   findCannonDegree
 } from './cannonHelpers'
@@ -17,7 +16,9 @@ import {
   newQueuedBlock,
   generateInitialBlocks,
   closestEmptySlot,
-  findCollidingBlock
+  findCollidingBlock,
+  checkForGroup,
+  checkForIslands
 } from './blockHelpers'
 
 export default (animate, defaultRender) => {
@@ -32,7 +33,17 @@ export default (animate, defaultRender) => {
   let pendingBlock = new Block(cannonCenter.x, cannonCenter.y, randomBlockColor())
   let blockMovingToPending = null
   let nextBlockInQueue = newQueuedBlock()
-  const fixedBlocks = generateInitialBlocks()
+  let fixedBlocks = generateInitialBlocks()
+  let flashingBlocks = []
+
+window.movingBlock = movingBlock
+window.pendingBlock = pendingBlock
+window.blockMovingToPending = blockMovingToPending
+window.nextBlockInQueue = nextBlockInQueue
+window.fixedBlocks = fixedBlocks
+window.flashingBlocks = flashingBlocks
+
+  const islands = []
 
   const mouseListener = new MouseListener()
   const cannon = new Cannon(cannonCenter.x, cannonCenter.y, initialDegree)
@@ -40,7 +51,7 @@ export default (animate, defaultRender) => {
   const render = () => {
     cannon.render()
 
-    fixedBlocks.concat(
+    fixedBlocks.concat(flashingBlocks).concat(
       movingBlock, pendingBlock, nextBlockInQueue, blockMovingToPending
     ).forEach(b => b?.render())
   }
@@ -49,6 +60,7 @@ export default (animate, defaultRender) => {
     yourDegree = findCannonDegree(cannon, mouseListener)
 
     cannon.update(yourDegree)
+    flashingBlocks.map(b => b.update())
     movingBlock?.update(fixedBlocks)
 
     if (movingBlock) {
@@ -58,6 +70,24 @@ export default (animate, defaultRender) => {
         const slotToEnter = closestEmptySlot(fixedBlocks, collidingBlock, movingBlock)
         movingBlock.enterIntoSlot(slotToEnter)
         fixedBlocks.push(movingBlock)
+
+        const group = checkForGroup(fixedBlocks, movingBlock)
+
+        if (group.length > 2) {
+          flashingBlocks = group
+          flashingBlocks.forEach(b => b.startFlashing())
+
+          flashingBlocks.forEach((flashingBlock) => {
+            fixedBlocks.splice(fixedBlocks.indexOf(flashingBlock), 1)
+          })
+        }
+
+        const newIslands = checkForIslands(fixedBlocks)
+        console.log('islands', newIslands)
+        newIslands.forEach((flashingBlock) => {
+          fixedBlocks.splice(fixedBlocks.indexOf(flashingBlock), 1)
+        })
+
         movingBlock = null
       }
     }

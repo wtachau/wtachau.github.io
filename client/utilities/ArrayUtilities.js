@@ -16,9 +16,13 @@ const mininumElement = (array, func) => {
   return minimum
 }
 
+const nonNullValues = (elements) => {
+  return elements.filter(e => e)
+}
 
 module.exports = {
   arrayFrom1ToN,
   randomElement,
-  mininumElement
+  mininumElement,
+  nonNullValues
 }

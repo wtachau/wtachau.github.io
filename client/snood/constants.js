@@ -4,7 +4,7 @@ const queuePadding = 100
 const numberRows = 6
 const numberColumns = 18
 
-const blockSpeed = 20
+const blockSpeed = 15
 const blockSize = window.innerWidth / (numberColumns + 0.5)
 
 const cannonCenter = {

@@ -3,7 +3,7 @@ import {
 } from 'constants/colors'
 
 import { distanceBetweenPoints } from 'utilities/MathUtilities'
-import { randomElement, arrayFrom1ToN, mininumElement } from 'utilities/ArrayUtilities'
+import { randomElement, arrayFrom1ToN, mininumElement, nonNullValues } from 'utilities/ArrayUtilities'
 
 import Block from './block'
 import {
@@ -33,12 +33,12 @@ export const generateInitialBlocks = () => {
       const column = row % 2 === 0 ? (columnRaw * 2) : (columnRaw * 2 + 1)
       const { x, y } = locationForRowAndColumn(row, column)
 
-      return new Block(x, y, randomBlockColor(), row, column)
+      return new Block(x, y, randomBlockColor(), row, column, true)
     })
   })
 }
 
-const getPotentialSlots = (row, column) => {
+const getNeighboringSlots = (row, column) => {
   const slots = []
 
   // to the left
@@ -85,15 +85,17 @@ export const findCollidingBlock = (fixedBlocks, block) => {
   })
 }
 
+export const matchingBlock = (block1, block2) => {
+  return block1.row === block2.row && block1.column === block2.column
+}
+
 export const closestEmptySlot = (fixedBlocks, block, movingBlock) => {
   const { row, column } = block
 
-  const potentialSlots = getPotentialSlots(row, column)
+  const potentialSlots = getNeighboringSlots(row, column)
 
   const emptySlots = potentialSlots.filter((slot) => {
-    return !fixedBlocks.find((fixedBlock) => {
-      return fixedBlock.row === slot.row && fixedBlock.column === slot.column
-    })
+    return !fixedBlocks.find(fixedBlock => matchingBlock(fixedBlock, slot))
   })
 
   const closestSlot = mininumElement(emptySlots, (slot) => {
@@ -104,4 +106,79 @@ export const closestEmptySlot = (fixedBlocks, block, movingBlock) => {
   })
 
   return closestSlot
+}
+
+
+const addNeighborsToGroup = (group, fixedBlocks, slots, color) => {
+  slots.forEach((slot) => {
+    const existingBlock = fixedBlocks.find((fixedBlock) => {
+      return fixedBlock.row === slot.row && fixedBlock.column === slot.column
+    })
+
+    if (existingBlock?.color === color) {
+      if (!group.find(groupBlock => matchingBlock(groupBlock, existingBlock))) {
+        group.push(existingBlock)
+        const { row, column } = existingBlock
+
+        const newNeighbors = getNeighboringSlots(row, column).filter((neighbor) => {
+          return !group.find(blockInGroup => matchingBlock(blockInGroup, neighbor))
+        })
+
+        addNeighborsToGroup(group, fixedBlocks, newNeighbors, color)
+      }
+    }
+  })
+}
+
+export const checkForGroup = (fixedBlocks, newBlock) => {
+  const group = [newBlock]
+  const { row, column, color } = newBlock
+  addNeighborsToGroup(group, fixedBlocks, getNeighboringSlots(row, column), color)
+
+  return group
+}
+
+const blockInSet = (block, set) => {
+  return set.find(b => matchingBlock(block, b))
+}
+
+const markNeighborsAsFixed = (alreadyMarked, fixedBlocks, block) => {
+  const { row, column } = block
+  const neighbors = nonNullValues(
+    getNeighboringSlots(row, column).map((neighbor) => {
+      const existingBlock = blockInSet(neighbor, fixedBlocks)
+      if (existingBlock && !blockInSet(existingBlock, alreadyMarked)) {
+        return existingBlock
+      }
+      return null
+    })
+  )
+
+  neighbors.forEach((neighbor) => {
+    neighbor.markAsFixed(true)
+    alreadyMarked.push(neighbor)
+    markNeighborsAsFixed(alreadyMarked, fixedBlocks, neighbor)
+  })
+}
+
+export const checkForIslands = (fixedBlocks) => {
+  // First mark all as not fixed
+  fixedBlocks.forEach(b => b.markAsFixed(false))
+
+  const topRow = fixedBlocks.filter(block => block.row === 0)
+  const alreadyMarked = []
+
+  topRow.forEach((topRowBlock) => {
+    topRowBlock.markAsFixed(true)
+    alreadyMarked.push(topRowBlock)
+    markNeighborsAsFixed(alreadyMarked, fixedBlocks, topRowBlock)
+  })
+
+  return fixedBlocks.filter(b => !b.fixedToBase)
+}
+
+export const fixedBlocksWithoutGroup = (fixedBlocks, withoutGroup) => {
+  return fixedBlocks.filter((b1) => {
+    return !withoutGroup.find(b2 => matchingBlock(b1, b2))
+  })
 }

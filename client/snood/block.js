@@ -1,18 +1,28 @@
+import { black, white } from 'constants/colors'
 import { degreesToRadians } from 'utilities/MathUtilities'
 import { arrayFrom1ToN } from 'utilities/ArrayUtilities'
 
 import { locationForRowAndColumn } from './blockHelpers'
 import { blockSpeed, blockSize } from './constants'
 
+const flashingSpeed = 5
+const numberOfFlashes = 2
+
 class Block {
-  constructor(x, y, color, row, column) {
+  constructor(x, y, color, row, column, fixedToBase = false) {
     this.x = x
     this.y = y
     this.row = row
     this.column = column
     this.color = color
+
     this.isMoving = false
     this.movementDegree = 0
+
+    this.isFlashing = false
+    this.flashingCount = 0
+
+    this.fixedToBase = fixedToBase
   }
 
   render() {
@@ -29,7 +39,12 @@ class Block {
       )
     })
 
-    c.fillStyle = this.color
+    if (this.isFlashing) {
+      const shouldBeWhite = this.flashingCount > 0 && parseInt(this.flashingCount / flashingSpeed) % 2 !== 0
+      c.fillStyle = shouldBeWhite ? white : black
+    } else {
+      c.fillStyle = this.color
+    }
     c.fill()
   }
 
@@ -48,6 +63,9 @@ class Block {
           this.x = window.innerWidth - blockSize / 2
         }
       }
+    }
+    if (this.isFlashing) {
+      this.flashingCount -= 1
     }
   }
 
@@ -68,6 +86,15 @@ class Block {
 
   stopMoving() {
     this.isMoving = false
+  }
+
+  startFlashing() {
+    this.isFlashing = true
+    this.flashingCount = numberOfFlashes * 2 * flashingSpeed
+  }
+
+  markAsFixed(fixed) {
+    this.fixedToBase = fixed
   }
 }
 
