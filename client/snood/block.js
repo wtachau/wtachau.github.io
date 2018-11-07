@@ -1,12 +1,12 @@
 import { black, white } from 'constants/colors'
-import { degreesToRadians } from 'utilities/MathUtilities'
+import { degreesToRadians, getRandomNumber } from 'utilities/MathUtilities'
 import { arrayFrom1ToN } from 'utilities/ArrayUtilities'
 
 import { locationForRowAndColumn } from './blockHelpers'
-import { blockSpeed, blockSize } from './constants'
-
-const flashingSpeed = 5
-const numberOfFlashes = 2
+import {
+  blockSpeed, blockSize, flashingSpeed, numberOfFlashes,
+  fallingAcceleration, initialUpwardsMomentum, horizontalSpeedMax
+} from './constants'
 
 class Block {
   constructor(x, y, color, row, column, fixedToBase = false) {
@@ -23,6 +23,8 @@ class Block {
     this.flashingCount = 0
 
     this.isFalling = false
+    this.fallingSpeed = 0
+    this.sideSpeed = 0
 
     this.fixedToBase = fixedToBase
   }
@@ -69,6 +71,11 @@ class Block {
     if (this.isFlashing) {
       this.flashingCount -= 1
     }
+    if (this.isFalling) {
+      this.x += this.sideSpeed
+      this.y += this.fallingSpeed
+      this.fallingSpeed += fallingAcceleration
+    }
   }
 
   enterIntoSlot(slot) {
@@ -82,6 +89,10 @@ class Block {
     this.markAsFixed(true)
   }
 
+  moveToPending() {
+    this.startMoving(-90)
+  }
+
   startMoving(degree) {
     this.isMoving = true
     this.movementDegree = degree
@@ -93,11 +104,15 @@ class Block {
 
   startFlashing() {
     this.isFlashing = true
+    this.markAsFixed(false)
     this.flashingCount = numberOfFlashes * 2 * flashingSpeed
   }
 
   startFalling() {
     this.isFalling = true
+    this.markAsFixed(false)
+    this.fallingSpeed = -initialUpwardsMomentum
+    this.sideSpeed = getRandomNumber(-horizontalSpeedMax, horizontalSpeedMax)
   }
 
   markAsFixed(fixed) {

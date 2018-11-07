@@ -3,16 +3,19 @@ import {
 } from 'constants/colors'
 
 import { distanceBetweenPoints } from 'utilities/MathUtilities'
-import { randomElement, arrayFrom1ToN, mininumElement, nonNullValues } from 'utilities/ArrayUtilities'
+import {
+  randomElement, arrayFrom1ToN, mininumElement, nonNullValues
+} from 'utilities/ArrayUtilities'
 
 import Block from './block'
 import {
-  queueCenter, numberColumns, numberRows, blockSize
+  queueCenter, numberColumns, numberRows, blockSize, blockBuffer
 } from './constants'
 
 export const randomBlockColor = () => {
   return randomElement([
     pink, yellow, orange, cyan, red, purple, limeGreen
+    // pink, yellow
   ])
 }
 
@@ -79,7 +82,6 @@ const getNeighboringSlots = (row, column) => {
 }
 
 export const findCollidingBlock = (fixedBlocks, block) => {
-  const blockBuffer = -10
   return fixedBlocks.find((fixedBlock) => {
     return distanceBetweenPoints(fixedBlock, block) <= blockSize + blockBuffer
   })
@@ -109,6 +111,10 @@ export const closestEmptySlot = (fixedBlocks, block, movingBlock) => {
 }
 
 
+const blockInGroup = (block, group) => {
+  return group.find(b => matchingBlock(block, b))
+}
+
 const addNeighborsToGroup = (group, fixedBlocks, slots, color) => {
   slots.forEach((slot) => {
     const existingBlock = fixedBlocks.find((fixedBlock) => {
@@ -116,12 +122,12 @@ const addNeighborsToGroup = (group, fixedBlocks, slots, color) => {
     })
 
     if (existingBlock?.color === color) {
-      if (!group.find(groupBlock => matchingBlock(groupBlock, existingBlock))) {
+      if (!blockInGroup(existingBlock, group)) {
         group.push(existingBlock)
         const { row, column } = existingBlock
 
         const newNeighbors = getNeighboringSlots(row, column).filter((neighbor) => {
-          return !group.find(blockInGroup => matchingBlock(blockInGroup, neighbor))
+          return !blockInGroup(neighbor, group)
         })
 
         addNeighborsToGroup(group, fixedBlocks, newNeighbors, color)
@@ -138,16 +144,13 @@ export const checkForGroup = (fixedBlocks, newBlock) => {
   return group
 }
 
-const blockInSet = (block, set) => {
-  return set.find(b => matchingBlock(block, b))
-}
 
 const markNeighborsAsFixed = (alreadyMarked, fixedBlocks, block) => {
   const { row, column } = block
   const neighbors = nonNullValues(
     getNeighboringSlots(row, column).map((neighbor) => {
-      const existingBlock = blockInSet(neighbor, fixedBlocks)
-      if (existingBlock && !blockInSet(existingBlock, alreadyMarked)) {
+      const existingBlock = blockInGroup(neighbor, fixedBlocks)
+      if (existingBlock && !blockInGroup(existingBlock, alreadyMarked)) {
         return existingBlock
       }
       return null

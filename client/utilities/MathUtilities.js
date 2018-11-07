@@ -12,3 +12,7 @@ export const degreesToRadians = (degrees) => {
 export const radiansToDegrees = (radians) => {
   return radians * 180 / Math.PI
 }
+
+export const getRandomNumber = (min, max) => {
+  return Math.random() * (max - min) + min
+}

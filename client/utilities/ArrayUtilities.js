@@ -20,6 +20,22 @@ const nonNullValues = (elements) => {
   return elements.filter(e => e)
 }
 
+/* eslint-disable no-extend-native, func-names */
+Array.prototype.removeIfTrue = function (func) {
+  this.forEach((el) => {
+    if (func(el)) {
+      this.splice(this.indexOf(el, 1))
+    }
+  })
+}
+
+Array.prototype.removeElements = function (elements) {
+  elements.forEach((el) => {
+    this.splice(this.indexOf(el), 1)
+  })
+}
+/* eslint-enable no-extend-native, func-names */
+
 module.exports = {
   arrayFrom1ToN,
   randomElement,

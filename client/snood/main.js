@@ -1,5 +1,6 @@
 import { hideElementById } from 'utilities/DisplayUtilities'
 import { isSpace }    from 'utilities/EventUtilities'
+// import { removeIfTrue } from 'utilities/ArrayUtilities'
 
 import Cannon from './cannon'
 import Block from './block'
@@ -23,27 +24,20 @@ import {
 
 export default (animate, defaultRender) => {
   hideElementById('pause-container')
-  window.canvas.style.cursor = 'none'
+  // window.canvas.style.cursor = 'none'
 
   const initialDegree = -45
 
   let yourDegree = initialDegree
 
+  const fixedBlocks = generateInitialBlocks()
+
   let movingBlock = null
   let pendingBlock = new Block(cannonCenter.x, cannonCenter.y, randomBlockColor())
   let blockMovingToPending = null
   let nextBlockInQueue = newQueuedBlock()
-  let fixedBlocks = generateInitialBlocks()
   let flashingBlocks = []
-
-window.movingBlock = movingBlock
-window.pendingBlock = pendingBlock
-window.blockMovingToPending = blockMovingToPending
-window.nextBlockInQueue = nextBlockInQueue
-window.fixedBlocks = fixedBlocks
-window.flashingBlocks = flashingBlocks
-
-  const islands = []
+  let fallingBlocks = []
 
   const mouseListener = new MouseListener()
   const cannon = new Cannon(cannonCenter.x, cannonCenter.y, initialDegree)
@@ -51,26 +45,23 @@ window.flashingBlocks = flashingBlocks
   const render = () => {
     cannon.render()
 
-    fixedBlocks.concat(flashingBlocks).concat(
+    fixedBlocks.concat(flashingBlocks).concat(fallingBlocks).concat(
       movingBlock, pendingBlock, nextBlockInQueue, blockMovingToPending
     ).forEach(b => b?.render())
   }
 
   const update = () => {
     yourDegree = findCannonDegree(cannon, mouseListener)
-
     cannon.update(yourDegree)
-    flashingBlocks.map(b => b.update())
 
-    flashingBlocks.forEach((flashingBlock) => {
-      if (flashingBlock.flashingCount < 0) {
-        flashingBlocks.splice(flashingBlocks.indexOf(flashingBlock), 1)
-      }
-    })
-
-    movingBlock?.update(fixedBlocks)
+    flashingBlocks.concat(fallingBlocks).map(b => b.update())
+    // Important: Delete "flashing" blocks once they are done flashing,
+    //  so they don't get in the way
+    flashingBlocks.removeIfTrue(b => b.flashingCount < 0)
 
     if (movingBlock) {
+      // TODO: Can we move this somewhere else?
+      movingBlock.update(fixedBlocks)
       const collidingBlock = findCollidingBlock(fixedBlocks, movingBlock)
 
       if (collidingBlock) {
@@ -80,28 +71,21 @@ window.flashingBlocks = flashingBlocks
 
         const group = checkForGroup(fixedBlocks, movingBlock)
 
-        group.forEach(g => g.render(true))
-
         if (group.length > 2) {
           flashingBlocks = group
           flashingBlocks.forEach(b => b.startFlashing())
+          fixedBlocks.removeElements(flashingBlocks)
 
-          flashingBlocks.forEach((flashingBlock) => {
-            fixedBlocks.splice(fixedBlocks.indexOf(flashingBlock), 1)
-          })
+          fallingBlocks = checkForIslands(fixedBlocks)
+          fallingBlocks.forEach(b => b.startFalling())
+          fixedBlocks.removeElements(fallingBlocks)
         }
-
-        const newIslands = checkForIslands(fixedBlocks)
-        newIslands.forEach((flashingBlock) => {
-          fixedBlocks.splice(fixedBlocks.indexOf(flashingBlock), 1)
-        })
 
         movingBlock = null
       }
     }
 
-    const blocksToUpdate = [pendingBlock, nextBlockInQueue]
-    blocksToUpdate.forEach(b => b?.update())
+    [pendingBlock, nextBlockInQueue].forEach(b => b?.update())
 
     if (blockMovingToPending) {
       blockMovingToPending.update()
@@ -130,11 +114,10 @@ window.flashingBlocks = flashingBlocks
         movingBlock = pendingBlock
         movingBlock.startMoving(yourDegree)
 
-        pendingBlock = null
-
         blockMovingToPending = nextBlockInQueue
-        blockMovingToPending.startMoving(-90)
+        blockMovingToPending.moveToPending()
 
+        pendingBlock = null
         nextBlockInQueue = newQueuedBlock()
       }
     }
