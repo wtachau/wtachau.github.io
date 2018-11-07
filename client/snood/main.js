@@ -61,6 +61,13 @@ window.flashingBlocks = flashingBlocks
 
     cannon.update(yourDegree)
     flashingBlocks.map(b => b.update())
+
+    flashingBlocks.forEach((flashingBlock) => {
+      if (flashingBlock.flashingCount < 0) {
+        flashingBlocks.splice(flashingBlocks.indexOf(flashingBlock), 1)
+      }
+    })
+
     movingBlock?.update(fixedBlocks)
 
     if (movingBlock) {
@@ -73,7 +80,6 @@ window.flashingBlocks = flashingBlocks
 
         const group = checkForGroup(fixedBlocks, movingBlock)
 
-        console.log(group)
         group.forEach(g => g.render(true))
 
         if (group.length > 2) {
@@ -85,11 +91,10 @@ window.flashingBlocks = flashingBlocks
           })
         }
 
-        // const newIslands = checkForIslands(fixedBlocks)
-        // console.log('islands', newIslands)
-        // newIslands.forEach((flashingBlock) => {
-        //   fixedBlocks.splice(fixedBlocks.indexOf(flashingBlock), 1)
-        // })
+        const newIslands = checkForIslands(fixedBlocks)
+        newIslands.forEach((flashingBlock) => {
+          fixedBlocks.splice(fixedBlocks.indexOf(flashingBlock), 1)
+        })
 
         movingBlock = null
       }

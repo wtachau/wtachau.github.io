@@ -10,8 +10,6 @@ const numberOfFlashes = 2
 
 class Block {
   constructor(x, y, color, row, column, fixedToBase = false) {
-    this.idString = Math.random().toString(36).substring(7)
-
     this.x = x
     this.y = y
     this.row = row
@@ -24,10 +22,12 @@ class Block {
     this.isFlashing = false
     this.flashingCount = 0
 
+    this.isFalling = false
+
     this.fixedToBase = fixedToBase
   }
 
-  render(print = false) {
+  render() {
     const blockRadius = blockSize / 2
     const c = window.context
     c.beginPath()
@@ -41,24 +41,11 @@ class Block {
       )
     })
 
-    if (print) {
-      console.log(this)
-    }
-
     if (this.isFlashing) {
-      if (print) {
-        console.log('1')
-      }
       const shouldBeWhite = this.flashingCount > 0 && parseInt(this.flashingCount / flashingSpeed) % 2 !== 0
       c.fillStyle = shouldBeWhite ? white : black
     } else {
       c.fillStyle = this.color
-      if (print) {
-        console.log('2')
-        c.fillStyle = '#f4f4f4'
-        console.log(c)
-      }
-      c.fill()
     }
     c.fill()
   }
@@ -107,6 +94,10 @@ class Block {
   startFlashing() {
     this.isFlashing = true
     this.flashingCount = numberOfFlashes * 2 * flashingSpeed
+  }
+
+  startFalling() {
+    this.isFalling = true
   }
 
   markAsFixed(fixed) {
