@@ -10,6 +10,8 @@ const numberOfFlashes = 2
 
 class Block {
   constructor(x, y, color, row, column, fixedToBase = false) {
+    this.idString = Math.random().toString(36).substring(7)
+
     this.x = x
     this.y = y
     this.row = row
