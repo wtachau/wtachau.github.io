@@ -73,6 +73,9 @@ window.flashingBlocks = flashingBlocks
 
         const group = checkForGroup(fixedBlocks, movingBlock)
 
+        console.log(group)
+        group.forEach(g => g.render(true))
+
         if (group.length > 2) {
           flashingBlocks = group
           flashingBlocks.forEach(b => b.startFlashing())
@@ -82,11 +85,11 @@ window.flashingBlocks = flashingBlocks
           })
         }
 
-        const newIslands = checkForIslands(fixedBlocks)
-        console.log('islands', newIslands)
-        newIslands.forEach((flashingBlock) => {
-          fixedBlocks.splice(fixedBlocks.indexOf(flashingBlock), 1)
-        })
+        // const newIslands = checkForIslands(fixedBlocks)
+        // console.log('islands', newIslands)
+        // newIslands.forEach((flashingBlock) => {
+        //   fixedBlocks.splice(fixedBlocks.indexOf(flashingBlock), 1)
+        // })
 
         movingBlock = null
       }

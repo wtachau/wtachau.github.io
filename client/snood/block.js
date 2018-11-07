@@ -25,7 +25,7 @@ class Block {
     this.fixedToBase = fixedToBase
   }
 
-  render() {
+  render(print = false) {
     const blockRadius = blockSize / 2
     const c = window.context
     c.beginPath()
@@ -39,11 +39,24 @@ class Block {
       )
     })
 
+    if (print) {
+      console.log(this)
+    }
+
     if (this.isFlashing) {
+      if (print) {
+        console.log('1')
+      }
       const shouldBeWhite = this.flashingCount > 0 && parseInt(this.flashingCount / flashingSpeed) % 2 !== 0
       c.fillStyle = shouldBeWhite ? white : black
     } else {
       c.fillStyle = this.color
+      if (print) {
+        console.log('2')
+        c.fillStyle = '#f4f4f4'
+        console.log(c)
+      }
+      c.fill()
     }
     c.fill()
   }
@@ -77,6 +90,7 @@ class Block {
     this.row = row
     this.column = column
     this.stopMoving()
+    this.markAsFixed(true)
   }
 
   startMoving(degree) {
