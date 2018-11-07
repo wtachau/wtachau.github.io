@@ -1,7 +1,7 @@
 const bottomPadding = 60
 const queuePadding = 100
 
-const numberRows = 0
+const numberRows = 6
 const numberColumns = 18
 
 const blockSpeed = 18
