@@ -91,28 +91,36 @@ export const matchingBlock = (block1, block2) => {
   return block1.row === block2.row && block1.column === block2.column
 }
 
-export const closestEmptySlot = (fixedBlocks, block, movingBlock) => {
-  const { row, column } = block
+const blockInGroup = (block, group) => {
+  return group.find(b => matchingBlock(block, b))
+}
 
-  const potentialSlots = getNeighboringSlots(row, column)
+export const closestEmptySlot = (fixedBlocks, block, movingBlock) => {
+  let potentialSlots
+
+  if (block) {
+    const { row, column } = block
+
+    // if it collided with a block, look at all those neighbors
+    potentialSlots = getNeighboringSlots(row, column)
+  } else {
+    // otherwise look at all first row slots
+    potentialSlots = arrayFrom1ToN(numberColumns).map((columnRaw) => {
+      const column = columnRaw * 2
+      return { row: 0, column }
+    })
+  }
 
   const emptySlots = potentialSlots.filter((slot) => {
-    return !fixedBlocks.find(fixedBlock => matchingBlock(fixedBlock, slot))
+    return !blockInGroup(slot, fixedBlocks)
   })
 
-  const closestSlot = mininumElement(emptySlots, (slot) => {
+  return mininumElement(emptySlots, (slot) => {
     return distanceBetweenPoints(
       locationForRowAndColumn(slot.row, slot.column),
       movingBlock
     )
   })
-
-  return closestSlot
-}
-
-
-const blockInGroup = (block, group) => {
-  return group.find(b => matchingBlock(block, b))
 }
 
 const addNeighborsToGroup = (group, fixedBlocks, slots, color) => {

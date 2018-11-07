@@ -6,7 +6,9 @@ import Cannon from './cannon'
 import Block from './block'
 import MouseListener from './mouseListener'
 
-import { cannonCenter } from './constants'
+import {
+  cannonCenter, blockSize
+} from './constants'
 
 import {
   findCannonDegree
@@ -64,7 +66,7 @@ export default (animate, defaultRender) => {
       movingBlock.update(fixedBlocks)
       const collidingBlock = findCollidingBlock(fixedBlocks, movingBlock)
 
-      if (collidingBlock) {
+      if (collidingBlock || movingBlock.isOffEdge()) {
         const slotToEnter = closestEmptySlot(fixedBlocks, collidingBlock, movingBlock)
         movingBlock.enterIntoSlot(slotToEnter)
         fixedBlocks.push(movingBlock)
@@ -106,21 +108,28 @@ export default (animate, defaultRender) => {
     animate(step)
   }
 
+  const shoot = () => {
+    if (!movingBlock) {
+      movingBlock = pendingBlock
+      movingBlock.startMoving(yourDegree)
+
+      blockMovingToPending = nextBlockInQueue
+      blockMovingToPending.moveToPending()
+
+      pendingBlock = null
+      nextBlockInQueue = newQueuedBlock()
+    }
+  }
+
   document.body.addEventListener('keydown', (event) => {
     if (isSpace(event)) {
       event.preventDefault()
-
-      if (!movingBlock) {
-        movingBlock = pendingBlock
-        movingBlock.startMoving(yourDegree)
-
-        blockMovingToPending = nextBlockInQueue
-        blockMovingToPending.moveToPending()
-
-        pendingBlock = null
-        nextBlockInQueue = newQueuedBlock()
-      }
+      shoot()
     }
+  })
+  document.body.addEventListener('click', (event) => {
+    event.preventDefault()
+    shoot()
   })
 
   animate(step)

@@ -118,6 +118,11 @@ class Block {
   markAsFixed(fixed) {
     this.fixedToBase = fixed
   }
+
+  isOffEdge() {
+    // todo: handle when floor moves up
+    return this.y < blockSize / 2
+  }
 }
 
 export default Block
