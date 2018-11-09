@@ -114,7 +114,6 @@ export default (animate, defaultRender) => {
     }
 
 
-    console.log(numberRows + numberSteps)
     const deathBlocks = fixedBlocks.filter(b => (b.row + stepsDown) >= (numberRows + numberSteps))
     if (!gameOver && deathBlocks.length > 0) {
       gameOver = true
