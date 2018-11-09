@@ -36,5 +36,5 @@ module.exports = {
   hideElementById,
   showElementById,
   updateYourScore,
-  updateComputerScore
+  updateComputerScore,
 }

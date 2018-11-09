@@ -6,6 +6,7 @@ const orange = '#FF6600'
 const cyan = '#0FFFFF'
 const red = '#FF0000'
 const purple = '#6E0DD0'
+const white = '#FFFFFF'
 
 module.exports = {
   limeGreen,
@@ -15,5 +16,6 @@ module.exports = {
   orange,
   cyan,
   red,
-  purple
+  purple,
+  white,
 }
