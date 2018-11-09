@@ -1,10 +1,13 @@
 import { degreesToRadians } from 'utilities/MathUtilities'
 import { black, limeGreen } from 'constants/colors'
 
-const cannonWidth = 15
-const cannonHeight = 80
-const cannonLoadingRadius = 30
-const cannonLoadingWidth = 10
+import {
+  cannonWidth,
+  cannonHeight,
+  cannonLoadingRadius,
+  cannonLoadingWidth,
+} from './constants'
+
 
 class Cannon {
   constructor(x, y, degree) {

@@ -22,7 +22,7 @@ html
       span#compScore.score
       span#yourScore.score
       #name will tachau
-      #brick_text(style='display:none;')
+      #game_over_text(style='display:none;')
       #subtext software engineer
 
       span#pause-container(onclick='toggle_pause()')
@@ -31,6 +31,8 @@ html
     #page1-mobile
       #name will tachau
       #subtext software engineer
+    .hidden
+      != CDN('/images/death.png', { 'id': 'skull'})
     // Google Analytics
     script.
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

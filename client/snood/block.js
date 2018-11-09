@@ -4,6 +4,7 @@ import { arrayFrom1ToN } from 'utilities/ArrayUtilities'
 
 import { locationForRowAndColumn } from './blockHelpers'
 import {
+  screenSidePadding,
   blockSpeed, blockSize, flashingSpeed, numberOfFlashes,
   fallingAcceleration, initialUpwardsMomentum, horizontalSpeedMax
 } from './constants'
@@ -26,6 +27,8 @@ class Block {
     this.fallingSpeed = 0
     this.sideSpeed = 0
 
+    this.isSkull = false
+
     this.fixedToBase = fixedToBase
   }
 
@@ -43,13 +46,29 @@ class Block {
       )
     })
 
-    if (this.isFlashing) {
-      const shouldBeWhite = this.flashingCount > 0 && parseInt(this.flashingCount / flashingSpeed) % 2 !== 0
-      c.fillStyle = shouldBeWhite ? white : black
+    if (this.isSkull) {
+      c.fillStyle = white
+      c.fill()
+      window.context.drawImage(
+        document.getElementById('skull'),
+        this.x - blockSize / 3,
+        this.y - blockSize / 3,
+        blockSize * 2 / 3,
+        blockSize * 2 / 3
+      )
     } else {
-      c.fillStyle = this.color
+      if (this.isFlashing) {
+        const shouldBeWhite = this.flashingCount > 0 && parseInt(this.flashingCount / flashingSpeed) % 2 !== 0
+        c.fillStyle = shouldBeWhite ? white : black
+      } else {
+        c.fillStyle = this.color
+      }
+      c.fill()
     }
-    c.fill()
+  }
+
+  setAsSkull() {
+    this.isSkull = true
   }
 
   update() {
@@ -59,12 +78,14 @@ class Block {
       this.y = blockSpeed * Math.sin(radians) + this.y
 
       // goes off the left or right
-      if (this.x < blockSize / 2 || this.x > window.innerWidth - blockSize / 2) {
+      const leftBorder = screenSidePadding + blockSize / 2
+      const rightBorder = window.innerWidth - screenSidePadding - blockSize / 2
+      if (this.x < leftBorder || this.x > rightBorder) {
         this.movementDegree = -this.movementDegree
-        if (this.x < blockSize / 2) {
-          this.x = blockSize / 2
+        if (this.x < leftBorder) {
+          this.x = leftBorder
         } else {
-          this.x = window.innerWidth - blockSize / 2
+          this.x = rightBorder
         }
       }
     }
@@ -78,9 +99,9 @@ class Block {
     }
   }
 
-  enterIntoSlot(slot) {
+  enterIntoSlot(slot, stepsDown) {
     const { row, column } = slot
-    const { x, y } = locationForRowAndColumn(row, column)
+    const { x, y } = locationForRowAndColumn(row, column, stepsDown)
     this.x = x
     this.y = y
     this.row = row
@@ -119,9 +140,12 @@ class Block {
     this.fixedToBase = fixed
   }
 
-  isOffEdge() {
-    // todo: handle when floor moves up
-    return this.y < blockSize / 2
+  isOffEdge(stepsDown) {
+    return this.y < (blockSize / 2 + ((stepsDown + 1) * blockSize))
+  }
+
+  stepDown() {
+    this.y += blockSize
   }
 }
 

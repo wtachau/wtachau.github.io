@@ -19,7 +19,7 @@ export default (didWin, resetGame, togglePause) => {
 
   const flashMessage = (message) => {
     togglePause()
-    const brickTextElement = document.getElementById('brick_text')
+    const brickTextElement = document.getElementById('game_over_text')
     brickTextElement.innerHTML = message
 
     let hideMessage

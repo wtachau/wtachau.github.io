@@ -20,6 +20,10 @@ const nonNullValues = (elements) => {
   return elements.filter(e => e)
 }
 
+const uniqueValues = (elements) => {
+  return [...new Set(elements)]
+}
+
 /* eslint-disable no-extend-native, func-names */
 Array.prototype.removeIfTrue = function (func) {
   this.forEach((el) => {
@@ -40,5 +44,6 @@ module.exports = {
   arrayFrom1ToN,
   randomElement,
   mininumElement,
-  nonNullValues
+  nonNullValues,
+  uniqueValues
 }

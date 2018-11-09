@@ -4,29 +4,31 @@ import {
 
 import { distanceBetweenPoints } from 'utilities/MathUtilities'
 import {
-  randomElement, arrayFrom1ToN, mininumElement, nonNullValues
+  randomElement, arrayFrom1ToN, mininumElement, nonNullValues, uniqueValues
 } from 'utilities/ArrayUtilities'
 
 import Block from './block'
 import {
-  queueCenter, numberColumns, numberRows, blockSize, blockBuffer
+  queueCenter, numberColumns, numberRows, blockSize, blockBuffer,
+  blockOffset, screenSidePadding
 } from './constants'
 
-export const randomBlockColor = () => {
-  return randomElement([
+export const randomBlockColor = (colors) => {
+  const colorsToChooseFrom = colors || [
     pink, yellow, orange, cyan, red, purple, limeGreen
-    // pink, yellow
-  ])
+  ]
+
+  return randomElement(colorsToChooseFrom)
 }
 
-export const newQueuedBlock = () => {
-  return new Block(queueCenter.x, queueCenter.y, randomBlockColor())
+export const newQueuedBlock = (colors) => {
+  return new Block(queueCenter.x, queueCenter.y, randomBlockColor(colors))
 }
 
-export const locationForRowAndColumn = (row, column) => {
+export const locationForRowAndColumn = (row, column, steps) => {
   return {
-    x: (column * blockSize) / 2 + blockSize / 2,
-    y: row * blockSize + blockSize / 2
+    x: (column * blockSize) / 2 + blockSize / 2 + screenSidePadding,
+    y: (row * blockSize + blockSize / 2) + blockOffset * (steps + 1)
   }
 }
 
@@ -34,7 +36,7 @@ export const generateInitialBlocks = () => {
   return arrayFrom1ToN(numberRows).flatMap((row) => {
     return arrayFrom1ToN(numberColumns).map((columnRaw) => {
       const column = row % 2 === 0 ? (columnRaw * 2) : (columnRaw * 2 + 1)
-      const { x, y } = locationForRowAndColumn(row, column)
+      const { x, y } = locationForRowAndColumn(row, column, 0)
 
       return new Block(x, y, randomBlockColor(), row, column, true)
     })
@@ -95,7 +97,7 @@ const blockInGroup = (block, group) => {
   return group.find(b => matchingBlock(block, b))
 }
 
-export const closestEmptySlot = (fixedBlocks, block, movingBlock) => {
+export const closestEmptySlot = (fixedBlocks, block, movingBlock, stepsDown) => {
   let potentialSlots
 
   if (block) {
@@ -117,7 +119,7 @@ export const closestEmptySlot = (fixedBlocks, block, movingBlock) => {
 
   return mininumElement(emptySlots, (slot) => {
     return distanceBetweenPoints(
-      locationForRowAndColumn(slot.row, slot.column),
+      locationForRowAndColumn(slot.row, slot.column, stepsDown),
       movingBlock
     )
   })
@@ -192,4 +194,8 @@ export const fixedBlocksWithoutGroup = (fixedBlocks, withoutGroup) => {
   return fixedBlocks.filter((b1) => {
     return !withoutGroup.find(b2 => matchingBlock(b1, b2))
   })
+}
+
+export const findRemainingColors = (fixedBlocks) => {
+  return uniqueValues(fixedBlocks.map(b => b.color))
 }

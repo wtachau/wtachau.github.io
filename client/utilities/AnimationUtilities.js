@@ -1,5 +1,3 @@
-import { black } from 'constants/colors'
-
 export const defaultAnimation = (callback) => {
   window.setTimeout(callback, 1000 / 60)
 }
@@ -15,6 +13,8 @@ export const defaultRender = () => {
   const yourScoreElement = document.getElementById('yourScore')
   const compScoreElement = document.getElementById('compScore')
 
+  const scorePadding = 80
+
   // set coordinates of elements in canvas
   nameElement.style.top = window.innerHeight / 2 - 60 + 'px'
   nameElement.style.left = (window.innerWidth - nameElement.clientWidth) / 2 + 'px'
@@ -23,13 +23,10 @@ export const defaultRender = () => {
   subtextElement.style.left = (window.innerWidth - subtextElement.clientWidth) / 2 + 'px'
 
   yourScoreElement.style.top = 20 + 'px'
-  yourScoreElement.style.left = window.innerWidth - 40 + 'px'
+  yourScoreElement.style.left = window.innerWidth - scorePadding + 'px'
 
   compScoreElement.style.top = 20 + 'px'
-  compScoreElement.style.left = 30 + 'px'
-
-  window.context.fillRect(0, 0, window.innerWidth, window.innerHeight)
-  window.context.fillStyle = black
+  compScoreElement.style.left = scorePadding + 'px'
 }
 
 export const createCanvas = () => {
