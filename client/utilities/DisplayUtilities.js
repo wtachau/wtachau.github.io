@@ -30,6 +30,8 @@ const updateComputerScore = score => {
   updateInnerHTML("compScore", score);
 };
 
+const fontName = "Press Start 2P";
+
 const screenCenter = {
   centerX: Math.floor(window.innerWidth / 2),
   centerY: Math.floor(window.innerHeight / 2)
@@ -42,5 +44,6 @@ module.exports = {
   showElementById,
   updateYourScore,
   updateComputerScore,
-  screenCenter
+  screenCenter,
+  fontName
 };

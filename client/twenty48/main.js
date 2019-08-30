@@ -1,12 +1,16 @@
-import { hideElementById } from "utilities/DisplayUtilities";
+import { hideElementById, updateYourScore } from "utilities/DisplayUtilities";
 import { getRandomInt } from "utilities/MathUtilities";
 import { listenForKeys } from "utilities/InteractionUtilities";
-import { arrayFrom1ToN, randomElement } from "utilities/ArrayUtilities";
-import { blockSize, numBlocks, movingSpeed } from "./constants";
+import { randomElement } from "utilities/ArrayUtilities";
+import { blockSize, movingSpeed, newBlockDelay } from "./constants";
 import { isArrowKey } from "utilities/EventUtilities";
+import { gameOverDisplay } from "utilities/GameOverUtilities";
 import Board from "./board";
 import Square from "./square";
-import { moveSquares } from "./move";
+import { moveSquares, finishTransition, openSpaces } from "./move";
+import { anyMovesLeft } from "./gameOver";
+
+import { addColorMenu } from "./colors";
 
 const subtextElement = document.getElementById("subtext");
 const nameElement = document.getElementById("name");
@@ -16,76 +20,72 @@ const moveNameDown = () => {
   subtextElement.style.top = window.innerHeight / 2 + 240 + "px";
 };
 
-const openSpaces = squares => {
-  const empty = [];
-  arrayFrom1ToN(numBlocks).forEach(x => {
-    arrayFrom1ToN(numBlocks).forEach(y => {
-      if (
-        squares.findIndex(s => {
-          return (
-            (s.col === y && s.row === x) ||
-            (s.desiredCol === y && s.desiredRow === x)
-          );
-        }) < 0
-      ) {
-        empty.push({ col: y, row: x });
-      }
-    });
-  });
-  return empty;
-};
-
 const randomSquare = squares => {
   const eligibleSpaces = openSpaces(squares);
-  console.log("all open:", openSpaces(squares));
   if (eligibleSpaces.length === 0) {
-    console.log("YOU LOSE");
     return undefined;
   }
   const { col, row } = randomElement(eligibleSpaces);
 
-  // console.log("square right now", squares);
-  // console.log("adding one in ", col, row, ", looks good to me!");
-
-  return new Square(col, row, 0);
+  return new Square(col, row, getRandomInt(0, 1));
 };
 
 export default (animate, defaultRender) => {
   hideElementById("pause-container");
+
+  addColorMenu();
+
   const boardSquare = new Board();
-  const squares = [];
+  let squares = [];
   let movingStepsRemaining = 0;
   let countdownForNewSquares = 0;
-
-  window.squares = squares;
+  let yourScore;
 
   const startGame = () => {
+    yourScore = 0;
+    squares = [];
+    squares.push(randomSquare(squares));
     squares.push(randomSquare(squares));
   };
   startGame();
 
   const render = () => {
     moveNameDown();
+    updateYourScore(yourScore);
     boardSquare.render();
     squares.forEach(s => s.render(movingStepsRemaining));
   };
 
   const update = () => {
+    // Check whether we are in a period of transition
     if (movingStepsRemaining > 0) {
       movingStepsRemaining -= movingSpeed;
       if (movingStepsRemaining === 0) {
-        // The transition period is over
-        squares.forEach(s => s.setDesiredAttributes());
-        squares.removeElements(squares.filter(s => s.markedForDeletion));
-        countdownForNewSquares = 10;
+        finishTransition(squares);
+        countdownForNewSquares = newBlockDelay;
       }
     }
 
+    // Check whether we are waiting for a new square
     if (countdownForNewSquares > 0) {
       countdownForNewSquares -= 1;
+
+      // We have finished the delay for a new square; add one!
       if (countdownForNewSquares === 0) {
-        squares.push(randomSquare(squares));
-        countdownForNewSquares = 0;
+        const newSquare = randomSquare(squares);
+
+        if (newSquare) {
+          newSquare.pop();
+          squares.push(newSquare);
+          countdownForNewSquares = 0;
+
+          // If there are no open squares, AND no available moves, the game is over :(
+          if (openSpaces(squares).length === 0) {
+            if (!anyMovesLeft(squares)) {
+              gameOverDisplay(false, yourScore, startGame);
+            }
+          }
+        }
       }
     }
   };
@@ -98,10 +98,22 @@ export default (animate, defaultRender) => {
   };
 
   listenForKeys(event => {
+    // Ignore key presses if 1) the tiles are moving or
+    //  2) we are waiting to place a new square
     if (movingStepsRemaining === 0 && countdownForNewSquares === 0) {
       if (isArrowKey(event)) {
-        moveSquares(squares, event.keyCode);
-        movingStepsRemaining = blockSize;
+        moveSquares(squares, event.keyCode, type => {
+          yourScore += Math.pow(2, type + 1);
+        });
+
+        // Only place a new square if anything was moved
+        const anySquareMoved = squares.some(s => {
+          return s.desiredCol !== s.col || s.desiredRow !== s.row;
+        });
+
+        if (anySquareMoved) {
+          movingStepsRemaining = blockSize;
+        }
       }
     }
   });
