@@ -39,8 +39,7 @@ const isPaused = () => {
 
 addCanvas();
 
-// const chosenGame = randomElement([tetris, pong, brick, snake, snood])
-const chosenGame = twenty48;
+const chosenGame = randomElement([tetris, pong, brick, snake, snood, twenty48]);
 const args = [animate, defaultRender, isPaused, togglePause];
 
 chosenGame(...args);
