@@ -1,0 +1,1987 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"snake",
+				"snakeDirection"
+			],
+			[
+				"snak",
+				"snakeDirection"
+			],
+			[
+				"rand",
+				"randomY"
+			],
+			[
+				"near",
+				"nearestBlock"
+			],
+			[
+				"updae",
+				"updateInnerHTML"
+			],
+			[
+				"moni",
+				"monitorKeysPressedInOrder"
+			],
+			[
+				"update",
+				"updateYourScore"
+			],
+			[
+				"conf",
+				"configureCDN"
+			],
+			[
+				"express",
+				"expressCDN"
+			],
+			[
+				"pause",
+				"pause_image"
+			],
+			[
+				"visi",
+				"visited"
+			],
+			[
+				"fil",
+				"filtered_options"
+			],
+			[
+				"conve",
+				"conversion_hash_table"
+			],
+			[
+				"con",
+				"conversion_hash_table"
+			],
+			[
+				"end",
+				"end_currency"
+			],
+			[
+				"pro",
+				"products"
+			],
+			[
+				"get",
+				"get_conversion_hash_table"
+			],
+			[
+				"ba",
+				"base_info"
+			],
+			[
+				"base",
+				"base"
+			],
+			[
+				"quote",
+				"quote_currency"
+			],
+			[
+				"ra",
+				"rate_limited"
+			],
+			[
+				"horiz",
+				"HORIZONTAL"
+			],
+			[
+				"row_",
+				"row_offset"
+			],
+			[
+				"col",
+				"col_offset"
+			],
+			[
+				"offset",
+				"offset_for_type"
+			],
+			[
+				"valid",
+				"valid_row"
+			],
+			[
+				"num",
+				"number_rows"
+			],
+			[
+				"row",
+				"row_to_start"
+			],
+			[
+				"dial",
+				"DIAGONALLY_UP_RIGHT"
+			],
+			[
+				"verti",
+				"VERTICAL"
+			],
+			[
+				"colu",
+				"column_to_start"
+			],
+			[
+				"hori",
+				"HORIZONTAL"
+			],
+			[
+				"num_",
+				"num_columns"
+			],
+			[
+				"co",
+				"column"
+			],
+			[
+				"nu",
+				"number_rows"
+			],
+			[
+				"post_",
+				"post_index"
+			],
+			[
+				"query",
+				"query_index"
+			],
+			[
+				"quer",
+				"query_index"
+			],
+			[
+				"post",
+				"post_index"
+			],
+			[
+				"sorte",
+				"sorted_query"
+			],
+			[
+				"over",
+				"overlapping_words_faster"
+			],
+			[
+				"words",
+				"words1"
+			],
+			[
+				"valu",
+				"value_history"
+			],
+			[
+				"value",
+				"value_list"
+			],
+			[
+				"va",
+				"value_list"
+			],
+			[
+				"not",
+				"not_asset"
+			],
+			[
+				"vali",
+				"valid_protocol"
+			],
+			[
+				"phone",
+				"phone_numbers"
+			],
+			[
+				"not_",
+				"not_current_url"
+			],
+			[
+				"redis",
+				"REDIS_QUEUE_TO_SCRAPE_NAME"
+			],
+			[
+				"redis_",
+				"REDIS_QUEUE_FINISHED_NAME"
+			],
+			[
+				"queue",
+				"QUEUE_TO_SCRAPE_NAME"
+			],
+			[
+				"isva",
+				"is_valid_url"
+			],
+			[
+				"is",
+				"is_valid"
+			],
+			[
+				"in",
+				"integer_number"
+			],
+			[
+				"digi",
+				"digit_to_string"
+			],
+			[
+				"map",
+				"mapping"
+			],
+			[
+				"digit",
+				"digit_to_string"
+			],
+			[
+				"numbe",
+				"number_zeroes"
+			],
+			[
+				"numb",
+				"number"
+			],
+			[
+				"digit_",
+				"digit_to_string"
+			],
+			[
+				"first",
+				"first_digit"
+			],
+			[
+				"item",
+				"item_price"
+			],
+			[
+				"bank",
+				"banknotes"
+			],
+			[
+				"bankn",
+				"banknote_hash"
+			],
+			[
+				"etr",
+				"entries"
+			],
+			[
+				"entri",
+				"entries_json"
+			],
+			[
+				"todo",
+				"todo_id"
+			],
+			[
+				"tod",
+				"todo_id"
+			],
+			[
+				"Entr",
+				"EntryResource"
+			],
+			[
+				"entry",
+				"entry_schema"
+			],
+			[
+				"Entry",
+				"EntrySchema"
+			],
+			[
+				"En",
+				"Entry"
+			],
+			[
+				"Ent",
+				"EntrySchema"
+			],
+			[
+				"types",
+				"types_schema"
+			],
+			[
+				"user_entr",
+				"user_entry_types"
+			],
+			[
+				"E",
+				"EntrySchema"
+			],
+			[
+				"User",
+				"UserSchema"
+			],
+			[
+				"dec",
+				"declarative_base"
+			],
+			[
+				"et",
+				"entry_generator_id"
+			],
+			[
+				"ent",
+				"entry_generator_id"
+			],
+			[
+				"nuber",
+				"numberBored"
+			],
+			[
+				"number",
+				"numberInfo"
+			],
+			[
+				"while",
+				"numberWhile"
+			],
+			[
+				"stats",
+				"statsDisplay1"
+			],
+			[
+				"show",
+				"showStats"
+			],
+			[
+				"tempSt",
+				"tempStorage"
+			],
+			[
+				"box-s",
+				"box-shadow"
+			],
+			[
+				"button",
+				"buttonContainer"
+			],
+			[
+				"but",
+				"button1"
+			],
+			[
+				"Tic",
+				"TicTaciToe"
+			],
+			[
+				"video",
+				"videosNeeded"
+			],
+			[
+				"videos",
+				"videos"
+			],
+			[
+				"allC",
+				"allCombinations"
+			],
+			[
+				"allCombo",
+				"allCombinations"
+			],
+			[
+				"allCo",
+				"allCombinationsOf"
+			],
+			[
+				"progres",
+				"progressTotal"
+			],
+			[
+				"prog",
+				"progressAmount"
+			],
+			[
+				"AWS_",
+				"AWS_SECRET_ACCESS_KEY"
+			],
+			[
+				"cloud",
+				"cloudfrontDomain"
+			],
+			[
+				"image",
+				"image_key"
+			],
+			[
+				"uplo",
+				"upload"
+			],
+			[
+				"upload",
+				"uploadToS3"
+			],
+			[
+				"block",
+				"blockSize"
+			],
+			[
+				"center",
+				"centerY"
+			],
+			[
+				"Tetris",
+				"TetrisBlock"
+			],
+			[
+				"last",
+				"lastBlock"
+			],
+			[
+				"coord",
+				"coordinates"
+			],
+			[
+				"keys",
+				"keysDown"
+			],
+			[
+				"squ",
+				"square"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"source",
+				"sourceLink"
+			],
+			[
+				"LINK",
+				"link"
+			],
+			[
+				"pivo",
+				"pivotIndex"
+			],
+			[
+				"piv",
+				"pivotIndex"
+			],
+			[
+				"quick",
+				"quick_sort_helper"
+			],
+			[
+				"quis",
+				"quick_sort_helper"
+			],
+			[
+				"merge",
+				"merged_index"
+			],
+			[
+				"ind",
+				"index2"
+			],
+			[
+				"arr",
+				"arr2"
+			],
+			[
+				"m",
+				"merged_arr"
+			],
+			[
+				"inde",
+				"index1"
+			],
+			[
+				"mer",
+				"merged_index"
+			],
+			[
+				"uploads",
+				"uploadsWithTags"
+			],
+			[
+				"after",
+				"afterIndex"
+			],
+			[
+				"edit",
+				"editTags"
+			],
+			[
+				"poster",
+				"posterIndex"
+			],
+			[
+				"imag",
+				"imageEnd"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "client/brick/main.js",
+			"settings":
+			{
+				"buffer_size": 1581,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/pong/main.js",
+			"settings":
+			{
+				"buffer_size": 1084,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/snake/updates.js",
+			"settings":
+			{
+				"buffer_size": 2235,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/utilities/InteractionUtilities.js",
+			"settings":
+			{
+				"buffer_size": 437,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 57 files for \"newSnakeHead\"\n\n/Users/williamtachau/Development/mywebsite/client/snake/main.js:\n    8  import {\n    9    determineNewDirection,\n   10:   moveNewSnakeHead,\n   11    checkForCollisions,\n   12    checkForFood,\n   ..\n   42    const update = () => {\n   43      const prevSnakeHead = snake[0]\n   44:     const newSnakeHead = new SnakeBlock(prevSnakeHead.x, prevSnakeHead.y, snake.length)\n   45  \n   46      snakeDirection = determineNewDirection(keysDown, snakeDirection)\n   47:     moveNewSnakeHead(newSnakeHead, snakeDirection)\n   48:     snake.unshift(newSnakeHead)\n   49  \n   50      checkForCollisions(snake, newGame)\n\n/Users/williamtachau/Development/mywebsite/client/snake/updates.js:\n   25  }\n   26  \n   27: export const moveNewSnakeHead = (snakeHead, direction) => {\n   28    switch (direction) {\n   29      case 0: // up\n\n6 matches across 2 files\n\n\nSearching 57 files for \"ignore\"\n\n/Users/williamtachau/Development/mywebsite/package.json:\n    9      \"transpile\": \"babel server.js --out-file server-transpiled.js\",\n   10      \"deploy\": \"npm run build && npm run transpile && export DEPLOYING=1 && claudia update\",\n   11:     \"start\": \"nodemon --exec babel-node server.js  --ignore client\"\n   12    },\n   13    \"author\": \"\",\n\n1 match in 1 file\n\n\nSearching 57 files for \"eslint\"\n\n/Users/williamtachau/Development/mywebsite/.eslintrc.json:\n    1  {\n    2    \"extends\": [\n    3:     \"eslint:recommended\",\n    4      \"airbnb\"\n    5    ],\n    6  \n    7:   \"parser\": \"babel-eslint\",\n    8  \n    9    \"parserOptions\": {\n\n/Users/williamtachau/Development/mywebsite/package.json:\n   29      \"@babel/plugin-proposal-optional-chaining\": \"^7.0.0\",\n   30      \"@babel/preset-env\": \"^7.1.0\",\n   31:     \"babel-eslint\": \"^10.0.1\",\n   32      \"babel-loader\": \"^8.0.4\",\n   33      \"css-loader\": \"^1.0.1\",\n   34:     \"eslint\": \"^5.8.0\",\n   35:     \"eslint-config-airbnb\": \"^17.1.0\",\n   36:     \"eslint-config-airbnb-base\": \"^13.1.0\",\n   37:     \"eslint-plugin-import\": \"^2.14.0\",\n   38:     \"eslint-plugin-jsx-a11y\": \"^6.1.2\",\n   39:     \"eslint-plugin-react\": \"^7.11.1\",\n   40      \"node-sass\": \"^4.9.4\",\n   41      \"nodemon\": \"^1.18.5\",\n\n/Users/williamtachau/Development/mywebsite/client/utilities/ArrayUtilities.js:\n   25  }\n   26  \n   27: /* eslint-disable no-extend-native, func-names */\n   28  Array.prototype.removeIfTrue = function (func) {\n   29    this.forEach((el) => {\n   ..\n   39    })\n   40  }\n   41: /* eslint-enable no-extend-native, func-names */\n   42  \n   43  module.exports = {\n\n11 matches across 3 files\n",
+			"settings":
+			{
+				"buffer_size": 2533,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "client/snake/randomLocations.js",
+			"settings":
+			{
+				"buffer_size": 792,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/index.js",
+			"settings":
+			{
+				"buffer_size": 1600,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/snake/main.js",
+			"settings":
+			{
+				"buffer_size": 1712,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 149.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"show",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"show all",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"sublime",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"remove ",
+				"Package Control: Remove Package"
+			],
+			[
+				"eslin",
+				"ESLint"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"esli",
+				"ESLint"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"git blam",
+				"Git Blame"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 444.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/williamtachau/Development/mywebsite",
+		"/Users/williamtachau/Development/mywebsite/client",
+		"/Users/williamtachau/Development/mywebsite/client/brick",
+		"/Users/williamtachau/Development/mywebsite/client/utilities"
+	],
+	"file_history":
+	[
+		"/Users/williamtachau/Development/mywebsite/client/utilities/DisplayUtilities.js",
+		"/Users/williamtachau/Development/mywebsite/client/pong/main.js",
+		"/Users/williamtachau/Development/mywebsite/public/js/snake.js",
+		"/Users/williamtachau/Development/mywebsite/client/snake/foodBlock.js",
+		"/Users/williamtachau/Development/mywebsite/client/snake/snakeBlock.js",
+		"/Users/williamtachau/Development/mywebsite/client/snake/constants.js",
+		"/Users/williamtachau/Development/mywebsite/client/snake/main.js",
+		"/Users/williamtachau/Development/mywebsite/webpack.development.config.js",
+		"/Users/williamtachau/Development/mywebsite/configureCDN.js",
+		"/Users/williamtachau/Development/mywebsite/.gitignore",
+		"/Users/williamtachau/Development/mywebsite/mywebsite.sublime-project",
+		"/Users/williamtachau/Development/mywebsite/webpack.production.config.js",
+		"/Users/williamtachau/Development/mywebsite/server.js",
+		"/Users/williamtachau/Development/mywebsite/views/home.pug",
+		"/Users/williamtachau/Development/mywebsite/webpack.base.config.js",
+		"/Users/williamtachau/Development/mywebsite/webpack.config.js",
+		"/Users/williamtachau/Development/mywebsite/notes.txt",
+		"/Users/williamtachau/Development/mywebsite/client/print.js",
+		"/Users/williamtachau/Development/mywebsite/client/index.js",
+		"/Users/williamtachau/Development/mywebsite/lambda.js",
+		"/Users/williamtachau/Development/mywebsite/package.json",
+		"/Users/williamtachau/Development/mywebsite/config/webpack.production.config.js",
+		"/Users/williamtachau/Development/mywebsite/config/webpack.config.js",
+		"/Users/williamtachau/Development/mywebsite/src/server.js",
+		"/Users/williamtachau/Development/mywebsite/home.js",
+		"/Users/williamtachau/Development/mywebsite/bin/server.js",
+		"/Users/williamtachau/Development/mywebsite/.babelrc",
+		"/Users/williamtachau/Development/mywebsite/node/node_modules/express-cdn/lib/main.js",
+		"/Users/williamtachau/Development/mywebsite/node/public/js/games.js",
+		"/Users/williamtachau/Development/.tmp/notes.txt",
+		"/Users/williamtachau/Development/.tmp/lambda_example/package.json",
+		"/Users/williamtachau/Development/mywebsite/node/package.json",
+		"/Users/williamtachau/Development/mywebsite/node/.env",
+		"/Users/williamtachau/Development/mywebsite/node/index.html",
+		"/Users/williamtachau/.aws/credentials",
+		"/Users/williamtachau/Downloads/rootkey.csv",
+		"/Users/williamtachau/Development/mywebsite/node/home.jade",
+		"/Users/williamtachau/Development/mywebsite/mysite/mysite/static/js/scroll.js",
+		"/Users/williamtachau/Development/mywebsite/node/public/js/scroll.js",
+		"/Users/williamtachau/Development/mywebsite/node/public/styles",
+		"/Users/williamtachau/Development/mywebsite/mysite/mysite/templates/home.html",
+		"/Users/williamtachau/Development/mywebsite/requirements.txt",
+		"/Users/williamtachau/Development/mywebsite/myenv/lib/python2.7/site-packages/django/core/management/__init__.py",
+		"/Users/williamtachau/Development/mywebsite/myenv/lib/python2.7/site-packages/django/__init__.py",
+		"/Users/williamtachau/Development/mywebsite/myenv/lib/python2.7/site-packages/django/conf/project_template/project_name/settings.py",
+		"/Users/williamtachau/.bash_profile",
+		"/Users/williamtachau/.pip/pip.log",
+		"/Users/williamtachau/Development/mywebsite/mysite/mysite/settings.py",
+		"/Users/williamtachau/Development/interview/foo.rb",
+		"/Users/williamtachau/Development/mywebsite/mysite/manage.py",
+		"/Users/williamtachau/Development/coinbase/foo.rb",
+		"/Users/williamtachau/Development/vanta/obsidian/localstack/localstack/constants.py",
+		"/Users/williamtachau/Development/todo/todo-server/app/.pylintrc",
+		"/Users/williamtachau/Development/todo/todo-server/app/config.py",
+		"/Users/williamtachau/Development/todo/todo-server/app/manage.py",
+		"/Users/williamtachau/Development/todo/todo-server/app/.env",
+		"/Users/williamtachau/Development/todo/todo-server/app/models.py",
+		"/Users/williamtachau/Development/todo/todo-server/app/migrations/alembic.ini",
+		"/Users/williamtachau/Development/todo/todo-server/app/mixins.py",
+		"/Users/williamtachau/Development/todo/todo-server/app/migrations/versions/98932c1ae504_.py",
+		"/Users/williamtachau/Development/todo/todo-server/app/migrations/versions/fba515e91200_.py",
+		"/Users/williamtachau/Development/todo/todo-server/app/migrations/versions/a443c04fa5dd_.py",
+		"/Users/williamtachau/Development/todo/todo-server/.env",
+		"/Users/williamtachau/Development/todo/todo-server/manage.py",
+		"/Users/williamtachau/Development/todo/todo-server/config.py",
+		"/Users/williamtachau/Development/todo/todo-server/zappa_settings.json",
+		"/Users/williamtachau/Development/todo/todo-server/main.py",
+		"/Users/williamtachau/Development/todo/todo-server/app/zappa_settings.json",
+		"/Users/williamtachau/Development/todo/todo-server/app/zappa_settings_old.json",
+		"/Users/williamtachau/Development/todo/todo-server/models/entry.py",
+		"/Users/williamtachau/Development/todo/todo-server/models/entry_generator.py",
+		"/Users/williamtachau/Development/todo/todo-server/models/status.py",
+		"/Users/williamtachau/Development/todo/todo-server/models/note.py",
+		"/Users/williamtachau/Development/todo/todo-server/__init__.py",
+		"/Users/williamtachau/Development/todo/todo-server/models/__init__.py",
+		"/Users/williamtachau/.ipython/profile_default/ipython_config.py",
+		"/Users/williamtachau/Development/.tmp/lambda_example/app.js",
+		"/Users/williamtachau/Development/.tmp/list",
+		"/Users/williamtachau/Development/.tmp/lambda_example/views/layout.pug",
+		"/Users/williamtachau/Development/.tmp/lambda_example/npm-debug.log",
+		"/Users/williamtachau/Development/.tmp/lambda_example/routes.js",
+		"/Users/williamtachau/Development/.tmp/lambda_example/public/js/controllers.js",
+		"/Users/williamtachau/Development/.tmp/lambda_example/views/partials/addUpload.pug",
+		"/Users/williamtachau/Development/.tmp/website2/views/layout.pug",
+		"/Users/williamtachau/Development/.tmp/website2/package.json",
+		"/Users/williamtachau/Development/.tmp/website/views/index.jade",
+		"/Users/williamtachau/Development/.tmp/lambda_example/views/index.pug",
+		"/Users/williamtachau/Development/.tmp/website/routes.coffee",
+		"/Users/williamtachau/Development/.tmp/website2/notes.txt",
+		"/Users/williamtachau/Development/.tmp/lambda_example/public/js/app.coffee",
+		"/Users/williamtachau/Development/.tmp/lambda_example/views/partials/index.pug",
+		"/Users/williamtachau/Development/.tmp/lambda_example/public/js/app.js",
+		"/Users/williamtachau/Development/.tmp/lambda_example/public/core.js",
+		"/Users/williamtachau/Development/.tmp/lambda_example/.env",
+		"/Users/williamtachau/Development/.tmp/lambda_example/public/js/controllers.coffee",
+		"/Users/williamtachau/Development/.tmp/lambda_example/public/js/directives.coffee",
+		"/Users/williamtachau/Development/.tmp/lambda_example/public/js/services.coffee",
+		"/Users/williamtachau/Development/.tmp/lambda_example/public/js/filters.coffee",
+		"/Users/williamtachau/Development/.tmp/lambda_example/public/js/services.js",
+		"/Users/williamtachau/Development/.tmp/lambda_example/public/core.coffee",
+		"/Users/williamtachau/Development/.tmp/lambda_example/public/js/test.js",
+		"/Users/williamtachau/Development/.tmp/lambda_example/public/css/app.css",
+		"/Users/williamtachau/Development/.tmp/lambda_example/node_modules/express-cdn/node_modules/yargs/index.js",
+		"/Users/williamtachau/Development/.tmp/lambda_example/example.js",
+		"/Users/williamtachau/Desktop/index.html",
+		"/Users/williamtachau/Development/.tmp/lambda_example/scripts/local.js",
+		"/Users/williamtachau/Development/.tmp/website/event.json",
+		"/Users/williamtachau/Development/trim/trimanalytics/package.json",
+		"/Users/williamtachau/Development/trim/trimanalytics/client/package.json",
+		"/Users/williamtachau/Development/trim/trimanalytics/app/models/subscription.rb",
+		"/Users/williamtachau/Development/trim/trimanalytics/app/models/account.rb",
+		"/Users/williamtachau/Development/trim/trimanalytics/app/admin/trialpay_deal.rb",
+		"/Users/williamtachau/Development/trim/trimanalytics/client/app/actions/braintreecreditcards.js",
+		"/Users/williamtachau/Development/trim/trimanalytics/app/models/braintree_credit_card.rb",
+		"/Users/williamtachau/Development/.tmp/website/services/parseLink.js",
+		"/Users/williamtachau/Development/.tmp/website/routes.js",
+		"/Users/williamtachau/Development/parkingService/parkingReminder/react/components/AboutComponent.coffee",
+		"/Users/williamtachau/Development/parkingService/parkingReminder/react/components/About/MainLandingComponent.coffee",
+		"/Users/williamtachau/Development/parkingService/parkingReminder/react/components/About/DescriptionLandingComponent.coffee",
+		"/Users/williamtachau/Development/parkingService/parkingReminder/public/assets/bundle.js-7e794cea4a0f7fc535de18688a135578cb566add59cca7020ee6b0f39470ccf8.map",
+		"/Users/williamtachau/Development/parkingService/parkingReminder/package.json",
+		"/Users/williamtachau/Development/interview/kiddom/coffee-react-quickstart/src/scripts/tictactow.cjsx",
+		"/Users/williamtachau/Development/interview/kiddom/coffee-react-quickstart/src/scripts/hello_world.cjsx",
+		"/Users/williamtachau/Development/interview/kiddom/tweeter/package.json",
+		"/Users/williamtachau/Development/interview/kiddom/tweeter/webpack.config.js",
+		"/Users/williamtachau/Development/parkingService/parking",
+		"/Users/williamtachau/Development/.tmp/website/.env",
+		"/Users/williamtachau/Development/.tmp/website/styling/app.sass"
+	],
+	"find":
+	{
+		"height": 24.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"eslint",
+			"ignore",
+			"newSnakeHead",
+			"prevSnakeHead",
+			"snake[0]",
+			"handleNewBlock",
+			"snakeDirection",
+			"snakeDirection =",
+			"handleNewBlock",
+			"head",
+			"prevSnakeHead",
+			"snake[0]",
+			"snake[i]",
+			"snake[0] = new SnakeBlock(randomX(), randomY(), snakeLength)",
+			"\nconst ",
+			"nearestBlock",
+			"document.getElementById(",
+			"update",
+			"pong",
+			"updateyour",
+			"indexLimit",
+			"==",
+			"newgame",
+			";",
+			"==",
+			"monitorKeysPressed",
+			"\"",
+			"prevSnakeHead",
+			"food",
+			"Food",
+			"food",
+			"Food",
+			"food",
+			"Food",
+			"food",
+			"snakeLength",
+			"var",
+			"nearestBlock",
+			"your_score",
+			"context",
+			";",
+			"options",
+			"const CDN = configureCDN(app, isLocal)\n",
+			"options",
+			"sslEnabled",
+			"    , ",
+			", ",
+			"CDN",
+			"cdn",
+			"CDN",
+			"compiler",
+			"webpackConfig",
+			"webpack.config",
+			".bundle",
+			"currentDir",
+			"hi there",
+			"webpackConfig",
+			"foo",
+			"fo",
+			"foo",
+			"”",
+			"“",
+			"console.log",
+			"console..log",
+			"config/",
+			"src",
+			"s",
+			"src",
+			"s",
+			"src",
+			"../",
+			"__dirname",
+			"public",
+			"HtmlWebpackPlugin",
+			"LiveReloadPlugin",
+			"livereload",
+			"dist",
+			"jade",
+			"import",
+			"webpackMiddleware",
+			"webpackConfig",
+			"babel",
+			"babel-core",
+			"”",
+			"“",
+			"bundle",
+			"workspace"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "client/brick/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1581,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								579,
+								579
+							]
+						],
+						"settings":
+						{
+							"SL.580.region_keys":
+							[
+							],
+							"SL.614.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 603.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "client/pong/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1084,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1082,
+								1082
+							]
+						],
+						"settings":
+						{
+							"SL.629.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"SL.643.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"history_list_is_closing": true,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "client/snake/updates.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2235,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7,
+								7
+							]
+						],
+						"settings":
+						{
+							"SL.649.region_keys":
+							[
+								"sublime_linter.protected_regions",
+								"SL.eslint.Highlights.|a5f1f2a7eb4383d429e8b769cecc99612e5849d2fc9a95361d5c5a5de2d3798e|region.redish markup.error.sublime_linter|32",
+								"SL.eslint.Highlights.|f47ce29232468c5f3eab0cfc5c533f465f007c418588b4a7f930539341082e4a|region.redish markup.error.sublime_linter|32",
+								"SL.eslint.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"SL.eslint.Highlights.|0419efb1a34833c51e06f546128c7c23a07b19d848558c9f9b88b395e5188fc1|region.redish markup.error.sublime_linter|32",
+								"SL.eslint.Highlights.|57a29bfb6694b427ee85b6e37ebaa2965a58ab400cbd6f98073af4f800073833|region.redish markup.error.sublime_linter|32"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "client/utilities/InteractionUtilities.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 437,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								437,
+								437
+							]
+						],
+						"settings":
+						{
+							"SL.152.region_keys":
+							[
+							],
+							"SL.17.region_keys":
+							[
+							],
+							"SL.627.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"SL.637.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"history_list_is_closing": true,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2533,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										165,
+										177
+									],
+									[
+										328,
+										340
+									],
+									[
+										505,
+										517
+									],
+									[
+										518,
+										530
+									],
+									[
+										573,
+										585
+									],
+									[
+										751,
+										763
+									],
+									[
+										1201,
+										1207
+									],
+									[
+										1407,
+										1413
+									],
+									[
+										1494,
+										1500
+									],
+									[
+										1722,
+										1728
+									],
+									[
+										1826,
+										1832
+									],
+									[
+										1857,
+										1863
+									],
+									[
+										1903,
+										1909
+									],
+									[
+										1954,
+										1960
+									],
+									[
+										2000,
+										2006
+									],
+									[
+										2047,
+										2053
+									],
+									[
+										2254,
+										2260
+									],
+									[
+										2426,
+										2432
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								1272,
+								1272
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 3,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 735.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "client/snake/randomLocations.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 792,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								540,
+								540
+							]
+						],
+						"settings":
+						{
+							"SL.645.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "client/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1600,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"SL.642.region_keys":
+							[
+								"SL.eslint.Highlights.|64b7424133ae6ac29435a69c41dcfc58903d1e1870f485c3e7c6f0432692a939|region.redish markup.error.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.eslint.Gutter.|region.redish markup.error.sublime_linter|dot",
+								"SL.eslint.Highlights.|0d523e9704d37b26e004af5d583a54a3afe268614a5e74510f7c291f35d59564|region.redish markup.error.sublime_linter|32"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 591.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "client/utilities/InteractionUtilities.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 437,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								409,
+								434
+							]
+						],
+						"settings":
+						{
+							"SL.155.region_keys":
+							[
+							],
+							"SL.20.region_keys":
+							[
+							],
+							"SL.627.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"SL.637.region_keys":
+							[
+								"sublime_linter.protected_regions"
+							],
+							"history_list_is_closing": true,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 7,
+					"file": "client/snake/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1712,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								539,
+								539
+							]
+						],
+						"settings":
+						{
+							"SL.584.region_keys":
+							[
+								"SL.eslint.Highlights.|498595fa18be2bcbf1f5d2f58dc89db4fadf9aa5495fe6d8b11aea1f552de15c|region.redish markup.error.sublime_linter|32",
+								"sublime_linter.protected_regions",
+								"SL.eslint.Gutter.|region.redish markup.error.sublime_linter|dot"
+							],
+							"SL.615.region_keys":
+							[
+								"sublime_linter.protected_regions",
+								"SL.eslint.Highlights.|5c4e3825113337f741bf229bd0b5cdd4830379c1080866a0220d8e28f7190058|region.redish markup.error.sublime_linter|32",
+								"SL.eslint.Highlights.|7db358235753ffa8871077417d14ad6e4b8e63a6f9627b3afd41157bb42cb07c|region.redish markup.error.sublime_linter|32",
+								"SL.eslint.Gutter.|region.redish markup.error.sublime_linter|dot"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 37.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 125.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 108.0
+	},
+	"output.exec":
+	{
+		"height": 108.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "mywebsite.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"display",
+				"client/utilities/DisplayUtilities.js"
+			],
+			[
+				"main",
+				"client/pong/main.js"
+			],
+			[
+				"int",
+				"client/utilities/InteractionUtilities.js"
+			],
+			[
+				"interac",
+				"client/utilities/InteractionUtilities.js"
+			],
+			[
+				"snakema",
+				"client/snake/main.js"
+			],
+			[
+				"snake",
+				"public/js/snake.js"
+			],
+			[
+				"ho",
+				"views/home.pug"
+			],
+			[
+				"ser",
+				"server.js"
+			],
+			[
+				"conf",
+				"configureCDN.js"
+			],
+			[
+				"webpac",
+				"webpack.base.config.js"
+			],
+			[
+				"webpack",
+				"webpack.production.config.js"
+			],
+			[
+				"prin",
+				"client/print.js"
+			],
+			[
+				"serv",
+				"server.js"
+			],
+			[
+				"not",
+				"~/Development/mywebsite/notes.txt"
+			],
+			[
+				"print",
+				"client/print.js"
+			],
+			[
+				"view",
+				"views/home.pug"
+			],
+			[
+				"pr",
+				"client/print.js"
+			],
+			[
+				"web",
+				"webpack.production.config.js"
+			],
+			[
+				"home",
+				"views/home.pug"
+			],
+			[
+				"hom",
+				"views/home.pug"
+			],
+			[
+				"webpackpr",
+				"config/webpack.production.config.js"
+			],
+			[
+				"pac",
+				"package.json"
+			],
+			[
+				"packa",
+				"package.json"
+			],
+			[
+				"pack",
+				"package.json"
+			],
+			[
+				"babe",
+				".babelrc"
+			],
+			[
+				"inde",
+				"client/index.js"
+			],
+			[
+				"webac",
+				"webpack.config.js"
+			],
+			[
+				"bundle",
+				"public/js/bundle.js"
+			],
+			[
+				"expresslibmain",
+				"node_modules/express-cdn/lib/main.js"
+			],
+			[
+				".env",
+				".env"
+			],
+			[
+				"indxe",
+				"node/index.html"
+			],
+			[
+				".html",
+				"mysite/mysite/templates/home.html"
+			],
+			[
+				"setting",
+				"myenv/lib/python2.7/site-packages/django/conf/project_template/project_name/settings.py"
+			],
+			[
+				"djangoinitpy",
+				"myenv/lib/python2.7/site-packages/django/__init__.py"
+			],
+			[
+				"coremanageinit",
+				"myenv/lib/python2.7/site-packages/django/core/management/__init__.py"
+			],
+			[
+				"sett",
+				"mysite/mysite/settings.py"
+			],
+			[
+				"require",
+				"requirements.txt"
+			],
+			[
+				"settin",
+				"mysite/settings.py"
+			],
+			[
+				"ma",
+				"manage.py"
+			],
+			[
+				"const",
+				"localstack/constants.py"
+			],
+			[
+				"merchantcodeusage",
+				"lib/subscriptions/merchant_code_usage_service.rb"
+			],
+			[
+				"merchantusage",
+				"app/models/merchant_code_usage_log.rb"
+			],
+			[
+				"subscriptionser",
+				"lib/subscriptions/subscription_service.rb"
+			],
+			[
+				"merchantmatchingser",
+				"lib/merchants/merchant_transaction_matching_service.rb"
+			],
+			[
+				"negotiationassign",
+				"lib/negotiations/negotiation_session_assignment_service.rb"
+			],
+			[
+				"PlaidUserbankPersistenceService",
+				"lib/data_providers/persistence/plaid/plaid_userbank_persistence_service.rb"
+			],
+			[
+				"prepareaccount",
+				"app/jobs/synapse/setup/prepare_account_for_synapse_job.rb"
+			],
+			[
+				"spendtrackermessage",
+				"lib/message_actions/spend_tracker_message_action.rb"
+			],
+			[
+				"corecon",
+				"app/controllers/core_controller.rb"
+			],
+			[
+				"conversionser",
+				"lib/tracking_events/conversion_service.rb"
+			],
+			[
+				"sendnps",
+				"app/jobs/email/send_nps_survey_job.rb"
+			],
+			[
+				"pylin",
+				"app/.pylintrc"
+			],
+			[
+				"pylint",
+				"app/.pylintrc"
+			],
+			[
+				"mana",
+				"app/manage.py"
+			],
+			[
+				"mode",
+				"app/models.py"
+			],
+			[
+				"app",
+				"app/app.py"
+			],
+			[
+				"modl",
+				"app/models.py"
+			],
+			[
+				"mdo",
+				"app/models.py"
+			],
+			[
+				"mxi",
+				"app/mixins.py"
+			],
+			[
+				".en",
+				".env"
+			],
+			[
+				"model",
+				"app/models.py"
+			],
+			[
+				"confi",
+				"app/config.py"
+			],
+			[
+				"index.p",
+				"views/partials/index.pug"
+			],
+			[
+				"layout",
+				"views/layout.pug"
+			],
+			[
+				"control",
+				"public/js/controllers.coffee"
+			],
+			[
+				"app.js",
+				"app.js"
+			],
+			[
+				"routes",
+				"routes.js"
+			],
+			[
+				"layo",
+				"views/layout.pug"
+			],
+			[
+				"index.pu",
+				"views/index.pug"
+			],
+			[
+				"pcakage",
+				"package.json"
+			],
+			[
+				"lay",
+				"views/layout.pug"
+			],
+			[
+				"packag",
+				"package.json"
+			],
+			[
+				"app.",
+				"app.coffee"
+			],
+			[
+				"application.html",
+				"app/views/layouts/application.html.haml"
+			],
+			[
+				"loginbu",
+				"app/views/partials/_login_buttons.haml"
+			],
+			[
+				"login",
+				"app/views/partials/_log_in_and_featured_by.html.haml"
+			],
+			[
+				"orderprice",
+				"client/app/components/PriceProtection/MainPage/RetailerOrderedItemsList/OrderPriceComponent.jsx"
+			],
+			[
+				"retaileritemdetail",
+				"client/app/components/PriceProtection/MainPage/RetailerOrderedItemsList/ItemDetailsComponent.jsx"
+			],
+			[
+				"itemdetailsc",
+				"client/app/components/PriceProtection/MainPage/RetailerOrderedItemsList/ItemDetailsComponent.jsx"
+			],
+			[
+				"retaileraccounts.",
+				"client/app/actions/retaileraccounts.js"
+			],
+			[
+				"configures",
+				"client/app/configureStore.js"
+			],
+			[
+				"braintreecreditcard",
+				"app/models/braintree_credit_card.rb"
+			],
+			[
+				"braintreecre",
+				"client/app/actions/braintreecreditcards.js"
+			],
+			[
+				"trialpa",
+				"app/admin/trialpay_deal.rb"
+			],
+			[
+				"account",
+				"app/models/account.rb"
+			],
+			[
+				"subscripti",
+				"app/models/subscription.rb"
+			],
+			[
+				"routes.co",
+				"routes.coffee"
+			],
+			[
+				"parselinks",
+				"services/parseLink.js"
+			],
+			[
+				"routes.cof",
+				"routes.coffee"
+			],
+			[
+				"add",
+				"views/partials/addUpload.jade"
+			],
+			[
+				"routes.",
+				"routes.js"
+			],
+			[
+				"subscrip",
+				"app/models/subscription.rb"
+			],
+			[
+				"transactionpro",
+				"lib/processing/transaction_processing.rb"
+			],
+			[
+				"transaction",
+				"app/models/transaction.rb"
+			],
+			[
+				"userbank",
+				"app/models/userbank.rb"
+			],
+			[
+				"regex",
+				"app/models/regex_filter.rb"
+			],
+			[
+				"develop",
+				"config/environments/development.rb"
+			],
+			[
+				"mainland",
+				"react/components/About/MainLandingComponent.coffee"
+			],
+			[
+				"description",
+				"react/components/About/DescriptionLandingComponent.coffee"
+			],
+			[
+				"about",
+				"react/components/AboutComponent.coffee"
+			],
+			[
+				"database",
+				"config/database.yml"
+			],
+			[
+				"gemf",
+				"Gemfile"
+			],
+			[
+				"ticta",
+				"coffee-react-quickstart/src/scripts/tictactoe.cjsx"
+			],
+			[
+				"contro",
+				"public/js/controllers.coffee"
+			],
+			[
+				"viewup",
+				"views/partials/viewUpload.jade"
+			],
+			[
+				"app.sas",
+				"styling/app.sass"
+			],
+			[
+				"todo",
+				".todo"
+			],
+			[
+				"controll",
+				"public/js/controllers.coffee"
+			],
+			[
+				"index.jad",
+				"views/partials/index.jade"
+			],
+			[
+				"index",
+				"views/index.jade"
+			],
+			[
+				"rou",
+				"routes.coffee"
+			],
+			[
+				"parse",
+				"services/parseLink.coffee"
+			],
+			[
+				"server",
+				"server.coffee"
+			],
+			[
+				"rout",
+				"routes.coffee"
+			],
+			[
+				"viewpu",
+				"views/partials/viewUpload.jade"
+			],
+			[
+				"index.ja",
+				"views/index.jade"
+			],
+			[
+				"parselin",
+				"services/parseLink.js"
+			],
+			[
+				"par",
+				"services/parseLink.coffee"
+			],
+			[
+				"app.ca",
+				"public/css/app.css.map"
+			],
+			[
+				"s3index",
+				"node_modules/s3/lib/index.js"
+			],
+			[
+				"addu",
+				"views/partials/addUpload.jade"
+			],
+			[
+				"addupl",
+				"views/partials/addUpload.jade"
+			],
+			[
+				"tetr",
+				"mysite/mysite/static/js/tetris.js"
+			],
+			[
+				"game",
+				"app/controllers/api/games_controller.rb"
+			],
+			[
+				"term",
+				"app/terms.jade"
+			],
+			[
+				"tag",
+				"models/Tag.coffee"
+			],
+			[
+				".sass",
+				"styling/app.sass"
+			],
+			[
+				"viewla",
+				"views/partials/viewUpload.jade"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 237.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

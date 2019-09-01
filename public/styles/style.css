@@ -1,0 +1,194 @@
+body {
+	background-color: black;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+a {
+	color: inherit;
+}
+a:hover {
+	text-decoration: underline;
+}
+.hidden {
+	display: none;
+}
+
+/* PAGE 1 */
+
+#page1 #name {
+	width: 175px;
+	margin: 0 auto;
+	color: #696C74;
+	font-size: 35px;
+	font-family: Raleway;
+	position: absolute;
+	z-index: -1;
+}
+
+#page1 #subtext {
+	font-family: Merriweather;
+	width: 173px;
+	margin: 0 auto;
+	color: #505050;
+	font-size: 18px;
+	position: absolute;
+	text-align: center;
+	z-index: -1;
+}
+
+.score {
+	position:absolute;
+	color:#0DFD55;
+	font-family: 'Press Start 2P';
+	font-size: 14px;
+}
+
+#game_over_text {
+	position: absolute;
+	margin: 0 auto;
+	text-align: center;
+	color:#0DFD55;
+	font-family: 'Press Start 2P';
+	font-size: 18px;
+	background: black;
+	padding: 40px 20px;
+}
+
+#more-link {
+	position:absolute;
+	text-decoration: none;
+	width:100%;
+	margin-top:-34px;
+	font-family: Raleway;
+	font-size:17;
+	text-align: center;
+	color: #696C74;
+	cursor: pointer;
+}
+#more-link img {
+	width: 34px;
+}
+
+#morearrow {
+	margin-top: -10px;
+	width: 2.5%;
+}
+
+#pause, #play {
+	width: 34px;
+	position: absolute;
+	right: 17px;
+	bottom: 22px;
+}
+#bottomtext {
+	text-align: center;
+	color: #696C74;
+	width: 100%;
+	font-family: Raleway;
+	padding: 30px 0px;
+}
+
+/* Special effects */
+.blur img {
+  -webkit-transition: all .5s ease;
+     -moz-transition: all .5s ease;
+       -o-transition: all .5s ease;
+      -ms-transition: all .5s ease;
+          transition: all .5s ease;
+}
+
+.blur img:hover {
+  -webkit-filter: blur(2px);
+}
+
+
+/* Mobile */
+#page1-mobile {
+	display: none;
+}
+@media only screen and (max-width: 768px) {
+	html, body {
+		background: white;
+		width: 100%;
+	}
+	#page1 {
+		display: none
+	}
+	#page1-mobile {
+		display: block;
+		background: black;
+		width: 100%;
+		height: 300px;
+	}
+	#page1-mobile div {
+		text-align: center;
+		width: 100%;
+	}
+	#page1-mobile #name {
+		margin: 0 auto;
+		color: #696C74;
+		font-size: 40px;
+		padding-top: 100px;
+		font-family: Raleway;
+	}
+
+	#page1-mobile #subtext {
+		font-family: Merriweather;
+		margin: 0 auto;
+		color: #505050;
+		font-size: 16px;
+		text-align: center;
+	}
+	.projects-label {
+		font-size: 20px;
+		padding-top: 75px;
+	}
+	#bottomtext {
+		font-size: 15px;
+	}
+	td {
+		display: block;
+	}
+	.project-container {
+		width: 100%;
+		height: inherit;
+		padding: 50px 0px 50px 0px;
+	}
+	.image-container.mobile {
+	  width: 200px;
+	  height: 350px;
+	  margin: auto;
+	}
+	.image-container.web {
+	  width: 300px;
+	  height: 200px;
+	  margin: auto;
+	}
+	.project .image-filter {
+	  cursor: pointer;
+	  background: rgba(0,0,0,.5);
+	}
+	.project .image-filter .text {
+	  display: block;
+	  text-decoration: none;
+	}
+	.project-title {
+		font-size: 18px;
+	}
+	.project-subtitle {
+		font-size: 14px;
+	}
+	.web .project-title {
+		margin-top: 61px;
+	}
+	.mobile .project-title {
+		margin-top: 132px;
+	}
+
+}
+
+

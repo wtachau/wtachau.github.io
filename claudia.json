@@ -1,0 +1,10 @@
+{
+  "lambda": {
+    "role": "mywebsite-executor",
+    "name": "mywebsite",
+    "region": "us-east-1"
+  },
+  "api": {
+    "id": "jrrb196bab"
+  }
+}
