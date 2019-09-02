@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <image src="/public/images/favicon.ico"></image>
+    <!-- fonts-->
+    <link
+      href="//fonts.googleapis.com/css?family=Raleway:400,500"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="//fonts.googleapis.com/css?family=Merriweather:300,400,500"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="//fonts.googleapis.com/css?family=Press+Start+2P"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- jQuery-->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- CSS-->
+    <link rel="stylesheet" type="text/css" href="public/styles/project.css" />
+    <link rel="stylesheet" type="text/css" href="public/styles/style.css" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1"
+    />
+    <title>will tachau</title>
+    <meta
+      name="description"
+      content="Your official resource for all things Will Tachau"
+    />
+  </head>
+
+  <body>
+    <div id="page1">
+      <span class="score" id="compScore"></span
+      ><span class="score" id="yourScore"></span>
+      <div id="name">will tachau</div>
+      <div id="game_over_text" style="display:none;"></div>
+      <div id="subtext">software engineer</div>
+      <span id="pause-container" onclick="toggle_pause()"
+        ><image src="/public/images/pause.png" id="pause"></image
+        ><image
+          src="/public/images/play.png"
+          id="play"
+          style="display: none;"
+        ></image
+      ></span>
+    </div>
+    <div id="page1-mobile">
+      <div id="name">will tachau</div>
+      <div id="subtext">software engineer</div>
+    </div>
+    <div class="hidden">
+      <image src="/public/images/death.png" id="skull"></image>
+    </div>
+    <!-- Google Analytics-->
+    <script>
+      (function(i, s, o, g, r, a, m) {
+        i["GoogleAnalyticsObject"] = r;
+        (i[r] =
+          i[r] ||
+          function() {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date());
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        "script",
+        "//www.google-analytics.com/analytics.js",
+        "ga"
+      );
+      ga("create", "UA-52110088-1", "willtachau.com");
+      ga("send", "pageview");
+    </script>
+    <script src="public/index-bundle.js"></script>
+  </body>
+</html>

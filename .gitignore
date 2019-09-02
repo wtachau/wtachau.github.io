@@ -5,4 +5,3 @@ node_modules/*
 
 # DO NOT add this to .gitignore -- it is needed in git!
 # public/index-bundle.js
-
