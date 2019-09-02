@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <image src="/images/favicon.ico"></image>
+    <image src="/public/images/favicon.ico"></image>
     <!-- fonts-->
     <link
       href="//fonts.googleapis.com/css?family=Raleway:400,500"
@@ -21,7 +21,7 @@
     <!-- jQuery-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- CSS-->
-    <script src="styles/project.css"></script>
+    <script src="public/styles/project.css"></script>
     <script src="styles/style.css"></script>
     <meta
       name="viewport"
@@ -42,8 +42,12 @@
       <div id="game_over_text" style="display:none;"></div>
       <div id="subtext">software engineer</div>
       <span id="pause-container" onclick="toggle_pause()"
-        ><image src="/images/pause.png" id="pause"></image
-        ><image src="/images/play.png" id="play" style="display: none;"></image
+        ><image src="/public/images/pause.png" id="pause"></image
+        ><image
+          src="/public/images/play.png"
+          id="play"
+          style="display: none;"
+        ></image
       ></span>
     </div>
     <div id="page1-mobile">
@@ -51,7 +55,7 @@
       <div id="subtext">software engineer</div>
     </div>
     <div class="hidden">
-      <image src="/images/death.png" id="skull"></image>
+      <image src="/public/images/death.png" id="skull"></image>
     </div>
     <!-- Google Analytics-->
     <script>
