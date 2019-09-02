@@ -3,3 +3,5 @@ node_modules/*
 .env
 *.sublime-workspace
 
+# DO NOT add this to .gitignore -- it is needed in git!
+# public/index-bundle.js
