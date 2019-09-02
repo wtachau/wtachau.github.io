@@ -17,7 +17,6 @@
     "aws-serverless-express": "^3.3.5",
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
-    "express-cdn": "^0.3.3",
     "pug": "^2.0.3",
     "webpack": "^4.39.3",
     "webpack-dev-middleware": "^3.4.0",
