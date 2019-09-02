@@ -19,7 +19,7 @@
     "express": "^4.16.4",
     "express-cdn": "^0.3.3",
     "pug": "^2.0.3",
-    "webpack": "^4.24.0",
+    "webpack": "^4.39.3",
     "webpack-dev-middleware": "^3.4.0",
     "webpack-hot-middleware": "^2.24.3"
   },
@@ -38,7 +38,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "node-sass": "^4.9.4",
-    "nodemon": "^1.18.5",
+    "nodemon": "^1.19.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack-cli": "^3.1.2"
