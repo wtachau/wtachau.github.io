@@ -10,5 +10,5 @@ module.exports = {
   numBlocks,
   movingSpeed,
   newBlockDelay,
-  sizeOfPop
+  sizeOfPop,
 };

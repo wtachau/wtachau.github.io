@@ -23,7 +23,7 @@ if (isDevelopment) {
   app.use(
     webpackMiddleware(compiler, {
       noInfo: true,
-      publicPath: webpackConfig.output.publicPath
+      publicPath: webpackConfig.output.publicPath,
     })
   );
 
@@ -35,12 +35,12 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
   res.render("home", {
-    useBundledAssets: !isDevelopment
+    useBundledAssets: !isDevelopment,
   });
 });
 
 if (isLocal && !isDeploying) {
-  app.listen(3000);
+  app.listen(process.env.PORT || 3000);
 }
 
 module.exports = app;
