@@ -3,7 +3,7 @@ import {
   animate,
   defaultRender,
   addCanvas,
-  removeCanvas
+  removeCanvas,
 } from "utilities/AnimationUtilities";
 
 import brick from "brick/main";
@@ -38,13 +38,14 @@ const isPaused = () => {
 
 addCanvas();
 
-const chosenGame = randomElement([tetris, pong, brick, snake, snood]);
+// const chosenGame = randomElement([tetris, pong, brick, snake, snood]);
 const args = [animate, defaultRender, isPaused, togglePause];
 
+const chosenGame = brick;
 chosenGame(...args);
 
 // To prevent scroll on down key, and set pause for space
-document.body.addEventListener("keydown", e => {
+document.body.addEventListener("keydown", (e) => {
   if (e.keyCode === 40) {
     // down arrow
     e.preventDefault();
@@ -54,6 +55,8 @@ document.body.addEventListener("keydown", e => {
     togglePause();
   }
 });
+
+window.toggle_pause = togglePause;
 
 if (module.hot) {
   const reset = () => {
