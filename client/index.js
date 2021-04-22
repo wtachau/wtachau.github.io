@@ -38,10 +38,9 @@ const isPaused = () => {
 
 addCanvas();
 
-// const chosenGame = randomElement([tetris, pong, brick, snake, snood]);
+const chosenGame = randomElement([tetris, pong, brick, snake, snood]);
 const args = [animate, defaultRender, isPaused, togglePause];
 
-const chosenGame = brick;
 chosenGame(...args);
 
 // To prevent scroll on down key, and set pause for space
