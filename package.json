@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.production.config.js",
     "transpile": "babel server.js --out-file server-transpiled.js",
-    "deploy": "npm run build && npm run transpile && export DEPLOYING=1 && claudia update",
     "start": "nodemon --exec babel-node server.js  --ignore client"
   },
   "author": "",
@@ -17,7 +16,7 @@
     "aws-serverless-express": "^3.3.5",
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
-    "pug": "^2.0.3",
+    "pug": "^3.0.2",
     "webpack": "^4.39.3",
     "webpack-dev-middleware": "^3.4.0",
     "webpack-hot-middleware": "^2.24.3"
